@@ -26,6 +26,7 @@
 		FD3466D41F8DE0E0006C4D70 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D31F8DE0E0006C4D70 /* FirebaseController.swift */; };
 		FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D51F8DE14D006C4D70 /* Enums.swift */; };
 		FD3466D81F8DE570006C4D70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D71F8DE570006C4D70 /* Constants.swift */; };
+		FDA24EDE1F8E5E5800D041E2 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EDD1F8E5E5800D041E2 /* UserController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +70,7 @@
 		FD27D78E1F8DBDB900FFE353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD3466C51F8DCA7D006C4D70 /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		FD3466C71F8DCC6E006C4D70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		FD3466C91F8DD329006C4D70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "ContinueMyStory/Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		FD3466C91F8DD329006C4D70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "ContinueMyStory/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FD3466CB1F8DDB41006C4D70 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FD3466CD1F8DDBC5006C4D70 /* String+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CMS.swift"; sourceTree = "<group>"; };
 		FD3466CF1F8DDFDD006C4D70 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		FD3466D31F8DE0E0006C4D70 /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		FD3466D51F8DE14D006C4D70 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		FD3466D71F8DE570006C4D70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FDA24EDD1F8E5E5800D041E2 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,8 @@
 		FD27D76B1F8DBDB900FFE353 /* ContinueMyStory */ = {
 			isa = PBXGroup;
 			children = (
+				FD27D7781F8DBDB900FFE353 /* Info.plist */,
+				FD3466C91F8DD329006C4D70 /* GoogleService-Info.plist */,
 				FD27D79F1F8DBE8300FFE353 /* Model */,
 				FD27D79E1F8DBE8100FFE353 /* ModelController */,
 				FD27D79D1F8DBE8000FFE353 /* ViewControllers */,
@@ -200,8 +204,6 @@
 			children = (
 				FD27D7731F8DBDB900FFE353 /* Assets.xcassets */,
 				FD27D76C1F8DBDB900FFE353 /* AppDelegate.swift */,
-				FD3466C91F8DD329006C4D70 /* GoogleService-Info.plist */,
-				FD27D7781F8DBDB900FFE353 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -227,6 +229,7 @@
 		FD27D79E1F8DBE8100FFE353 /* ModelController */ = {
 			isa = PBXGroup;
 			children = (
+				FDA24EDD1F8E5E5800D041E2 /* UserController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				FD3466D41F8DE0E0006C4D70 /* FirebaseController.swift in Sources */,
 				FD3466D21F8DDFE5006C4D70 /* Story.swift in Sources */,
 				FD3466C81F8DCC6E006C4D70 /* LoginViewController.swift in Sources */,
+				FDA24EDE1F8E5E5800D041E2 /* UserController.swift in Sources */,
 				FD3466CE1F8DDBC5006C4D70 /* String+CMS.swift in Sources */,
 				FD3466D01F8DDFDD006C4D70 /* User.swift in Sources */,
 				FD3466D81F8DE570006C4D70 /* Constants.swift in Sources */,
