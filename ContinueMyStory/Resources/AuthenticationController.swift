@@ -11,7 +11,6 @@ import FirebaseAuth
 
 struct FirebaseAuthentication {
     
-    
     func createUser(withEmail email: String, password: String, completion: @escaping() -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
@@ -20,6 +19,26 @@ struct FirebaseAuthentication {
                 
             }
             completion()
+        }
+    }
+    
+    func signIn(withEmail email: String, password: String, completion: @escaping() -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                
+            }
+            completion()
+        }
+    }
+    
+    func signOut() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError {
+            print(signOutError.localizedDescription)
         }
     }
     
