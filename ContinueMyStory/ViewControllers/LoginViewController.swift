@@ -72,6 +72,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 verifyPasswordTextField.resignFirstResponder()
             }
         }
+        return true
     }
     
     // MARK: - Authentication Functions
@@ -81,7 +82,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         firebaseAuthentication.signIn(withEmail: email, password: password) {
             print("Signed In")
             DispatchQueue.main.async {
-                performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
+                self.performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
             }
         }
     }
@@ -94,9 +95,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             firebaseAuthentication.createUser(withEmail: email, password: password) {
                 print("User Created")
                 self.loginState = .login
-                setViewsState()
-                emailTextField.text = ""
-                passwordTextField.text = ""
+                self.setViewsState()
+                self.emailTextField.text = ""
+                self.passwordTextField.text = ""
             }
         } else {
             warningAlert(withTitle: "Something Went Wrong", message: "Your passwords don't match")

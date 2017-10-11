@@ -20,8 +20,8 @@ extension String {
     /* User Firebase keys */
     static var usernameKey: String { get { return "username" } }
     static var emailKey: String { get { return "email" } }
-    static var givenKey: String { get { return "givenName" } }
-    static var familyKey: String { get { return "familyName" } }
+    static var givenNameKey: String { get { return "givenName" } }
+    static var familyNameKey: String { get { return "familyName" } }
     static var ageKey: String { get { return "age" } }
     static var identifierKey: String { get { return "uid" } }
 
