@@ -12,3 +12,8 @@ enum LoginViewState {
     case login
     case signUp
 }
+
+enum ProfileViewState {
+    case isEditing
+    case isViewing
+}
