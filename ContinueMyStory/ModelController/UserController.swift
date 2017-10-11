@@ -15,8 +15,6 @@ class UserController {
         var uid = ""
         if let currentUser = Auth.auth().currentUser {
             uid = currentUser.uid
-            currentUser.displayName = givenName.capitalized
-            currentUser.createProfileChangeRequest()
         }
         var user = User(username: username, givenName: givenName, familyName: familyName, age: age, identifier: uid)
         user.save()

@@ -17,3 +17,7 @@ enum ProfileViewState {
     case isEditing
     case isViewing
 }
+
+enum StoryCategory {
+    
+}

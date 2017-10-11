@@ -27,7 +27,7 @@
 		FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D51F8DE14D006C4D70 /* Enums.swift */; };
 		FD3466D81F8DE570006C4D70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D71F8DE570006C4D70 /* Constants.swift */; };
 		FDA24EDE1F8E5E5800D041E2 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EDD1F8E5E5800D041E2 /* UserController.swift */; };
-		FDA24EE01F8E865100D041E2 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EDF1F8E865100D041E2 /* Keychain.swift */; };
+		FDA24EE21F8E89A900D041E2 /* Snippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EE11F8E89A900D041E2 /* Snippet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +80,7 @@
 		FD3466D51F8DE14D006C4D70 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		FD3466D71F8DE570006C4D70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FDA24EDD1F8E5E5800D041E2 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
-		FDA24EDF1F8E865100D041E2 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		FDA24EE11F8E89A900D041E2 /* Snippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +197,6 @@
 				FD3466D51F8DE14D006C4D70 /* Enums.swift */,
 				FD3466D31F8DE0E0006C4D70 /* FirebaseController.swift */,
 				FD3466D71F8DE570006C4D70 /* Constants.swift */,
-				FDA24EDF1F8E865100D041E2 /* Keychain.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -242,6 +241,7 @@
 			children = (
 				FD3466CF1F8DDFDD006C4D70 /* User.swift */,
 				FD3466D11F8DDFE5006C4D70 /* Story.swift */,
+				FDA24EE11F8E89A900D041E2 /* Snippet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -555,9 +555,9 @@
 				FD3466D41F8DE0E0006C4D70 /* FirebaseController.swift in Sources */,
 				FD3466D21F8DDFE5006C4D70 /* Story.swift in Sources */,
 				FD3466C81F8DCC6E006C4D70 /* LoginViewController.swift in Sources */,
+				FDA24EE21F8E89A900D041E2 /* Snippet.swift in Sources */,
 				FDA24EDE1F8E5E5800D041E2 /* UserController.swift in Sources */,
 				FD3466CE1F8DDBC5006C4D70 /* String+CMS.swift in Sources */,
-				FDA24EE01F8E865100D041E2 /* Keychain.swift in Sources */,
 				FD3466D01F8DDFDD006C4D70 /* User.swift in Sources */,
 				FD3466D81F8DE570006C4D70 /* Constants.swift in Sources */,
 				FD27D76D1F8DBDB900FFE353 /* AppDelegate.swift in Sources */,
