@@ -113,7 +113,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
 }
 
-enum LoginViewState {
-    case login
-    case signUp
-}
+

@@ -10,6 +10,19 @@ import Foundation
 
 extension String {
     
+    /* Firebase Endpoints */
+    static var usersEndpoint: String { get { return "users" } }
+    static var storiesEndpoint: String { get { return "stories" } }
+    
     /* Segues */
     static var toProfileViewControllerSegue: String { get { return "toProfileViewController" } }
+    
+    /* User Firebase keys */
+    static var usernameKey: String { get { return "username" } }
+    static var emailKey: String { get { return "email" } }
+    static var givenKey: String { get { return "givenName" } }
+    static var familyKey: String { get { return "familyName" } }
+    static var ageKey: String { get { return "age" } }
+    static var identifierKey: String { get { return "uid" } }
+
 }

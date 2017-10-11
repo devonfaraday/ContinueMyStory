@@ -21,6 +21,10 @@
 		FD3466CA1F8DD329006C4D70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD3466C91F8DD329006C4D70 /* GoogleService-Info.plist */; };
 		FD3466CC1F8DDB41006C4D70 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466CB1F8DDB41006C4D70 /* ProfileViewController.swift */; };
 		FD3466CE1F8DDBC5006C4D70 /* String+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466CD1F8DDBC5006C4D70 /* String+CMS.swift */; };
+		FD3466D01F8DDFDD006C4D70 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466CF1F8DDFDD006C4D70 /* User.swift */; };
+		FD3466D21F8DDFE5006C4D70 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D11F8DDFE5006C4D70 /* Story.swift */; };
+		FD3466D41F8DE0E0006C4D70 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D31F8DE0E0006C4D70 /* FirebaseController.swift */; };
+		FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D51F8DE14D006C4D70 /* Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		FD3466C91F8DD329006C4D70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "ContinueMyStory/Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FD3466CB1F8DDB41006C4D70 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FD3466CD1F8DDBC5006C4D70 /* String+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CMS.swift"; sourceTree = "<group>"; };
+		FD3466CF1F8DDFDD006C4D70 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FD3466D11F8DDFE5006C4D70 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		FD3466D31F8DE0E0006C4D70 /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		FD3466D51F8DE14D006C4D70 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,12 +157,8 @@
 				FD27D79E1F8DBE8100FFE353 /* ModelController */,
 				FD27D79D1F8DBE8000FFE353 /* ViewControllers */,
 				FD27D79C1F8DBE7E00FFE353 /* Storyboards */,
-				FD27D79B1F8DBE7D00FFE353 /* Resources */,
 				FD27D79A1F8DBE7B00FFE353 /* Helpers */,
-				FD27D76C1F8DBDB900FFE353 /* AppDelegate.swift */,
-				FD27D7731F8DBDB900FFE353 /* Assets.xcassets */,
-				FD27D7751F8DBDB900FFE353 /* LaunchScreen.storyboard */,
-				FD27D7781F8DBDB900FFE353 /* Info.plist */,
+				FD27D79B1F8DBE7D00FFE353 /* Resources */,
 			);
 			path = ContinueMyStory;
 			sourceTree = "<group>";
@@ -181,6 +185,9 @@
 			isa = PBXGroup;
 			children = (
 				FD27D7A01F8DBEAD00FFE353 /* Extensions */,
+				FD3466C51F8DCA7D006C4D70 /* AuthenticationController.swift */,
+				FD3466D51F8DE14D006C4D70 /* Enums.swift */,
+				FD3466D31F8DE0E0006C4D70 /* FirebaseController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -188,8 +195,10 @@
 		FD27D79B1F8DBE7D00FFE353 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FD3466C51F8DCA7D006C4D70 /* AuthenticationController.swift */,
+				FD27D7731F8DBDB900FFE353 /* Assets.xcassets */,
+				FD27D76C1F8DBDB900FFE353 /* AppDelegate.swift */,
 				FD3466C91F8DD329006C4D70 /* GoogleService-Info.plist */,
+				FD27D7781F8DBDB900FFE353 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -197,6 +206,7 @@
 		FD27D79C1F8DBE7E00FFE353 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				FD27D7751F8DBDB900FFE353 /* LaunchScreen.storyboard */,
 				FD27D7701F8DBDB900FFE353 /* Main.storyboard */,
 			);
 			path = Storyboards;
@@ -221,6 +231,8 @@
 		FD27D79F1F8DBE8300FFE353 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FD3466CF1F8DDFDD006C4D70 /* User.swift */,
+				FD3466D11F8DDFE5006C4D70 /* Story.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -531,10 +543,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD3466D41F8DE0E0006C4D70 /* FirebaseController.swift in Sources */,
+				FD3466D21F8DDFE5006C4D70 /* Story.swift in Sources */,
 				FD3466C81F8DCC6E006C4D70 /* LoginViewController.swift in Sources */,
 				FD3466CE1F8DDBC5006C4D70 /* String+CMS.swift in Sources */,
+				FD3466D01F8DDFDD006C4D70 /* User.swift in Sources */,
 				FD27D76D1F8DBDB900FFE353 /* AppDelegate.swift in Sources */,
 				FD3466CC1F8DDB41006C4D70 /* ProfileViewController.swift in Sources */,
+				FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */,
 				FD3466C61F8DCA7D006C4D70 /* AuthenticationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
