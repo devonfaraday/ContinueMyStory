@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
@@ -55,12 +55,34 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: - Text Field Delegates
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if loginState == .login {
+            if emailTextField.isFirstResponder {
+                passwordTextField.becomeFirstResponder()
+            } else {
+                passwordTextField.resignFirstResponder()
+            }
+        } else {
+            if emailTextField.isFirstResponder {
+                passwordTextField.becomeFirstResponder()
+            } else if passwordTextField.isFirstResponder {
+                verifyPasswordTextField.becomeFirstResponder()
+            } else {
+                verifyPasswordTextField.resignFirstResponder()
+            }
+        }
+    }
+    
     // MARK: - Authentication Functions
     func login() {
         guard let email = emailTextField.text,
             let password = passwordTextField.text else { return }
         firebaseAuthentication.signIn(withEmail: email, password: password) {
             print("Signed In")
+            DispatchQueue.main.async {
+                performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
+            }
         }
     }
     
@@ -71,6 +93,10 @@ class LoginViewController: UIViewController {
         if password == verify {
             firebaseAuthentication.createUser(withEmail: email, password: password) {
                 print("User Created")
+                self.loginState = .login
+                setViewsState()
+                emailTextField.text = ""
+                passwordTextField.text = ""
             }
         } else {
             warningAlert(withTitle: "Something Went Wrong", message: "Your passwords don't match")
