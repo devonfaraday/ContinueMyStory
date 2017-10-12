@@ -28,6 +28,10 @@
 		FD3466D81F8DE570006C4D70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D71F8DE570006C4D70 /* Constants.swift */; };
 		FDA24EDE1F8E5E5800D041E2 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EDD1F8E5E5800D041E2 /* UserController.swift */; };
 		FDA24EE21F8E89A900D041E2 /* Snippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EE11F8E89A900D041E2 /* Snippet.swift */; };
+		FDA24EE81F8EE51900D041E2 /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EE71F8EE51900D041E2 /* StoryController.swift */; };
+		FDA24EEA1F8EE53300D041E2 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EE91F8EE53300D041E2 /* StoryViewController.swift */; };
+		FDE1A9D91F8EFD330010ED03 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */; };
+		FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,10 @@
 		FD3466D71F8DE570006C4D70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FDA24EDD1F8E5E5800D041E2 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		FDA24EE11F8E89A900D041E2 /* Snippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippet.swift; sourceTree = "<group>"; };
+		FDA24EE71F8EE51900D041E2 /* StoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
+		FDA24EE91F8EE53300D041E2 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
+		FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoryTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,8 +230,11 @@
 		FD27D79D1F8DBE8000FFE353 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FDE1A9D71F8EFD1A0010ED03 /* TableViewCell */,
+				FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */,
 				FD3466C71F8DCC6E006C4D70 /* LoginViewController.swift */,
 				FD3466CB1F8DDB41006C4D70 /* ProfileViewController.swift */,
+				FDA24EE91F8EE53300D041E2 /* StoryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -232,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				FDA24EDD1F8E5E5800D041E2 /* UserController.swift */,
+				FDA24EE71F8EE51900D041E2 /* StoryController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -252,6 +264,14 @@
 				FD3466CD1F8DDBC5006C4D70 /* String+CMS.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FDE1A9D71F8EFD1A0010ED03 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -555,6 +575,7 @@
 				FD3466D41F8DE0E0006C4D70 /* FirebaseController.swift in Sources */,
 				FD3466D21F8DDFE5006C4D70 /* Story.swift in Sources */,
 				FD3466C81F8DCC6E006C4D70 /* LoginViewController.swift in Sources */,
+				FDA24EE81F8EE51900D041E2 /* StoryController.swift in Sources */,
 				FDA24EE21F8E89A900D041E2 /* Snippet.swift in Sources */,
 				FDA24EDE1F8E5E5800D041E2 /* UserController.swift in Sources */,
 				FD3466CE1F8DDBC5006C4D70 /* String+CMS.swift in Sources */,
@@ -562,8 +583,11 @@
 				FD3466D81F8DE570006C4D70 /* Constants.swift in Sources */,
 				FD27D76D1F8DBDB900FFE353 /* AppDelegate.swift in Sources */,
 				FD3466CC1F8DDB41006C4D70 /* ProfileViewController.swift in Sources */,
+				FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */,
 				FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */,
+				FDA24EEA1F8EE53300D041E2 /* StoryViewController.swift in Sources */,
 				FD3466C61F8DCA7D006C4D70 /* AuthenticationController.swift in Sources */,
+				FDE1A9D91F8EFD330010ED03 /* StoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Story: FirebaseType {
+class Story: FirebaseType {
     
     var title: String
     var body: String
@@ -36,7 +36,7 @@ struct Story: FirebaseType {
                 .snippetKey: snippets]
     }
     
-    init?(dictionary: JSONDictionary, identifier: String) {
+    required init?(dictionary: JSONDictionary, identifier: String) {
         guard let title = dictionary[.titleKey] as? String,
             let body = dictionary[.bodyKey] as? String,
             let author = dictionary[.authorKey] as? String,

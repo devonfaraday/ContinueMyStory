@@ -13,6 +13,7 @@ extension String {
     /* Firebase Endpoints */
     static var usersEndpoint: String { get { return "users" } }
     static var storiesEndpoint: String { get { return "stories" } }
+    static var categoryEndpoint: String { get { return "category" } }
     
     
     /* Segues */
@@ -25,6 +26,10 @@ extension String {
     static var commentsKey: String { get { return "comments" } }
     static var snippetKey: String { get { return "snippetIdentifiers" } }
     static var categoryKey: String { get { return "Category" } }
+    
+    /* Reuse Identifiers */
+    static var storyListCellIdentifier: String { get { return "storyListCell" } }
+    static var storyCellIdentifier: String { get { return "storyCell" } }
     
     /* User Firebase keys */
     static var usernameKey: String { get { return "username" } }

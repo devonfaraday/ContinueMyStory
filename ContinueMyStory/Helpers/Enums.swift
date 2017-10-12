@@ -18,6 +18,6 @@ enum ProfileViewState {
     case isViewing
 }
 
-enum StoryCategory {
-    
+enum StoryCategory: String {
+    case sifi = "SiFi"
 }
