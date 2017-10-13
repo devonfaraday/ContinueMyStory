@@ -8,23 +8,38 @@
 
 import UIKit
 
-class StoryViewController: UIViewController {
+class StoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var storyTitleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
+    var story: Story?  {
+        didSet {
+            if !isViewLoaded {
+                loadViewIfNeeded()
+            } else {
+                storyTitleLabel.text = story?.title
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: .storyCellIdentifier, for: indexPath) as? StoryTableViewCell else { return StoryTableViewCell() }
+        guard let story = story else { return StoryTableViewCell() }
+        cell.story = story
+        return cell
+    }
 
     /*
     // MARK: - Navigation

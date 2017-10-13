@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -21,6 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkAuthentication()
         setViewsState()
     }
     
@@ -102,6 +104,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else {
             warningAlert(withTitle: "Something Went Wrong", message: "Your passwords don't match")
         }
+    }
+    
+    func checkAuthentication() {
+        
+            if Auth.auth().currentUser != nil {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
+                }
+            } else {
+                print("No User signed in")
+            }
+        
     }
     
     // MARK: - Alert Controller

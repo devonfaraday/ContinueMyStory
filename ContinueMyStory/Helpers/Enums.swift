@@ -20,4 +20,6 @@ enum ProfileViewState {
 
 enum StoryCategory: String {
     case sifi = "SiFi"
+    case fantasy = "Fantasy"
+    case suspense = "Suspense"
 }

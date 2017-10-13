@@ -16,4 +16,26 @@ class StoryController {
         story.saveStory(toCategory: category)
     }
     
+    func fetchAllStories(completion: @escaping([Story]) -> Void) {
+        let storiesRef = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(String.categoryEndpoint)")
+       storiesRef.observe(.value, with: { (snapshot) in
+        
+        guard let snapDictionary = snapshot.value as? [String: [String: JSONDictionary]] else { print("No dictionary resturned"); return }
+
+        let catdict = snapDictionary.flatMap { $1 }
+
+        let stories = catdict.flatMap { Story(dictionary: $1, identifier: $0) }
+        
+        print(stories)
+        completion(stories)
+        })
+    }
+    
+    func fetchStories(withCategory category: StoryCategory, completion: @escaping([Story]) -> Void) {
+        
+    }
+    
+    func fetchStories(withUser user: User, completion: @escaping([Story]) -> Void) {
+        
+    }
 }
