@@ -26,7 +26,6 @@ class StoryController {
 
         let stories = catdict.flatMap { Story(dictionary: $1, identifier: $0) }
         
-        print(stories)
         completion(stories)
         })
     }

@@ -41,6 +41,18 @@ extension FirebaseType {
         newEndpoint.updateChildValues(dictionaryCopy)
     }
     
+    mutating func saveSnippet(storyIdentifier: String) {
+        var newEndpoint = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(endpoint)/\(storyIdentifier)")
+        if let identifier = identifier {
+            newEndpoint = newEndpoint.child(identifier)
+        } else {
+            newEndpoint = newEndpoint.childByAutoId()
+            self.identifier = newEndpoint.key
+        }
+        newEndpoint.updateChildValues(dictionaryCopy)
+    }
+    
+    
     mutating func saveStory(toCategory category: StoryCategory) {
         let catPath = category.rawValue
         var newEndpoint = FirebaseController.databaseRef.child("\(endpoint)/\(String.categoryEndpoint)/\(catPath)")

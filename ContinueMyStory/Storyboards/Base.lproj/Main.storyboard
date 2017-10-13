@@ -353,7 +353,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-kU-lh9">
-                                <rect key="frame" x="0.0" y="73" width="375" height="705"/>
+                                <rect key="frame" x="0.0" y="73" width="375" height="654"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="storyCell" rowHeight="73" id="1qx-6G-iS1" customClass="StoryTableViewCell" customModule="ContinueMyStory" customModuleProvider="target">
@@ -438,16 +438,26 @@
                                     <outlet property="delegate" destination="deP-xI-xV5" id="Far-JC-dmI"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qke-r1-bgz">
+                                <rect key="frame" x="0.0" y="727" width="375" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="VxZ-d5-8r5"/>
+                                </constraints>
+                                <state key="normal" title="Add Snippet"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CzA-O5-SFw" firstAttribute="trailing" secondItem="YfB-GD-395" secondAttribute="trailing" constant="84" id="7hr-Tj-FN4"/>
-                            <constraint firstItem="Ryg-kU-lh9" firstAttribute="bottom" secondItem="CzA-O5-SFw" secondAttribute="bottom" id="84X-zH-WS0"/>
+                            <constraint firstItem="Qke-r1-bgz" firstAttribute="leading" secondItem="CzA-O5-SFw" secondAttribute="leading" id="AT3-iw-GSe"/>
                             <constraint firstItem="YfB-GD-395" firstAttribute="leading" secondItem="CzA-O5-SFw" secondAttribute="leading" constant="84" id="Exh-fP-CbJ"/>
                             <constraint firstItem="Ryg-kU-lh9" firstAttribute="leading" secondItem="CzA-O5-SFw" secondAttribute="leading" id="GuB-4e-tEq"/>
+                            <constraint firstItem="CzA-O5-SFw" firstAttribute="trailing" secondItem="Qke-r1-bgz" secondAttribute="trailing" id="Mv4-4V-10n"/>
                             <constraint firstItem="Ryg-kU-lh9" firstAttribute="trailing" secondItem="CzA-O5-SFw" secondAttribute="trailing" id="QLK-nn-GbC"/>
                             <constraint firstItem="Ryg-kU-lh9" firstAttribute="top" secondItem="YfB-GD-395" secondAttribute="bottom" constant="8" id="UTy-F3-QaZ"/>
+                            <constraint firstItem="Qke-r1-bgz" firstAttribute="top" secondItem="Ryg-kU-lh9" secondAttribute="bottom" id="hoJ-9K-FsY"/>
                             <constraint firstItem="YfB-GD-395" firstAttribute="top" secondItem="CzA-O5-SFw" secondAttribute="top" id="lgS-lg-9L5"/>
+                            <constraint firstItem="Qke-r1-bgz" firstAttribute="bottom" secondItem="CzA-O5-SFw" secondAttribute="bottom" id="qrX-dw-Zkg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CzA-O5-SFw"/>
                     </view>
@@ -458,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mpl-uV-EEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3612" y="129"/>
+            <point key="canvasLocation" x="3612" y="128.57142857142858"/>
         </scene>
         <!--Create Story Table View Controller-->
         <scene sceneID="emm-vk-0AG">

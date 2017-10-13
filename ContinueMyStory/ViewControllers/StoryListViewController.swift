@@ -18,6 +18,7 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     var selectedStory: Story?
+    var snippets = [Snippet]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,13 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let story = stories[indexPath.row]
         selectedStory = story
-        performSegue(withIdentifier: .toStoryDetailSegue, sender: self)
+        SnippetController().fetchSnippets(fromStory: story) { (snippets) in
+            self.snippets = snippets
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: .toStoryDetailSegue, sender: self)
+            }
+        }
+        
     }
    
     
