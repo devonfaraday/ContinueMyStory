@@ -178,6 +178,8 @@
 				FD27D79F1F8DBE8300FFE353 /* Model */,
 				FD27D79E1F8DBE8100FFE353 /* ModelController */,
 				FD27D79D1F8DBE8000FFE353 /* ViewControllers */,
+				FDE1A9D71F8EFD1A0010ED03 /* TableViewCell */,
+				FD70A22C1F91240500B83ACE /* Views */,
 				FD27D79C1F8DBE7E00FFE353 /* Storyboards */,
 				FD27D79A1F8DBE7B00FFE353 /* Helpers */,
 				FD27D79B1F8DBE7D00FFE353 /* Resources */,
@@ -236,7 +238,6 @@
 		FD27D79D1F8DBE8000FFE353 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FDE1A9D71F8EFD1A0010ED03 /* TableViewCell */,
 				FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */,
 				FD3466C71F8DCC6E006C4D70 /* LoginViewController.swift */,
 				FD3466CB1F8DDB41006C4D70 /* ProfileViewController.swift */,
@@ -273,6 +274,13 @@
 				FDA99F411F9030670050B09F /* Dictionary+CMS.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FD70A22C1F91240500B83ACE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FDE1A9D71F8EFD1A0010ED03 /* TableViewCell */ = {

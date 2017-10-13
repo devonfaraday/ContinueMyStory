@@ -34,6 +34,7 @@ extension String {
     /* Reuse Identifiers */
     static var storyListCellIdentifier: String { get { return "storyListCell" } }
     static var storyCellIdentifier: String { get { return "storyCell" } }
+    static var snippetCellIdentifier: String { get { return "snippetCell" } }
     
     /* User Firebase keys */
     static var usernameKey: String { get { return "username" } }

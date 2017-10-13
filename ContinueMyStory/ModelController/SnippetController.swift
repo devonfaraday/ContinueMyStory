@@ -10,9 +10,10 @@ import Foundation
 
 class SnippetController {
     
-    func createSnippet(withBody body: String, author: String, storyRef: String, completion: @escaping() -> Void) {
+    func createSnippet(withBody body: String, author: String, storyRef: String, completion: @escaping(Snippet) -> Void) {
         var snippet = Snippet(body: body, author: author, storyRef: storyRef)
         snippet.saveSnippet(storyIdentifier: storyRef)
+        completion(snippet)
     }
     
     func fetchSnippets(fromStory story: Story, completion: @escaping([Snippet])-> Void) {
@@ -20,9 +21,9 @@ class SnippetController {
         let snippetRef = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(String.snippetKey)/\(storyRef)")
         snippetRef.observe(.value, with: { (snapshot) in
             guard let snapDictionary = snapshot.value as? [String: JSONDictionary] else { completion([]); return }
-            let snipptDictionary = snapDictionary.flatMap { $1 }
-            print(snipptDictionary)
-            completion([])
+            let snippets = snapDictionary.flatMap { Snippet(dictionary: $1, identifier: $0) }
+            
+            completion(snippets)
         })
     }
 }

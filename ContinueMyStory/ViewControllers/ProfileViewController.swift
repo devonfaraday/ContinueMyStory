@@ -45,6 +45,14 @@ class ProfileViewController: UIViewController {
     @IBAction func createStoryButtonTapped(_ sender: UIButton) {
         
     }
+    @IBAction func signOutButtonTapped(_ sender: UIButton) {
+        do {
+            try Auth.auth().signOut()
+            let _ = navigationController?.popViewController(animated: true)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
     
     @IBAction func browseButtonTapped(_ sender: UIButton) {
         
