@@ -105,7 +105,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     func setAddingSnippetView() {
         isAddingSnippet = true
         addSnippetView.isHidden = false
-        addSnippetView.backgroundColor = .white
+        addSnippetView.backgroundColor = .black
         addSnippetView.alpha = 0.5
         addSnippetTextView.isHidden = false
         addSnippetTextView.layer.borderWidth = 5
