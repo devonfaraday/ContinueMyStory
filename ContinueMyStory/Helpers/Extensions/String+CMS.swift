@@ -19,6 +19,7 @@ extension String {
     /* Segues */
     static var toProfileViewControllerSegue: String { get { return "toProfileViewController" } }
     static var toStoryDetailSegue: String { get { return "toStoryDetail" } }
+    static var toStoryListSegue: String { get { return "toStoryList" } }
     
     /* Story Keys */
     static var titleKey: String { get { return "title" } }

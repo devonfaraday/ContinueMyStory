@@ -15,7 +15,7 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var storyBodyTextView: UITextView!
     
-    var categories: [StoryCategory] = [.sifi, .fantasy, .suspense]
+    var categories: [StoryCategory] = [.none, .sifi, .fantasy, .suspense]
     var selectedCategory: StoryCategory?
     var userUid = ""
     
@@ -33,8 +33,10 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     @IBAction func saveStoryButtonTapped(_ sender: UIButton) {
         sender.isEnabled = false
         createStory {
-            sender.isEnabled = true
-            sender.backgroundColor = .green
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: .toStoryListSegue, sender: self)
+                sender.isEnabled = true
+            }
         }
     }
     

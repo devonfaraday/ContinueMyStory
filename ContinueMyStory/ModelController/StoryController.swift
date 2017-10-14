@@ -14,6 +14,7 @@ class StoryController {
     func createStory(withTitle title: String, body: String, author: String, category: StoryCategory, completion: @escaping() -> Void) {
         var story = Story(title: title, body: body, author: author)
         story.saveStory(toCategory: category)
+        completion()
     }
     
     func fetchAllStories(completion: @escaping([Story]) -> Void) {

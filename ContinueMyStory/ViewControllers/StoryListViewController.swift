@@ -36,6 +36,11 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: .storyListCellIdentifier, for: indexPath)
         let story = stories[indexPath.row]
         cell.textLabel?.text = story.title
+        UserController().fetchUser(withIdentifier: story.author) { (user) in
+            guard let user = user else { return }
+            cell.detailTextLabel?.text = "By: \(user.username)"
+        }
+        
         return cell
     }
     

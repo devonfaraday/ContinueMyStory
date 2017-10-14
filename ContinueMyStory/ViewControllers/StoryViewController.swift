@@ -11,6 +11,7 @@ import Firebase
 
 class StoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
     
+    @IBOutlet var heightLabel: UILabel!
     @IBOutlet var storyTitleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var addSnippetView: UIView!
@@ -40,7 +41,10 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         setInitialStoryView()
-        
+//        setAutomaticDimensions()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 250
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,12 +68,17 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         guard let cell = tableView.dequeueReusableCell(withIdentifier: .storyCellIdentifier, for: indexPath) as? StoryTableViewCell else { return StoryTableViewCell() }
         if indexPath.section == 0 {
             if let story = story {
+                self.heightLabel.text = story.body
+                tableView.rowHeight = heightLabel.frame.height + 30
                 cell.story = story
             }
         } else {
             if snippets.count > 0 {
                 let snippet: Snippet? = snippets[indexPath.row]
+                heightLabel.text = snippet?.body
+                tableView.rowHeight = heightLabel.frame.height + 30
                 cell.snippet = snippet
+                
             }
         }
         return cell
@@ -114,6 +123,11 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         cancelButton.isHidden = false
         
     }
+    
+//    func setAutomaticDimensions() {
+//        tableView.estimatedRowHeight = 200
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//    }
     
     // MARK: - Touches
     
