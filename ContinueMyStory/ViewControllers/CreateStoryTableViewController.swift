@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet var categoryPickerView: UIPickerView!
     @IBOutlet var titleTextField: UITextField!

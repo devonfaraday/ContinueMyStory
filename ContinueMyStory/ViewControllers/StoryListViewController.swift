@@ -53,8 +53,6 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
    
     
     // MARK: - Navigation
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? StoryViewController else { return }
         destination.story = selectedStory
