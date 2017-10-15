@@ -430,8 +430,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="x7P-k3-XJv">
-                                <rect key="frame" x="32" y="109" width="311" height="604"/>
+                                <rect key="frame" x="32" y="73" width="311" height="306"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="306" id="nlx-M3-833"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
@@ -465,7 +468,7 @@
                         <constraints>
                             <constraint firstItem="PHF-bz-LTV" firstAttribute="leading" secondItem="CzA-O5-SFw" secondAttribute="leading" constant="16" id="1Fa-vm-rli"/>
                             <constraint firstItem="PHF-bz-LTV" firstAttribute="top" secondItem="CzA-O5-SFw" secondAttribute="top" id="1Ht-6A-Lfi"/>
-                            <constraint firstItem="oX4-QR-x0h" firstAttribute="top" secondItem="x7P-k3-XJv" secondAttribute="bottom" constant="14" id="1WN-3g-GNC"/>
+                            <constraint firstItem="oX4-QR-x0h" firstAttribute="top" relation="lessThanOrEqual" secondItem="x7P-k3-XJv" secondAttribute="bottom" constant="348" id="1O9-ki-vni"/>
                             <constraint firstItem="oX4-QR-x0h" firstAttribute="leading" secondItem="CzA-O5-SFw" secondAttribute="leading" id="6eV-g3-sAA"/>
                             <constraint firstItem="CzA-O5-SFw" firstAttribute="trailing" secondItem="YfB-GD-395" secondAttribute="trailing" constant="84" id="7hr-Tj-FN4"/>
                             <constraint firstItem="CzA-O5-SFw" firstAttribute="trailing" secondItem="PHF-bz-LTV" secondAttribute="trailing" constant="16" id="CLG-7R-ksH"/>
@@ -480,27 +483,24 @@
                             <constraint firstItem="xcE-mc-Ywu" firstAttribute="trailing" secondItem="CzA-O5-SFw" secondAttribute="trailing" id="Xd4-Pd-D45"/>
                             <constraint firstItem="x7P-k3-XJv" firstAttribute="leading" secondItem="CzA-O5-SFw" secondAttribute="leading" constant="32" id="bk8-k6-47H"/>
                             <constraint firstItem="oX4-QR-x0h" firstAttribute="top" secondItem="xcE-mc-Ywu" secondAttribute="bottom" id="cN0-6P-Z0M"/>
-                            <constraint firstItem="x7P-k3-XJv" firstAttribute="top" secondItem="YfB-GD-395" secondAttribute="bottom" constant="44" id="fVe-Z1-r3I"/>
+                            <constraint firstItem="x7P-k3-XJv" firstAttribute="top" secondItem="YfB-GD-395" secondAttribute="bottom" constant="8" id="fVe-Z1-r3I"/>
                             <constraint firstItem="xcE-mc-Ywu" firstAttribute="leading" secondItem="CzA-O5-SFw" secondAttribute="leading" id="hCc-g3-xu8"/>
                             <constraint firstItem="YfB-GD-395" firstAttribute="top" secondItem="CzA-O5-SFw" secondAttribute="top" id="lgS-lg-9L5"/>
                             <constraint firstItem="oX4-QR-x0h" firstAttribute="top" secondItem="Ryg-kU-lh9" secondAttribute="bottom" id="qDZ-VF-h1R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CzA-O5-SFw"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="xcE-mc-Ywu"/>
-                                <exclude reference="x7P-k3-XJv"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="addSnippetButton" destination="Qke-r1-bgz" id="qIZ-y0-tRg"/>
                         <outlet property="addSnippetTextView" destination="x7P-k3-XJv" id="KhE-27-ozn"/>
                         <outlet property="addSnippetView" destination="xcE-mc-Ywu" id="qWv-Kj-xi9"/>
+                        <outlet property="buttonStackBottomConstraint" destination="EYc-Vm-b8o" id="W3b-6z-q7y"/>
+                        <outlet property="buttonStackView" destination="oX4-QR-x0h" id="uNa-YQ-mlO"/>
                         <outlet property="cancelButton" destination="Bjo-wi-gLx" id="RKB-4L-9ph"/>
                         <outlet property="heightLabel" destination="PHF-bz-LTV" id="2Lf-n4-1tH"/>
                         <outlet property="storyTitleLabel" destination="YfB-GD-395" id="PPy-JF-epS"/>
                         <outlet property="tableView" destination="Ryg-kU-lh9" id="UMY-6Z-H3G"/>
+                        <outlet property="textViewBottomConstraint" destination="1O9-ki-vni" id="8JA-ZE-g5o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mpl-uV-EEn" userLabel="First Responder" sceneMemberID="firstResponder"/>

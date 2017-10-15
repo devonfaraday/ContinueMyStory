@@ -11,6 +11,7 @@ import Firebase
 
 class StoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
     
+    @IBOutlet var buttonStackView: UIStackView!
     @IBOutlet var heightLabel: UILabel!
     @IBOutlet var storyTitleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
@@ -18,6 +19,8 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var addSnippetButton: UIButton!
     @IBOutlet var addSnippetTextView: UITextView!
     @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var textViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var buttonStackBottomConstraint: NSLayoutConstraint!
     
     var story: Story?  {
         didSet {
@@ -40,6 +43,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        addObservers()
         setInitialStoryView()
 //        setAutomaticDimensions()
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -47,9 +51,9 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        removeObservers()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -102,6 +106,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         setInitialStoryView()
+        addSnippetTextView.resignFirstResponder()
     }
     
     func setInitialStoryView() {
@@ -112,6 +117,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func setAddingSnippetView() {
+//        addSnippetTextView.becomeFirstResponder()
         isAddingSnippet = true
         addSnippetView.isHidden = false
         addSnippetView.backgroundColor = .black
@@ -128,6 +134,35 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
 //        tableView.estimatedRowHeight = 200
 //        tableView.rowHeight = UITableViewAutomaticDimension
 //    }
+//
+    // MARK: - Keyboard Methods
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.textViewBottomConstraint.constant = 8
+            })
+        }
+    }
+
+    //this puts the text fields in their origial position
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.textViewBottomConstraint.constant = 348
+
+        }
+    }
+
+    func addObservers() {
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+
+    func removeObservers() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+
     
     // MARK: - Touches
     

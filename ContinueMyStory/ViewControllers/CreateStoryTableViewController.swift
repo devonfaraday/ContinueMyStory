@@ -18,6 +18,8 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     var categories: [StoryCategory] = [.none, .sifi, .fantasy, .suspense]
     var selectedCategory: StoryCategory?
     var userUid = ""
+    var wordCount = 0
+    let maxWordCount = 150
     
     override func viewDidLoad() {
         super.viewDidLoad()
