@@ -35,25 +35,24 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
                         self.tableView.reloadData()
                     }
                 })
-            
         }
     }
+    
     var snippets = [Snippet]()
     var isAddingSnippet = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        addObservers()
+        addObservers()
         setInitialStoryView()
 //        setAutomaticDimensions()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 250
+
 
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        removeObservers()
+        removeObservers()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,23 +71,17 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         guard let cell = tableView.dequeueReusableCell(withIdentifier: .storyCellIdentifier, for: indexPath) as? StoryTableViewCell else { return StoryTableViewCell() }
         if indexPath.section == 0 {
             if let story = story {
-                heightLabel.text = nil
-                self.heightLabel.text = story.body
-                tableView.rowHeight = heightLabel.frame.height + 30
                 cell.story = story
             }
         } else {
             if snippets.count > 0 {
-                heightLabel.text = nil
                 let snippet: Snippet? = snippets[indexPath.row]
-                heightLabel.text = snippet?.body
-                tableView.rowHeight = heightLabel.frame.height + 30
                 cell.snippet = snippet
-                
             }
         }
         return cell
     }
+    
     @IBAction func addSnippetButtonTapped(_ sender: UIButton) {
         if isAddingSnippet {
             if let body = addSnippetTextView.text,
@@ -106,6 +99,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
             setAddingSnippetView()
         }
     }
+    
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         setInitialStoryView()
         addSnippetTextView.resignFirstResponder()
@@ -132,11 +126,6 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
-//    func setAutomaticDimensions() {
-//        tableView.estimatedRowHeight = 200
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//    }
-//
     // MARK: - Keyboard Methods
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -155,7 +144,6 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func addObservers() {
-
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -170,12 +158,10 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.characters.count
         return numberOfChars < 1000 ;
-        
     }
 
     
     // MARK: - Touches
-    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         addSnippetTextView.resignFirstResponder()
     }

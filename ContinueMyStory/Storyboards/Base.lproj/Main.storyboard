@@ -378,15 +378,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-kU-lh9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="400" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-kU-lh9">
                                 <rect key="frame" x="0.0" y="73" width="375" height="654"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="storyCell" rowHeight="275" id="nPD-Ng-LFa" customClass="StoryTableViewCell" customModule="ContinueMyStory" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="275"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="storyCell" rowHeight="400" id="nPD-Ng-LFa" customClass="StoryTableViewCell" customModule="ContinueMyStory" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nPD-Ng-LFa" id="0cQ-jC-yc3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="274.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="399.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jV-Bj-Ixq">
@@ -399,8 +399,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="go9-u7-RFE">
-                                                    <rect key="frame" x="16" y="21" width="343" height="19.333333333333336"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <rect key="frame" x="16" y="21" width="343" height="368"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="368" id="AQO-vm-YcX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -489,6 +492,12 @@
                             <constraint firstItem="oX4-QR-x0h" firstAttribute="top" secondItem="Ryg-kU-lh9" secondAttribute="bottom" id="qDZ-VF-h1R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CzA-O5-SFw"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="xcE-mc-Ywu"/>
+                                <exclude reference="x7P-k3-XJv"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="addSnippetButton" destination="Qke-r1-bgz" id="qIZ-y0-tRg"/>
