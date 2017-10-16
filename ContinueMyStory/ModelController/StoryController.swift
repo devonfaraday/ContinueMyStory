@@ -25,7 +25,7 @@ class StoryController {
 
         let catdict = snapDictionary.flatMap { $1 }
 
-        let stories = catdict.flatMap { Story(dictionary: $1, identifier: $0) }
+        let stories = catdict.flatMap { Story(dictionary: $1, identifier: $0) }.sorted(by: { $0.created < $1.created })
         
         completion(stories)
         })

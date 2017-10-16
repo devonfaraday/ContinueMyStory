@@ -69,23 +69,12 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     
     // MARK: - TextView Delegates
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        let numberOfChars = newText.characters.count
+        return numberOfChars < 1000 ;
         
-        
-        return true
     }
     
-    /*
-     
-     let characterLimit = 5
-     let newText = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
-     let numberOfChars = newText.characters.count
-     return numberOfChars < characterLimit
-     
-     */
-    
-    func textViewDidChange(_ textView: UITextView) {
-        countWords()
-    }
     
     // MARK: - Touch Gesture
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
