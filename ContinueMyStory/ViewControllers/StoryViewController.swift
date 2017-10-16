@@ -113,7 +113,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func setAddingSnippetView() {
-//        addSnippetTextView.becomeFirstResponder()
+        addSnippetTextView.becomeFirstResponder()
         isAddingSnippet = true
         addSnippetView.isHidden = false
         addSnippetView.backgroundColor = .black
@@ -130,7 +130,8 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             UIView.animate(withDuration: 0.3, animations: {
-                self.textViewBottomConstraint.constant = 8
+                self.addSnippetView.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height)
+                self.buttonStackView.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height)
             })
         }
     }
@@ -138,7 +139,8 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     //this puts the text fields in their origial position
     @objc func keyboardWillHide(notification: NSNotification) {
         UIView.animate(withDuration: 0.3) {
-            self.textViewBottomConstraint.constant = 348
+            self.addSnippetView.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.buttonStackView.transform = CGAffineTransform(translationX: 0, y: 0)
 
         }
     }
