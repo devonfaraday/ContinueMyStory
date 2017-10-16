@@ -12,7 +12,7 @@ import Firebase
 class StoryController {
     
     func createStory(withTitle title: String, body: String, author: String, category: StoryCategory, completion: @escaping() -> Void) {
-        var story = Story(title: title, body: body, author: author)
+        var story = Story(title: title, body: body, author: author, category: category)
         story.saveStory(toCategory: category)
         completion()
     }

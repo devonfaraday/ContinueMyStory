@@ -27,9 +27,11 @@ extension String {
     static var authorKey: String { get { return "authorUid" } }
     static var commentsKey: String { get { return "comments" } }
     static var snippetIdentifierKey: String { get { return "snippetIdentifiers" } }
-    static var categoryKey: String { get { return "Category" } }
+    static var categoryKey: String { get { return "category" } }
     static var snippetKey: String { get { return "snippet" } }
     static var storyReferenceKey: String { get { return "storyReference" } }
+    static var createdKey: String { get { return "created" } }
+    
     
     
     /* Reuse Identifiers */
@@ -44,5 +46,14 @@ extension String {
     static var ageKey: String { get { return "age" } }
     static var identifierKey: String { get { return "uid" } }
     
+    
+    // MARK: - Functions
+    
+    func date() -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        guard let date = formatter.date(from: self) else { return nil }
+        return date
+    }
 
 }

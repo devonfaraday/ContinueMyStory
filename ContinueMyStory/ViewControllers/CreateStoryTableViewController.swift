@@ -18,8 +18,8 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     var categories: [StoryCategory] = [.none, .sifi, .fantasy, .suspense]
     var selectedCategory: StoryCategory?
     var userUid = ""
-    var wordCount = 0
-    let maxWordCount = 150
+    var wordCount = 1
+    let maxWordCount = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +67,26 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
         return true
     }
     
+    // MARK: - TextView Delegates
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        
+        return true
+    }
+    
+    /*
+     
+     let characterLimit = 5
+     let newText = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+     let numberOfChars = newText.characters.count
+     return numberOfChars < characterLimit
+     
+     */
+    
+    func textViewDidChange(_ textView: UITextView) {
+        countWords()
+    }
+    
     // MARK: - Touch Gesture
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         storyBodyTextView.resignFirstResponder()
@@ -86,6 +106,11 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     func setUserUid() {
         guard let user = Auth.auth().currentUser else { return }
         userUid = user.uid
+    }
+    
+    func countWords() {
+        let wordCount = storyBodyTextView.text.components(separatedBy: " ").count - 1
+        self.wordCount = wordCount
     }
     
 }

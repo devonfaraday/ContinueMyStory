@@ -72,12 +72,14 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         guard let cell = tableView.dequeueReusableCell(withIdentifier: .storyCellIdentifier, for: indexPath) as? StoryTableViewCell else { return StoryTableViewCell() }
         if indexPath.section == 0 {
             if let story = story {
+                heightLabel.text = nil
                 self.heightLabel.text = story.body
                 tableView.rowHeight = heightLabel.frame.height + 30
                 cell.story = story
             }
         } else {
             if snippets.count > 0 {
+                heightLabel.text = nil
                 let snippet: Snippet? = snippets[indexPath.row]
                 heightLabel.text = snippet?.body
                 tableView.rowHeight = heightLabel.frame.height + 30
@@ -91,8 +93,8 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         if isAddingSnippet {
             if let body = addSnippetTextView.text,
                 let authorID = Auth.auth().currentUser?.uid,
-                let storyRef = story?.identifier {
-                SnippetController().createSnippet(withBody: body, author: authorID, storyRef: storyRef, completion: { (snippet) in
+                let story = story {
+                SnippetController().createSnippet(withBody: body, author: authorID, story: story, completion: { (snippet) in
                     self.snippets.append(snippet)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()

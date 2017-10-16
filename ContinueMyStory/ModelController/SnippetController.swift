@@ -10,18 +10,22 @@ import Foundation
 
 class SnippetController {
     
-    func createSnippet(withBody body: String, author: String, storyRef: String, completion: @escaping(Snippet) -> Void) {
+    func createSnippet(withBody body: String, author: String, story: Story, completion: @escaping(Snippet) -> Void) {
+        guard let storyRef = story.identifier else { return }
+        let category = story.category
         var snippet = Snippet(body: body, author: author, storyRef: storyRef)
-        snippet.saveSnippet(storyIdentifier: storyRef)
+        snippet.saveSnippet(storyIdentifier: storyRef, storyCategory: category)
         completion(snippet)
     }
     
     func fetchSnippets(fromStory story: Story, completion: @escaping([Snippet])-> Void) {
         guard let storyRef = story.identifier else { completion([]); return }
-        let snippetRef = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(String.snippetKey)/\(storyRef)")
+        let storyCategory = story.category
+        let snippetRef = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(String.categoryEndpoint)/\(storyCategory.rawValue)/\(storyRef)/\(String.snippetKey)")
         snippetRef.observe(.value, with: { (snapshot) in
+            print(snapshot.description)
             guard let snapDictionary = snapshot.value as? [String: JSONDictionary] else { completion([]); return }
-            let snippets = snapDictionary.flatMap { Snippet(dictionary: $1, identifier: $0) }
+            let snippets = snapDictionary.flatMap { Snippet(dictionary: $1, identifier: $0) }.sorted(by: {$0.created < $1.created})
             
             completion(snippets)
         })
