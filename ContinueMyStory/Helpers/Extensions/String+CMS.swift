@@ -20,6 +20,7 @@ extension String {
     static var toProfileViewControllerSegue: String { get { return "toProfileViewController" } }
     static var toStoryDetailSegue: String { get { return "toStoryDetail" } }
     static var toStoryListSegue: String { get { return "toStoryList" } }
+    static var toLoginViewControllerSegue: String { get { return "toLoginViewController" } }
     
     /* Story Keys */
     static var titleKey: String { get { return "title" } }

@@ -19,11 +19,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     let firebaseAuthentication = FirebaseAuthentication()
     var loginState: LoginViewState = .login
+    var currentUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkAuthentication()
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         setViewsState()
+        resetTextFields()
+        
     }
     
     
@@ -43,6 +46,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else {
             signUp()
         }
+        resetTextFields()
     }
     
     // MARK: - Helpers
@@ -56,6 +60,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             loginButton.setTitle("Cancel", for: .normal)
         }
     }
+    
+    func resetTextFields() {
+        emailTextField.text = nil
+        passwordTextField.text = nil
+        verifyPasswordTextField.text = nil
+    }
+    
+    
     
     // MARK: - Text Field Delegates
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -83,10 +95,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let password = passwordTextField.text else { return }
         firebaseAuthentication.signIn(withEmail: email, password: password) {
             print("Signed In")
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
+            self.fetchCurrentUser {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
+                    self.resetTextFields()
             }
         }
+    }
     }
     
     func signUp() {
@@ -106,17 +121,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func checkAuthentication() {
-        
-            if Auth.auth().currentUser != nil {
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
-                }
-            } else {
-                print("No User signed in")
-            }
-        
+    func fetchCurrentUser(completion: @escaping() -> Void) {
+        guard let currentUser = Auth.auth().currentUser else { completion(); return }
+        let uid = currentUser.uid
+        UserController().fetchUser(withIdentifier: uid) { (user) in
+            print("User Fetched in profile")
+            self.currentUser = user
+            completion()
+        }
     }
+    
     
     // MARK: - Alert Controller
     func warningAlert(withTitle title: String, message: String) {
@@ -124,6 +138,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
         alertController.addAction(dismissAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destinationController = segue.destination as? ProfileViewController else { return }
+            destinationController.currentUser = currentUser
     }
 }
 

@@ -22,18 +22,21 @@ class ProfileViewController: UIViewController {
     var profileState: ProfileViewState = .isEditing
     var currentUser: User? {
         didSet {
+            if !isViewLoaded {
+                loadViewIfNeeded()
+            }
             updateViews()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchCurrentUser {
-            self.checkForCurrentUserInfo()
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        self.checkForCurrentUserInfo()
             DispatchQueue.main.async {
                 self.setViewingState()
             }
-        }
+        
     }
     
     // MARK: - IB Actions
@@ -48,7 +51,7 @@ class ProfileViewController: UIViewController {
     @IBAction func signOutButtonTapped(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
-            let _ = navigationController?.popViewController(animated: true)
+            performSegue(withIdentifier: .toLoginViewControllerSegue, sender: self)
         } catch let error {
             print(error.localizedDescription)
         }
@@ -111,17 +114,6 @@ class ProfileViewController: UIViewController {
             let familyName = familyNameTextfield.text,
             let age = ageTextField.text else { return }
         UserController().createUser(withUsername: username, givenName: givenName, familyName: familyName, age: age)
-    }
-    
-    // MARK: - Fetch User
-    func fetchCurrentUser(completion: @escaping() -> Void) {
-        guard let currentUser = Auth.auth().currentUser else { completion(); return }
-        let uid = currentUser.uid
-        UserController().fetchUser(withIdentifier: uid) { (user) in
-            print("User Fetched in profile")
-            self.currentUser = user
-            completion()
-        }
     }
     
     

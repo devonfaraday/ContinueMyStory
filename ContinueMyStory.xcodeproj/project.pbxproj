@@ -36,6 +36,7 @@
 		FDA99F421F9030670050B09F /* Dictionary+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA99F411F9030670050B09F /* Dictionary+CMS.swift */; };
 		FDE1A9D91F8EFD330010ED03 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */; };
 		FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */; };
+		FDFB941C1F96F227009F332B /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB941B1F96F227009F332B /* InitialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		FDA99F411F9030670050B09F /* Dictionary+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+CMS.swift"; sourceTree = "<group>"; };
 		FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoryTableViewController.swift; sourceTree = "<group>"; };
+		FDFB941B1F96F227009F332B /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 				FD3466CB1F8DDB41006C4D70 /* ProfileViewController.swift */,
 				FDA24EE91F8EE53300D041E2 /* StoryViewController.swift */,
 				FD70A2281F908DB300B83ACE /* StoryListViewController.swift */,
+				FDFB941B1F96F227009F332B /* InitialViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				FD27D76D1F8DBDB900FFE353 /* AppDelegate.swift in Sources */,
 				FD3466CC1F8DDB41006C4D70 /* ProfileViewController.swift in Sources */,
 				FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */,
+				FDFB941C1F96F227009F332B /* InitialViewController.swift in Sources */,
 				FD70A22B1F90FD6200B83ACE /* SnippetController.swift in Sources */,
 				FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */,
 				FDA24EEA1F8EE53300D041E2 /* StoryViewController.swift in Sources */,
