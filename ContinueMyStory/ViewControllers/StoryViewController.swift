@@ -18,7 +18,8 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var addSnippetView: UIView!
     @IBOutlet var addSnippetButton: UIButton!
     @IBOutlet var addSnippetTextView: UITextView!
-
+    @IBOutlet var characterCountLabel: UILabel!
+    
     
     @IBOutlet var backButton: UIButton!
     var story: Story?  {
@@ -106,15 +107,23 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         isAddingSnippet = false
         addSnippetView.isHidden = true
         addSnippetTextView.isHidden = true
-        
+        characterCountLabel.isHidden = true
     }
     
     func configureButtons() {
         backButton.layer.cornerRadius = backButton.frame.width / 8
+        backButton.layer.borderWidth = 2
+        backButton.layer.borderColor = UIColor.black.cgColor
         addSnippetButton.layer.cornerRadius = addSnippetButton.frame.width / 8
+        addSnippetButton.layer.borderWidth = 2
+        addSnippetButton.layer.borderColor = UIColor.black.cgColor
+        characterCountLabel.layer.borderWidth = 2
+        characterCountLabel.layer.borderColor = UIColor.black.cgColor
     }
     
     func setAddingSnippetView() {
+        characterCountLabel.isHidden = false
+        characterCountLabel.text = "0/1000"
         backButton.setTitle("Cancel", for: .normal)
         addSnippetTextView.becomeFirstResponder()
         isAddingSnippet = true
@@ -133,6 +142,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.characters.count
+        characterCountLabel.text = "\(numberOfChars)/1000"
         return numberOfChars < 1000 ;
     }
 
