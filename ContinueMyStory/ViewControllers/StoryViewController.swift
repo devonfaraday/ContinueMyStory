@@ -11,17 +11,16 @@ import Firebase
 
 class StoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
     
-    @IBOutlet var buttonStackView: UIStackView!
+    
     @IBOutlet var heightLabel: UILabel!
     @IBOutlet var storyTitleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var addSnippetView: UIView!
     @IBOutlet var addSnippetButton: UIButton!
     @IBOutlet var addSnippetTextView: UITextView!
-    @IBOutlet var cancelButton: UIButton!
-    @IBOutlet var textViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet var buttonStackBottomConstraint: NSLayoutConstraint!
+
     
+    @IBOutlet var backButton: UIButton!
     var story: Story?  {
         didSet {
             if !isViewLoaded {
@@ -44,16 +43,8 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addObservers()
+        configureButtons()
         setInitialStoryView()
-//        setAutomaticDimensions()
-
-
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        removeObservers()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -102,21 +93,29 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
-        let _ = navigationController?.popViewController(animated: true)
-    }
-    @IBAction func cancelButtonTapped(_ sender: UIButton) {
-        setInitialStoryView()
-        addSnippetTextView.resignFirstResponder()
+        if isAddingSnippet {
+            backButton.setTitle("Back", for: .normal)
+            setInitialStoryView()
+            addSnippetTextView.resignFirstResponder()
+        } else {
+            let _ = navigationController?.popViewController(animated: true)
+        }
     }
     
     func setInitialStoryView() {
         isAddingSnippet = false
         addSnippetView.isHidden = true
         addSnippetTextView.isHidden = true
-        cancelButton.isHidden = true
+        
+    }
+    
+    func configureButtons() {
+        backButton.layer.cornerRadius = backButton.frame.width / 8
+        addSnippetButton.layer.cornerRadius = addSnippetButton.frame.width / 8
     }
     
     func setAddingSnippetView() {
+        backButton.setTitle("Cancel", for: .normal)
         addSnippetTextView.becomeFirstResponder()
         isAddingSnippet = true
         addSnippetView.isHidden = false
@@ -126,37 +125,8 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         addSnippetTextView.layer.borderWidth = 5
         addSnippetTextView.layer.borderColor = UIColor.black.cgColor
         addSnippetTextView.backgroundColor = .white
-        cancelButton.isHidden = false
         
-    }
-    
-    // MARK: - Keyboard Methods
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            UIView.animate(withDuration: 0.3, animations: {
-                self.addSnippetView.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height)
-                self.buttonStackView.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height)
-            })
-        }
-    }
-
-    //this puts the text fields in their origial position
-    @objc func keyboardWillHide(notification: NSNotification) {
-        UIView.animate(withDuration: 0.3) {
-            self.addSnippetView.transform = CGAffineTransform(translationX: 0, y: 0)
-            self.buttonStackView.transform = CGAffineTransform(translationX: 0, y: 0)
-
-        }
-    }
-
-    func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-
-    func removeObservers() {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
     }
     
     // MARK: - Text View Delegates
