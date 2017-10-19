@@ -15,7 +15,7 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var storyBodyTextView: UITextView!
     
-    var categories: [StoryCategory] = [.none, .sifi, .fantasy, .suspense]
+    var categories: [StoryCategory] = [.none, .crime, .fable, .fanFiction, .fantasy, .folklore, .historicalFiction, .horror, .legend, .mystery, .mythology, .romance, .sifi, .shortStory, .suspense, .tallTale, .western]
     var selectedCategory: StoryCategory?
     var userUid = ""
     

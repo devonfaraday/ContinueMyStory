@@ -20,7 +20,23 @@ enum ProfileViewState {
 
 enum StoryCategory: String {
     case none = "---"
-    case sifi = "SiFi"
+    case crime = "Crime"
+    case fable = "Fable"
+    case fanFiction = "Fan Fiction"
     case fantasy = "Fantasy"
+    case folklore = "Folklore"
+    case historicalFiction = "Historical Fiction"
+    case horror = "Horror"
+    case legend = "Legend"
+    case mystery = "Mystery"
+    case mythology = "Mythology"
+    case romance = "Romance"
+    case sifi = "SiFi"
+    case shortStory = "ShortStory"
     case suspense = "Suspense"
+    case tallTale = "Tall Tale"
+    case western = "Western"
 }
+
+
+
