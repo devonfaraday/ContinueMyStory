@@ -93,14 +93,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func login() {
         guard let email = emailTextField.text,
             let password = passwordTextField.text else { return }
-        firebaseAuthentication.signIn(withEmail: email, password: password) {
-            print("Signed In")
-            self.fetchCurrentUser {
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
-                    self.resetTextFields()
-            }
+        firebaseAuthentication.signIn(withEmail: email, password: password) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                self.warningAlert(withTitle: "Invalid Credentials", message: "Your email and/or password are incorrect")
+            } else {
+                print("Signed In")
+                self.fetchCurrentUser {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
+                        self.resetTextFields()
+                    }
+                }
         }
+        
     }
     }
     

@@ -56,7 +56,10 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
     }
-   
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        let _ = navigationController?.popViewController(animated: true)
+    }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -22,14 +22,14 @@ struct FirebaseAuthentication {
         }
     }
     
-    func signIn(withEmail email: String, password: String, completion: @escaping() -> Void) {
+    func signIn(withEmail email: String, password: String, completion: @escaping(_ error: Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
+                completion(error)
             } else {
-                
+                completion(nil)
             }
-            completion()
         }
     }
     
