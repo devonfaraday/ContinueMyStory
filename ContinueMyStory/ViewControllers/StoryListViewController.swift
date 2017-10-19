@@ -22,6 +22,7 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         StoryController().fetchAllStories { (stories) in
             self.stories = stories
         }

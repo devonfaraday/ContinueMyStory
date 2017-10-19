@@ -23,7 +23,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationController?.navigationBar.isHidden = true
         setViewsState()
         resetTextFields()
         

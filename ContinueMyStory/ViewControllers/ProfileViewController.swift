@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationController?.navigationBar.isHidden = true
         self.checkForCurrentUserInfo()
             DispatchQueue.main.async {
                 self.setViewingState()
@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func browseButtonTapped(_ sender: UIButton) {
-        
+        print("Browsing")
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {

@@ -23,6 +23,7 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
         super.viewDidLoad()
         storyBodyTextView.text = ""
         setUserUid()
+        
     }
     
     // MARK: - IB Actions

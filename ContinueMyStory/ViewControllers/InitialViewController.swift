@@ -16,6 +16,8 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkAuthentication()
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
     func checkAuthentication() {

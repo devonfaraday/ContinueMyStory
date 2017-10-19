@@ -43,6 +43,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addObservers()
         setInitialStoryView()
 //        setAutomaticDimensions()
@@ -167,15 +168,4 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         addSnippetTextView.resignFirstResponder()
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
