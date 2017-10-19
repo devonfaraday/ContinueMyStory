@@ -115,13 +115,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let password = passwordTextField.text,
             let verify = verifyPasswordTextField.text else { return }
         if password == verify {
-            firebaseAuthentication.createUser(withEmail: email, password: password) {
-                print("User Created")
-                self.loginState = .login
-                self.setViewsState()
-                self.emailTextField.text = ""
-                self.passwordTextField.text = ""
-            }
+            firebaseAuthentication.createUser(withEmail: email, password: password, completion: { (error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    self.warningAlert(withTitle: "Error", message: error.localizedDescription)
+                } else {
+                    print("User Created")
+                    self.loginState = .login
+                    self.setViewsState()
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
+                }
+            })
         } else {
             warningAlert(withTitle: "Something Went Wrong", message: "Your passwords don't match")
         }

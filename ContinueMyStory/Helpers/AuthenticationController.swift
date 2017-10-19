@@ -11,14 +11,14 @@ import FirebaseAuth
 
 struct FirebaseAuthentication {
     
-    func createUser(withEmail email: String, password: String, completion: @escaping() -> Void) {
+    func createUser(withEmail email: String, password: String, completion: @escaping(_ error: Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if let error = error {
                 print(error.localizedDescription)
+                completion(error)
             } else {
-                
+                completion(nil)
             }
-            completion()
         }
     }
     

@@ -101,6 +101,9 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        let _ = navigationController?.popViewController(animated: true)
+    }
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
         setInitialStoryView()
         addSnippetTextView.resignFirstResponder()
