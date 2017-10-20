@@ -26,6 +26,11 @@
 		FD3466D41F8DE0E0006C4D70 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D31F8DE0E0006C4D70 /* FirebaseController.swift */; };
 		FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D51F8DE14D006C4D70 /* Enums.swift */; };
 		FD3466D81F8DE570006C4D70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D71F8DE570006C4D70 /* Constants.swift */; };
+		FD606DFB1F99B5AE00E4A5F4 /* StoryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF11F99B5AE00E4A5F4 /* StoryList.storyboard */; };
+		FD606DFC1F99B5AE00E4A5F4 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF31F99B5AE00E4A5F4 /* Create.storyboard */; };
+		FD606DFD1F99B5AE00E4A5F4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF51F99B5AE00E4A5F4 /* Login.storyboard */; };
+		FD606DFE1F99B5AE00E4A5F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF71F99B5AE00E4A5F4 /* Profile.storyboard */; };
+		FD606DFF1F99B5AE00E4A5F4 /* Story.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF91F99B5AE00E4A5F4 /* Story.storyboard */; };
 		FD70A2291F908DB300B83ACE /* StoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD70A2281F908DB300B83ACE /* StoryListViewController.swift */; };
 		FD70A22B1F90FD6200B83ACE /* SnippetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD70A22A1F90FD6200B83ACE /* SnippetController.swift */; };
 		FDA24EDE1F8E5E5800D041E2 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EDD1F8E5E5800D041E2 /* UserController.swift */; };
@@ -89,6 +94,11 @@
 		FD3466D51F8DE14D006C4D70 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		FD3466D71F8DE570006C4D70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FD606DEB1F985A9800E4A5F4 /* ContinueMyStory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ContinueMyStory.entitlements; sourceTree = "<group>"; };
+		FD606DF21F99B5AE00E4A5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/StoryList.storyboard; sourceTree = "<group>"; };
+		FD606DF41F99B5AE00E4A5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Create.storyboard; sourceTree = "<group>"; };
+		FD606DF61F99B5AE00E4A5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
+		FD606DF81F99B5AE00E4A5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		FD606DFA1F99B5AE00E4A5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Story.storyboard; sourceTree = "<group>"; };
 		FD70A2281F908DB300B83ACE /* StoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListViewController.swift; sourceTree = "<group>"; };
 		FD70A22A1F90FD6200B83ACE /* SnippetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetController.swift; sourceTree = "<group>"; };
 		FDA24EDD1F8E5E5800D041E2 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -235,6 +245,11 @@
 		FD27D79C1F8DBE7E00FFE353 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				FD606DF31F99B5AE00E4A5F4 /* Create.storyboard */,
+				FD606DF51F99B5AE00E4A5F4 /* Login.storyboard */,
+				FD606DF71F99B5AE00E4A5F4 /* Profile.storyboard */,
+				FD606DF91F99B5AE00E4A5F4 /* Story.storyboard */,
+				FD606DF11F99B5AE00E4A5F4 /* StoryList.storyboard */,
 				FD27D7751F8DBDB900FFE353 /* LaunchScreen.storyboard */,
 				FD27D7701F8DBDB900FFE353 /* Main.storyboard */,
 			);
@@ -422,8 +437,13 @@
 			files = (
 				FD27D7771F8DBDB900FFE353 /* LaunchScreen.storyboard in Resources */,
 				FD3466CA1F8DD329006C4D70 /* GoogleService-Info.plist in Resources */,
+				FD606DFE1F99B5AE00E4A5F4 /* Profile.storyboard in Resources */,
+				FD606DFD1F99B5AE00E4A5F4 /* Login.storyboard in Resources */,
 				FD27D7741F8DBDB900FFE353 /* Assets.xcassets in Resources */,
 				FD27D7721F8DBDB900FFE353 /* Main.storyboard in Resources */,
+				FD606DFF1F99B5AE00E4A5F4 /* Story.storyboard in Resources */,
+				FD606DFC1F99B5AE00E4A5F4 /* Create.storyboard in Resources */,
+				FD606DFB1F99B5AE00E4A5F4 /* StoryList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +692,46 @@
 				FD27D7761F8DBDB900FFE353 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FD606DF11F99B5AE00E4A5F4 /* StoryList.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD606DF21F99B5AE00E4A5F4 /* Base */,
+			);
+			name = StoryList.storyboard;
+			sourceTree = "<group>";
+		};
+		FD606DF31F99B5AE00E4A5F4 /* Create.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD606DF41F99B5AE00E4A5F4 /* Base */,
+			);
+			name = Create.storyboard;
+			sourceTree = "<group>";
+		};
+		FD606DF51F99B5AE00E4A5F4 /* Login.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD606DF61F99B5AE00E4A5F4 /* Base */,
+			);
+			name = Login.storyboard;
+			sourceTree = "<group>";
+		};
+		FD606DF71F99B5AE00E4A5F4 /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD606DF81F99B5AE00E4A5F4 /* Base */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		FD606DF91F99B5AE00E4A5F4 /* Story.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD606DFA1F99B5AE00E4A5F4 /* Base */,
+			);
+			name = Story.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
