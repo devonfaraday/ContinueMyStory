@@ -15,7 +15,6 @@ extension String {
     static var storiesEndpoint: String { get { return "stories" } }
     static var categoryEndpoint: String { get { return "category" } }
     
-    
     /* Segues */
     static var toProfileViewControllerSegue: String { get { return "toProfileViewController" } }
     static var toStoryDetailSegue: String { get { return "toStoryDetail" } }
@@ -33,8 +32,6 @@ extension String {
     static var storyReferenceKey: String { get { return "storyReference" } }
     static var createdKey: String { get { return "created" } }
     
-    
-    
     /* Reuse Identifiers */
     static var storyListCellIdentifier: String { get { return "storyListCell" } }
     static var storyCellIdentifier: String { get { return "storyCell" } }
@@ -47,14 +44,11 @@ extension String {
     static var ageKey: String { get { return "age" } }
     static var identifierKey: String { get { return "uid" } }
     
-    
     // MARK: - Functions
-    
     func date() -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         guard let date = formatter.date(from: self) else { return nil }
         return date
     }
-
 }
