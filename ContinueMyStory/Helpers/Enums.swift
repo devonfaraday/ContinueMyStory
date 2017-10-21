@@ -38,5 +38,14 @@ enum StoryCategory: String {
     case western = "Western"
 }
 
+enum SortByType: String {
+    case name = "Name"
+    case newest = "Newest"
+    case oldest = "Oldest"
+    case top = "Top"
+    case featured = "Featured"
+    case category = "Category"
+}
+
 
 

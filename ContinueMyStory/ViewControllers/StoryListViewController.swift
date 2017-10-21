@@ -8,9 +8,11 @@
 
 import UIKit
 
-class StoryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StoryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SortTypeSelectable {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var sortButton: UIButton!
+    @IBOutlet var containerView: UIView!
     
     var stories = [Story]() {
         didSet {
@@ -22,7 +24,7 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hideSortByOptions()
         StoryController().fetchAllStories { (stories) in
             self.stories = stories
         }
@@ -56,15 +58,41 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
     }
+    
+    func sortByFinished(withValue value: SortByType) {
+        sortButton.setTitle(value.rawValue, for: .normal)
+        hideSortByOptions()
+    }
+    
+    @IBAction func sortButtonTapped(_ sender: UIButton) {
+        showSortByOptions()
+    }
+    
     @IBAction func backButtonTapped(_ sender: UIButton) {
         let _ = navigationController?.popViewController(animated: true)
     }
     
+    func showSortByOptions() {
+        UIView.animate(withDuration: 0.3) {
+            self.containerView.transform = CGAffineTransform(translationX: 0, y: 0.1)
+        }
+    }
+    
+    func hideSortByOptions() {
+        UIView.animate(withDuration: 0.3) {
+            self.containerView.transform = CGAffineTransform(translationX: 0, y: -self.containerView.frame.height)
+        }
+    }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String.toSortByViewControllerSegue {
+            guard let destination = segue.destination as? SortByViewController else { return }
+            destination.delegate = self
+        }
         guard let destination = segue.destination as? StoryViewController else { return }
         destination.story = selectedStory
+        
     }
  
 

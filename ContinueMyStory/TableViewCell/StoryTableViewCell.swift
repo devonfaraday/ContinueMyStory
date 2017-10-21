@@ -12,6 +12,8 @@ class StoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet var commentNumberLabel: UILabel!
+    @IBOutlet var likeNumberLabel: UILabel!
     
     var delegate: StoryTableViewCellDelegate?
     var story: Story? {
@@ -42,6 +44,10 @@ class StoryTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func commentButtonTapped(_ sender: UIButton) {
+    }
+    @IBAction func lightButtonTapped(_ sender: UIButton) {
+    }
     func fetchAuthor() {
         var authorid = ""
         if let story = story {

@@ -31,6 +31,7 @@
 		FD606DFD1F99B5AE00E4A5F4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF51F99B5AE00E4A5F4 /* Login.storyboard */; };
 		FD606DFE1F99B5AE00E4A5F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF71F99B5AE00E4A5F4 /* Profile.storyboard */; };
 		FD606DFF1F99B5AE00E4A5F4 /* Story.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF91F99B5AE00E4A5F4 /* Story.storyboard */; };
+		FD606E051F9BED8500E4A5F4 /* SortByViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD606E041F9BED8500E4A5F4 /* SortByViewController.swift */; };
 		FD70A2291F908DB300B83ACE /* StoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD70A2281F908DB300B83ACE /* StoryListViewController.swift */; };
 		FD70A22B1F90FD6200B83ACE /* SnippetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD70A22A1F90FD6200B83ACE /* SnippetController.swift */; };
 		FDA24EDE1F8E5E5800D041E2 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EDD1F8E5E5800D041E2 /* UserController.swift */; };
@@ -99,6 +100,7 @@
 		FD606DF61F99B5AE00E4A5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		FD606DF81F99B5AE00E4A5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		FD606DFA1F99B5AE00E4A5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Story.storyboard; sourceTree = "<group>"; };
+		FD606E041F9BED8500E4A5F4 /* SortByViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByViewController.swift; sourceTree = "<group>"; };
 		FD70A2281F908DB300B83ACE /* StoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListViewController.swift; sourceTree = "<group>"; };
 		FD70A22A1F90FD6200B83ACE /* SnippetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetController.swift; sourceTree = "<group>"; };
 		FDA24EDD1F8E5E5800D041E2 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				FDA24EE91F8EE53300D041E2 /* StoryViewController.swift */,
 				FD70A2281F908DB300B83ACE /* StoryListViewController.swift */,
 				FDFB941B1F96F227009F332B /* InitialViewController.swift */,
+				FD606E041F9BED8500E4A5F4 /* SortByViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				FD27D76D1F8DBDB900FFE353 /* AppDelegate.swift in Sources */,
 				FD3466CC1F8DDB41006C4D70 /* ProfileViewController.swift in Sources */,
 				FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */,
+				FD606E051F9BED8500E4A5F4 /* SortByViewController.swift in Sources */,
 				FDFB941C1F96F227009F332B /* InitialViewController.swift in Sources */,
 				FD70A22B1F90FD6200B83ACE /* SnippetController.swift in Sources */,
 				FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */,

@@ -20,6 +20,7 @@ extension String {
     static var toStoryDetailSegue: String { get { return "toStoryDetail" } }
     static var toStoryListSegue: String { get { return "toStoryList" } }
     static var toLoginViewControllerSegue: String { get { return "toLoginViewController" } }
+    static var toSortByViewControllerSegue: String { get { return "toSortByViewController" } }
     
     /* Story Keys */
     static var titleKey: String { get { return "title" } }
@@ -36,6 +37,7 @@ extension String {
     static var storyListCellIdentifier: String { get { return "storyListCell" } }
     static var storyCellIdentifier: String { get { return "storyCell" } }
     static var snippetCellIdentifier: String { get { return "snippetCell" } }
+    static var sortyByCellIdentifier: String { get { return "sortByCell" } }
     
     /* User Firebase keys */
     static var usernameKey: String { get { return "username" } }
