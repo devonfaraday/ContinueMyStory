@@ -38,17 +38,19 @@ class StoryTableViewCell: UITableViewCell {
         if let story = story {
             DispatchQueue.main.async {
                 self.bodyLabel.text = story.body
+                self.likeNumberLabel.text = "\(self.story?.likes?.count ?? 0)"
             }
         } else if let snippet = snippet {
             DispatchQueue.main.async {
                 self.bodyLabel.text = snippet.body
+                self.likeNumberLabel.text = "\(self.snippet?.likes?.count ?? 0)"
             }
         }
         DispatchQueue.main.async {
             self.authorLabel.text = "By: \(author.username)"
             // comment count will come from the count of array of comments
             self.commentNumberLabel.text = "\(0)"
-            self.likeNumberLabel.text = "\(self.story?.likes?.count ?? 0)"
+            
         }
     }
     
@@ -57,7 +59,17 @@ class StoryTableViewCell: UITableViewCell {
     }
     
     @IBAction func lightButtonTapped(_ sender: UIButton) {
-        
+        if story != nil {
+            storyLiked()
+        } else {
+            snippetLiked()
+        }
+    }
+    
+    func storyLiked() {
+        if story?.likes == nil {
+            story?.likes = []
+        }
         guard let story = story,
             let likes = story.likes else { return }
         let modifiedStory = story
@@ -70,13 +82,38 @@ class StoryTableViewCell: UITableViewCell {
         }
         
         if let newLikes = modifiedStory.likes {
-        DispatchQueue.main.async {
+            DispatchQueue.main.async {
                 self.likeNumberLabel.text = "\(newLikes.count)"
             }
         }
         StoryController().modify(story: modifiedStory) {
             print("Story Modified")
         }
+    }
+    
+    func snippetLiked() {
+        if snippet?.likes == nil {
+            snippet?.likes = []
+        }
+        guard let snippet = snippet,
+            let likes = snippet.likes else { return }
+        let modifiedSnippet = snippet
+        if likes.contains(currentUserUID) {
+            guard let index = likes.index(of: currentUserUID) else { return }
+            modifiedSnippet.likes?.remove(at: index)
+        } else {
+            modifiedSnippet.likes?.append(currentUserUID)
+        }
+        
+        if let newLikes = modifiedSnippet.likes {
+            DispatchQueue.main.async {
+                self.likeNumberLabel.text = "\(newLikes.count)"
+            }
+        }
+        SnippetController().modify(snippet: modifiedSnippet, inStoryCategory: modifiedSnippet.category) {
+            print("Snippet modified")
+        }
+
     }
     
     func fetchAuthor() {

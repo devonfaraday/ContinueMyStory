@@ -13,7 +13,7 @@ class SnippetController {
     func createSnippet(withBody body: String, author: String, story: Story, completion: @escaping(Snippet) -> Void) {
         guard let storyRef = story.identifier else { return }
         let category = story.category
-        var snippet = Snippet(body: body, author: author, storyRef: storyRef)
+        var snippet = Snippet(body: body, author: author, storyRef: storyRef, category: story.category )
         snippet.saveSnippet(storyIdentifier: storyRef, storyCategory: category)
         completion(snippet)
     }
@@ -29,6 +29,11 @@ class SnippetController {
             
             completion(snippets)
         })
+    }
+    
+    func modify(snippet: Snippet, inStoryCategory category: StoryCategory, completion: @escaping() -> Void) {
+        var newSnippet = snippet
+        newSnippet.saveSnippet(storyIdentifier: newSnippet.storyRef, storyCategory: category)
     }
 }
 

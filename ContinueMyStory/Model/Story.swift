@@ -40,7 +40,7 @@ class Story: FirebaseType {
                 .categoryKey: category.rawValue,
                 .createdKey: created.toString(),
                 .likesKey: likes as Any
-                ]
+        ]
     }
     
     required init?(dictionary: JSONDictionary, identifier: String) {
@@ -60,6 +60,18 @@ class Story: FirebaseType {
         case StoryCategory.fantasy.rawValue: self.category = StoryCategory.fantasy
         case StoryCategory.sifi.rawValue: self.category = StoryCategory.sifi
         case StoryCategory.suspense.rawValue: self.category = StoryCategory.suspense
+        case StoryCategory.crime.rawValue: self.category = StoryCategory.crime
+        case StoryCategory.fable.rawValue: self.category = StoryCategory.fable
+        case StoryCategory.fanFiction.rawValue: self.category = StoryCategory.fanFiction
+        case StoryCategory.historicalFiction.rawValue: self.category = StoryCategory.historicalFiction
+        case StoryCategory.horror.rawValue: self.category = StoryCategory.horror
+        case StoryCategory.legend.rawValue: self.category = StoryCategory.legend
+        case StoryCategory.mystery.rawValue: self.category = StoryCategory.mystery
+        case StoryCategory.mythology.rawValue: self.category = StoryCategory.mythology
+        case StoryCategory.romance.rawValue: self.category = StoryCategory.romance
+        case StoryCategory.shortStory.rawValue: self.category = StoryCategory.shortStory
+        case StoryCategory.tallTale.rawValue: self.category = StoryCategory.tallTale
+        case StoryCategory.western.rawValue: self.category = StoryCategory.western
         default:
             self.category = StoryCategory.none
         }
