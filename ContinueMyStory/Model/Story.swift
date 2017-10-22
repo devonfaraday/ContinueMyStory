@@ -17,18 +17,20 @@ class Story: FirebaseType {
     // this may become a model
     let comments: [String]?
     // snippets is of type string so it can hold the uid of the snippets saved.
-    let category: StoryCategory
+    var category: StoryCategory
     let snippets: [String]?
     var endpoint: String = .storiesEndpoint
     var identifier: String?
+    var likes: [String]?
     
-    init(title: String, body: String, author: String, comments: [String] = [], category: StoryCategory, snippets: [String] = []) {
+    init(title: String, body: String, author: String, comments: [String] = [], category: StoryCategory, snippets: [String] = [], likes: [String] = []) {
         self.title = title
         self.body = body
         self.author = author
         self.category = category
         self.comments = comments
         self.snippets = snippets
+        self.likes = likes
     }
     
     var dictionaryCopy: JSONDictionary {
@@ -36,7 +38,8 @@ class Story: FirebaseType {
                 .bodyKey: body,
                 .authorKey: author,
                 .categoryKey: category.rawValue,
-                .createdKey: created.toString()
+                .createdKey: created.toString(),
+                .likesKey: likes as Any
                 ]
     }
     
@@ -62,6 +65,7 @@ class Story: FirebaseType {
         }
         self.comments = dictionary[.commentsKey] as? [String]
         self.snippets = dictionary[.snippetKey] as? [String]
+        self.likes = dictionary[.likesKey] as? [String]
     }
 }
 

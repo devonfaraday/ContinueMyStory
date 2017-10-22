@@ -53,41 +53,51 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Yu3-q8-ZkH">
-                                                    <rect key="frame" x="156" y="388" width="203" height="20"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Yu3-q8-ZkH">
+                                                    <rect key="frame" x="169.5" y="388" width="189.5" height="20"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igF-cN-Bs3">
-                                                            <rect key="frame" x="0.0" y="0.0" width="46" height="20"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="YTh-Kf-2ot"/>
-                                                            </constraints>
-                                                            <state key="normal" title="Like"/>
-                                                            <connections>
-                                                                <action selector="lightButtonTapped:" destination="nPD-Ng-LFa" eventType="touchUpInside" id="jUJ-rq-CFB"/>
-                                                            </connections>
-                                                        </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9y9-Ka-91G">
-                                                            <rect key="frame" x="48" y="0.0" width="42" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1y-fg-wn2">
-                                                            <rect key="frame" x="92" y="0.0" width="67" height="20"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="67" id="tra-Xd-zKL"/>
-                                                            </constraints>
-                                                            <state key="normal" title="Comment"/>
-                                                            <connections>
-                                                                <action selector="commentButtonTapped:" destination="nPD-Ng-LFa" eventType="touchUpInside" id="AhN-f0-dkw"/>
-                                                            </connections>
-                                                        </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0q-Rl-HRO">
-                                                            <rect key="frame" x="161" y="0.0" width="42" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MJY-ls-rb4">
+                                                            <rect key="frame" x="0.0" y="0.0" width="73" height="20"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igF-cN-Bs3">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="46" id="YTh-Kf-2ot"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Like"/>
+                                                                    <connections>
+                                                                        <action selector="lightButtonTapped:" destination="nPD-Ng-LFa" eventType="touchUpInside" id="jUJ-rq-CFB"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9y9-Ka-91G">
+                                                                    <rect key="frame" x="54" y="0.0" width="19" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K0x-tw-dCa">
+                                                            <rect key="frame" x="97" y="0.0" width="92.5" height="20"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1y-fg-wn2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="67" id="tra-Xd-zKL"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Comments"/>
+                                                                    <connections>
+                                                                        <action selector="commentButtonTapped:" destination="nPD-Ng-LFa" eventType="touchUpInside" id="AhN-f0-dkw"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0q-Rl-HRO">
+                                                                    <rect key="frame" x="83" y="0.0" width="9.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="j67-it-4qn"/>

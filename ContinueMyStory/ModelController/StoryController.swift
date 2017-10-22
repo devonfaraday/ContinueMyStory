@@ -38,4 +38,9 @@ class StoryController {
     func fetchStories(withUser user: User, completion: @escaping([Story]) -> Void) {
         
     }
+    
+    func modify(story: Story, completion: @escaping() -> Void) {
+        var newStory = story
+        newStory.saveStory(toCategory: story.category)
+    }
 }

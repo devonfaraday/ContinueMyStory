@@ -32,6 +32,7 @@ extension String {
     static var snippetKey: String { get { return "snippet" } }
     static var storyReferenceKey: String { get { return "storyReference" } }
     static var createdKey: String { get { return "created" } }
+    static var likesKey: String { get { return "likes" } }
     
     /* Reuse Identifiers */
     static var storyListCellIdentifier: String { get { return "storyListCell" } }

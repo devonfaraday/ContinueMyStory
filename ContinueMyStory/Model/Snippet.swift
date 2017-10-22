@@ -19,6 +19,7 @@ class Snippet: FirebaseType {
     // snippets is of type string so it can hold the uid of the snippets saved.
     var endpoint: String = .snippetKey
     var identifier: String?
+    var likes: Int = 0
     
     init(body: String, author: String, storyRef: String, comments: [String] = []) {
         self.body = body
@@ -32,7 +33,8 @@ class Snippet: FirebaseType {
         return [.bodyKey: body,
                 .authorKey: author,
                 .storyReferenceKey: storyRef,
-                .createdKey: created.toString()]
+                .createdKey: created.toString(),
+                .likesKey: likes]
     }
     
     required init?(dictionary: JSONDictionary, identifier: String) {
@@ -40,6 +42,7 @@ class Snippet: FirebaseType {
             let author = dictionary[.authorKey] as? String,
             let storyRef = dictionary[.storyReferenceKey] as? String,
             let createdString = dictionary[.createdKey] as? String,
+            let likes = dictionary[.likesKey] as? Int,
             let created = createdString.date()
             else { return nil }
         self.identifier = identifier
@@ -47,6 +50,7 @@ class Snippet: FirebaseType {
         self.author = author
         self.storyRef = storyRef
         self.created = created
+        self.likes = likes
         self.comments = dictionary[.commentsKey] as? [String]
         
     }
