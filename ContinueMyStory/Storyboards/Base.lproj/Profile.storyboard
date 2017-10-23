@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +15,7 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="9Kl-0T-rdF" customClass="ProfileViewController" customModule="ContinueMyStory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RRD-Ha-cV7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FO2-1Q-yQC">
@@ -143,7 +147,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUw-0X-wju">
-                                <rect key="frame" x="9" y="44" width="100" height="30"/>
+                                <rect key="frame" x="16" y="44" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Etc-mk-Jdh"/>
                                     <constraint firstAttribute="width" constant="100" id="WLf-64-fGB"/>
@@ -175,7 +179,7 @@
                             <constraint firstAttribute="trailing" secondItem="o39-Vh-slA" secondAttribute="trailing" constant="16" id="cdS-qc-4Dq"/>
                             <constraint firstItem="yUw-0X-wju" firstAttribute="top" secondItem="0vF-7K-XOU" secondAttribute="top" id="gqo-oS-xIH"/>
                             <constraint firstItem="FO2-1Q-yQC" firstAttribute="top" secondItem="0vF-7K-XOU" secondAttribute="top" constant="94" id="qm6-6R-NIW"/>
-                            <constraint firstItem="yUw-0X-wju" firstAttribute="leading" secondItem="0vF-7K-XOU" secondAttribute="leading" constant="9" id="ydV-07-4YE"/>
+                            <constraint firstItem="yUw-0X-wju" firstAttribute="leading" secondItem="0vF-7K-XOU" secondAttribute="leading" constant="16" id="ydV-07-4YE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0vF-7K-XOU"/>
                     </view>

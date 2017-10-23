@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var signUpButton: UIButton!
+    @IBOutlet var verifyUnderlineView: UIView!
     @IBOutlet var verifyPasswordTextField: UITextField!
     
     let firebaseAuthentication = FirebaseAuthentication()
@@ -54,9 +55,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func setViewsState() {
         if loginState == .login {
             verifyPasswordTextField.isHidden = true
+            verifyUnderlineView.isHidden = true
             loginButton.setTitle("Login", for: .normal)
         } else if loginState == .signUp {
             verifyPasswordTextField.isHidden = false
+            verifyUnderlineView.isHidden = false
             loginButton.setTitle("Cancel", for: .normal)
         }
     }
@@ -105,9 +108,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         self.resetTextFields()
                     }
                 }
+            }
         }
-        
-    }
     }
     
     func signUp() {
@@ -153,7 +155,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationController = segue.destination as? ProfileViewController else { return }
-            destinationController.currentUser = currentUser
+        destinationController.currentUser = currentUser
     }
 }
 
