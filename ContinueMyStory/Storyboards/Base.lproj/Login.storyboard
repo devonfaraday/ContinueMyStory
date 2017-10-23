@@ -27,26 +27,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awg-pP-03n">
-                                <rect key="frame" x="0.0" y="146" width="375" height="231"/>
+                                <rect key="frame" x="0.0" y="146.5" width="375" height="231"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="231" id="6aL-iC-3lJ"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FJ4-Hf-PQH">
-                                <rect key="frame" x="40" y="186" width="295" height="150"/>
+                                <rect key="frame" x="40" y="186" width="295" height="151"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Tlk-B5-dak">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="116"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Tlk-B5-dak" userLabel="Text Field Stacks">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="97"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2xZ-Rc-FJO">
-                                                <rect key="frame" x="0.0" y="0.0" width="295" height="32"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2xZ-Rc-FJO" userLabel="Email Stack">
+                                                <rect key="frame" x="0.0" y="0.0" width="295" height="19"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LDV-IA-aXF" userLabel="email">
-                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="bkJ-1l-Ugh"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="18"/>
                                                         <color key="textColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="email"/>
@@ -60,22 +57,19 @@
                                                         </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBf-ze-HtO">
-                                                        <rect key="frame" x="0.0" y="30" width="295" height="2"/>
+                                                        <rect key="frame" x="0.0" y="18" width="295" height="1"/>
                                                         <color key="backgroundColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="2" id="VTx-Fm-gyi"/>
+                                                            <constraint firstAttribute="height" constant="1" id="VTx-Fm-gyi"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1sV-KC-mDY">
-                                                <rect key="frame" x="0.0" y="42" width="295" height="32"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1sV-KC-mDY" userLabel="Password Stack">
+                                                <rect key="frame" x="0.0" y="39" width="295" height="19"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vbO-dS-aZF" userLabel="password">
-                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="Fwu-sX-gTT"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="18"/>
                                                         <color key="textColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
@@ -89,22 +83,19 @@
                                                         </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4k-LZ-4vd">
-                                                        <rect key="frame" x="0.0" y="30" width="295" height="2"/>
+                                                        <rect key="frame" x="0.0" y="18" width="295" height="1"/>
                                                         <color key="backgroundColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="2" id="4Yh-So-6k9"/>
+                                                            <constraint firstAttribute="height" constant="1" id="4Yh-So-6k9"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zn1-XZ-fJG">
-                                                <rect key="frame" x="0.0" y="84" width="295" height="32"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zn1-XZ-fJG" userLabel="Verify Password Stack">
+                                                <rect key="frame" x="0.0" y="78" width="295" height="19"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="verify password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxb-bk-IQR" userLabel="verify password">
-                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="eNj-BF-Kjr"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="18"/>
                                                         <color key="textColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
@@ -118,21 +109,24 @@
                                                         </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7f-Rl-lFO">
-                                                        <rect key="frame" x="0.0" y="30" width="295" height="2"/>
+                                                        <rect key="frame" x="0.0" y="18" width="295" height="1"/>
                                                         <color key="backgroundColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="2" id="ENv-gP-crl"/>
+                                                            <constraint firstAttribute="height" constant="1" id="ENv-gP-crl"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="97" id="F6r-6O-JVL"/>
+                                        </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1hk-gM-Xci">
-                                        <rect key="frame" x="0.0" y="126" width="295" height="24"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1hk-gM-Xci" userLabel="Button Stack">
+                                        <rect key="frame" x="0.0" y="107" width="295" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60i-EW-VJc">
-                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="24"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="44"/>
                                                 <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="25"/>
                                                 <state key="normal" title="Login">
                                                     <color key="titleColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -142,7 +136,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHb-97-EQy">
-                                                <rect key="frame" x="147.5" y="0.0" width="147.5" height="24"/>
+                                                <rect key="frame" x="147.5" y="0.0" width="147.5" height="44"/>
                                                 <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="25"/>
                                                 <state key="normal" title="Sign Up">
                                                     <color key="titleColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -154,9 +148,6 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="3im-9a-t9a"/>
-                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqE-Uj-H7e">
                                 <rect key="frame" x="28" y="20" width="154" height="59.5"/>
@@ -186,7 +177,6 @@
                             <constraint firstItem="MS5-Th-gjp" firstAttribute="leading" secondItem="YqE-Uj-H7e" secondAttribute="trailing" constant="-73" id="ci5-ov-Ve8"/>
                             <constraint firstItem="YqE-Uj-H7e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="dBG-wA-3ge"/>
                             <constraint firstItem="awg-pP-03n" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gfx-he-AIb"/>
-                            <constraint firstItem="awg-pP-03n" firstAttribute="centerX" secondItem="FJ4-Hf-PQH" secondAttribute="centerX" id="oGO-Yw-EZs"/>
                             <constraint firstItem="FJ4-Hf-PQH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wBh-Ae-osn"/>
                             <constraint firstItem="FJ4-Hf-PQH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="zwn-41-7wR"/>
                         </constraints>

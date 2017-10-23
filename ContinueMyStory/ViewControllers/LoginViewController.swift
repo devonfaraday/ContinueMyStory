@@ -25,9 +25,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
+        verifyPasswordTextField.isHidden = false
+        verifyUnderlineView.isHidden = false
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setViewsState()
         resetTextFields()
-        
     }
     
     
@@ -47,7 +54,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else {
             signUp()
         }
-        resetTextFields()
     }
     
     // MARK: - Helpers
