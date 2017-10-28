@@ -15,7 +15,7 @@ class Story: FirebaseType {
     let author: String
     var created: Date = Date()
     // this may become a model
-    let comments: [String]?
+    var comments: [Comment]?
     // snippets is of type string so it can hold the uid of the snippets saved.
     var category: StoryCategory
     let snippets: [String]?
@@ -23,7 +23,7 @@ class Story: FirebaseType {
     var identifier: String?
     var likes: [String]?
     
-    init(title: String, body: String, author: String, comments: [String] = [], category: StoryCategory, snippets: [String] = [], likes: [String] = []) {
+    init(title: String, body: String, author: String, comments: [Comment] = [], category: StoryCategory, snippets: [String] = [], likes: [String] = []) {
         self.title = title
         self.body = body
         self.author = author
@@ -75,7 +75,7 @@ class Story: FirebaseType {
         default:
             self.category = StoryCategory.none
         }
-        self.comments = dictionary[.commentsKey] as? [String]
+        self.comments = dictionary[.commentsKey] as? [Comment]
         self.snippets = dictionary[.snippetKey] as? [String]
         self.likes = dictionary[.likesKey] as? [String]
     }

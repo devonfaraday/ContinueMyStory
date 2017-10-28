@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SortTypeSelectable {
+class StoryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SortTypeSelectable{
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var sortButton: UIButton!
@@ -26,6 +26,13 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         hideSortByOptions()
         StoryController().fetchAllStories { (stories) in
+            for story in stories {
+                DispatchQueue.global().async {
+                CommentController().fetchComments(fromStory: story, completion: { (comments) in
+                    story.comments = comments
+                })
+                }
+            }
             self.stories = stories
         }
         
@@ -86,12 +93,16 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
         if segue.identifier == String.toSortByViewControllerSegue {
             guard let destination = segue.destination as? SortByViewController else { return }
             destination.delegate = self
         }
-        guard let destination = segue.destination as? StoryViewController else { return }
-        destination.story = selectedStory
+        if segue.identifier == String.toStoryDetailSegue {
+            guard let destination = segue.destination as? StoryViewController else { return }
+            destination.story = selectedStory
+        }
         
     }
  

@@ -15,14 +15,14 @@ class Snippet: FirebaseType {
     let storyRef: String
     var created: Date = Date()
     // this may become a model
-    let comments: [String]?
+    let comments: [Comment]?
     // snippets is of type string so it can hold the uid of the snippets saved.
     var endpoint: String = .snippetKey
     var identifier: String?
     var likes: [String]?
     let category: StoryCategory
     
-    init(body: String, author: String, storyRef: String, comments: [String] = [], likes: [String] = [], category: StoryCategory) {
+    init(body: String, author: String, storyRef: String, comments: [Comment] = [], likes: [String] = [], category: StoryCategory) {
         self.body = body
         self.author = author
         self.storyRef = storyRef
@@ -73,7 +73,7 @@ class Snippet: FirebaseType {
         default:
             self.category = StoryCategory.none
         }
-        self.comments = dictionary[.commentsKey] as? [String]
+        self.comments = dictionary[.commentsKey] as? [Comment]
         self.likes = dictionary[.likesKey] as? [String]
     }
 }

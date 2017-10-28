@@ -25,6 +25,7 @@ class SnippetController {
         snippetRef.observe(.value, with: { (snapshot) in
             print(snapshot.description)
             guard let snapDictionary = snapshot.value as? [String: JSONDictionary] else { completion([]); return }
+            
             let snippets = snapDictionary.flatMap { Snippet(dictionary: $1, identifier: $0) }.sorted(by: {$0.created < $1.created})
             
             completion(snippets)

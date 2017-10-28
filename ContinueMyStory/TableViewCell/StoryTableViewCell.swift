@@ -49,13 +49,13 @@ class StoryTableViewCell: UITableViewCell {
         DispatchQueue.main.async {
             self.authorLabel.text = "By: \(author.username)"
             // comment count will come from the count of array of comments
-            self.commentNumberLabel.text = "\(0)"
+            self.commentNumberLabel.text = "\(self.story?.comments?.count ?? 0)"
             
         }
     }
     
     @IBAction func commentButtonTapped(_ sender: UIButton) {
-        
+        delegate?.storyTableCommentButtonTapped(self)
     }
     
     @IBAction func lightButtonTapped(_ sender: UIButton) {
@@ -134,5 +134,6 @@ class StoryTableViewCell: UITableViewCell {
 }
 
 protocol StoryTableViewCellDelegate: class {
-    func storySelectedForPresentation(_ sender: StoryTableViewCell)
+//    func storySelectedForPresentation(_ sender: StoryTableViewCell)
+    func storyTableCommentButtonTapped(_ sender: StoryTableViewCell)
 }

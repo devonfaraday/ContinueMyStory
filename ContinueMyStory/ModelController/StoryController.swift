@@ -46,6 +46,7 @@ class StoryController {
         guard let snapDictionary = snapshot.value as? [String: [String: JSONDictionary]] else { print("No dictionary resturned"); return }
         let catDictionary = snapDictionary.flatMap { $1 }
             let stories = catDictionary.flatMap { Story(dictionary: $1, identifier: $0) }.filter { $0.author == user.identifier }
+           
             completion(stories)
     })
     }
