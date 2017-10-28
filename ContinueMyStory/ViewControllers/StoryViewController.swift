@@ -49,6 +49,11 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         setInitialStoryView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -171,12 +176,12 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let selectedStory = selectedStory {
                 destination.story = selectedStory
                 if let comments = selectedStory.comments {
-                    destination.comments = comments
+                    destination.comments = comments.sorted(by: { $0.created > $1.created })
                 }
             } else if let selectedSnippet = selectedSnippet {
                 destination.snippet = selectedSnippet
                 if let comments = selectedSnippet.comments {
-                    destination.comments = comments
+                    destination.comments = comments.sorted(by: { $0.created > $1.created })
                 }
             }
         }

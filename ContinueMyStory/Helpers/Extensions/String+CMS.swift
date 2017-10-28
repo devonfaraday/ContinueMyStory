@@ -52,7 +52,7 @@ extension String {
     // MARK: - Functions
     func date() -> Date? {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        formatter.dateFormat = "yyyy-MM-dd hh:mm:ss a"
         guard let date = formatter.date(from: self) else { return nil }
         return date
     }

@@ -12,7 +12,9 @@ extension Date {
     
     func toString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.amSymbol = "AM"
+        dateFormatter.pmSymbol = "PM"
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss a"
         return dateFormatter.string(from: self)
     }
     

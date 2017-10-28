@@ -81,7 +81,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     func saveToStory(withComment comment: Comment) {
         guard let story = story else { return }
         CommentController().save(comment: comment, toStory: story) {
-            self.comments.append(comment)
+            self.comments.insert(comment, at: 0)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
