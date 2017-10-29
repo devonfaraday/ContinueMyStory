@@ -30,16 +30,23 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
             storyTitleLabel.text = story?.title
             guard let story = story else { return }
             SnippetController().fetchSnippets(fromStory: story, completion: { (snippets) in
-                self.snippets = snippets
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                CommentController().fetchComments(fromSnippets: snippets, completion: { (comments) in
+                    for snippet in snippets {
+                        snippet.comments = comments.filter { $0.snippetRef == snippet.identifier }
+                    }
+                    self.snippets = snippets
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                })
+
+                
             })
         }
     }
     var selectedStory: Story?
     var selectedSnippet: Snippet?
-    var snippets = [Snippet]()
+    var snippets = [Snippet]() 
     var isAddingSnippet = false
     
     override func viewDidLoad() {
@@ -52,6 +59,8 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        selectedSnippet = nil
+        selectedStory = nil
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

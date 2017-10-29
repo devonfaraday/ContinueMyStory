@@ -32,6 +32,7 @@ extension String {
     static var categoryKey: String { get { return "category" } }
     static var snippetKey: String { get { return "snippet" } }
     static var storyReferenceKey: String { get { return "storyReference" } }
+    static var snippetReferenceKey: String { get { return "snippetReference" } }
     static var createdKey: String { get { return "created" } }
     static var likesKey: String { get { return "likes" } }
     

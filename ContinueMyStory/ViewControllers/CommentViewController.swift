@@ -66,10 +66,12 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             let user = user
             else { return }
         let authorsFullName = "\(user.givenName) \(user.familyName)"
-        let comment = Comment(author: authorsFullName, body: body)
-        if story != nil {
+        
+        if let story = story {
+            let comment = Comment(author: authorsFullName, body: body, storyRef: story.identifier)
             saveToStory(withComment: comment)
-        } else {
+        } else if let snippet = snippet {
+            let comment = Comment(author: authorsFullName, body: body, snippetRef: snippet.identifier)
             saveToSnippet(withComment: comment)
         }
     }
@@ -89,9 +91,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func saveToSnippet(withComment comment: Comment) {
-        guard let story = story else { return }
-        CommentController().save(comment: comment, toStory: story) {
-            self.comments.append(comment)
+        guard let snippet = snippet else { return }
+        CommentController().save(comment: comment, toSnippet: snippet) {
+            self.comments.insert(comment, at: 0)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

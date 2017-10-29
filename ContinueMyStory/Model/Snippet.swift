@@ -15,7 +15,7 @@ class Snippet: FirebaseType {
     let storyRef: String
     var created: Date = Date()
     // this may become a model
-    let comments: [Comment]?
+    var comments: [Comment]?
     // snippets is of type string so it can hold the uid of the snippets saved.
     var endpoint: String = .snippetKey
     var identifier: String?

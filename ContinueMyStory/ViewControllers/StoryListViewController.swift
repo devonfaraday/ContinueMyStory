@@ -21,7 +21,7 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     var selectedStory: Story?
     var snippets = [Snippet]()
-    
+    // TODO: - Figure out how to fetch comments for snippets
     override func viewDidLoad() {
         super.viewDidLoad()
         hideSortByOptions()
@@ -32,6 +32,7 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
                     story.comments = comments
                 })
                 }
+        
             }
             self.stories = stories
         }
@@ -57,12 +58,10 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let story = stories[indexPath.row]
         selectedStory = story
-        SnippetController().fetchSnippets(fromStory: story) { (snippets) in
-            self.snippets = snippets
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: .toStoryDetailSegue, sender: self)
             }
-        }
+        
         
     }
     

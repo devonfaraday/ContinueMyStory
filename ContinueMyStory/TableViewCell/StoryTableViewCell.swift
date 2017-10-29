@@ -49,7 +49,7 @@ class StoryTableViewCell: UITableViewCell {
         DispatchQueue.main.async {
             self.authorLabel.text = "By: \(author.username)"
             // comment count will come from the count of array of comments
-            self.commentNumberLabel.text = "\(self.story?.comments?.count ?? 0)"
+            self.commentNumberLabel.text = "\(self.story?.comments?.count ?? self.snippet?.comments?.count ?? 0)"
             
         }
     }
