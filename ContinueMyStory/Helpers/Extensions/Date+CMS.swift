@@ -18,4 +18,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func toStringWithoutSeconds() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.amSymbol = "AM"
+        dateFormatter.pmSymbol = "PM"
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm a"
+        return dateFormatter.string(from: self)
+    }
+    
 }

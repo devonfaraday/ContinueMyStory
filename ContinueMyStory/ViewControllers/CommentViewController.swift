@@ -42,6 +42,10 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 150
+        
+        setupCommentTextView()
         UserController().fetchUser(withIdentifier: userID) { (user) in
             guard let user = user else { return }
             self.user = user
@@ -54,10 +58,9 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: .commentCellIdentifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: .commentCellIdentifier, for: indexPath) as? CommentTableViewCell else { return CommentTableViewCell() }
         let comment = comments[indexPath.row]
-        cell.textLabel?.text = comment.body
-        cell.detailTextLabel?.text = "\(comment.author) | \(comment.created.toString())"
+        cell.comment = comment
         return cell
     }
     
@@ -74,6 +77,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             let comment = Comment(author: authorsFullName, body: body, snippetRef: snippet.identifier)
             saveToSnippet(withComment: comment)
         }
+        commentTextView.text = ""
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
@@ -100,7 +104,11 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    
+    func setupCommentTextView() {
+        commentTextView.layer.borderWidth = 2
+        commentTextView.layer.borderColor = UIColor.black.cgColor
+        commentTextView.layer.cornerRadius = 10
+    }
     
     
 }

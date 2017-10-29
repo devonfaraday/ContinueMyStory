@@ -35,6 +35,8 @@
 		FD606E091F9C71FB00E4A5F4 /* UIColor+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD606E081F9C71FB00E4A5F4 /* UIColor+CMS.swift */; };
 		FD70A2291F908DB300B83ACE /* StoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD70A2281F908DB300B83ACE /* StoryListViewController.swift */; };
 		FD70A22B1F90FD6200B83ACE /* SnippetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD70A22A1F90FD6200B83ACE /* SnippetController.swift */; };
+		FD8E8BDD1FA5815900DC6DC1 /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8E8BDC1FA5815900DC6DC1 /* Comment.storyboard */; };
+		FD8E8BE01FA58C1800DC6DC1 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8E8BDF1FA58C1800DC6DC1 /* CommentTableViewCell.swift */; };
 		FDA24EDE1F8E5E5800D041E2 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EDD1F8E5E5800D041E2 /* UserController.swift */; };
 		FDA24EE21F8E89A900D041E2 /* Snippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EE11F8E89A900D041E2 /* Snippet.swift */; };
 		FDA24EE81F8EE51900D041E2 /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EE71F8EE51900D041E2 /* StoryController.swift */; };
@@ -108,6 +110,8 @@
 		FD606E081F9C71FB00E4A5F4 /* UIColor+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CMS.swift"; sourceTree = "<group>"; };
 		FD70A2281F908DB300B83ACE /* StoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListViewController.swift; sourceTree = "<group>"; };
 		FD70A22A1F90FD6200B83ACE /* SnippetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetController.swift; sourceTree = "<group>"; };
+		FD8E8BDC1FA5815900DC6DC1 /* Comment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
+		FD8E8BDF1FA58C1800DC6DC1 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		FDA24EDD1F8E5E5800D041E2 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		FDA24EE11F8E89A900D041E2 /* Snippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippet.swift; sourceTree = "<group>"; };
 		FDA24EE71F8EE51900D041E2 /* StoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 		FD27D79C1F8DBE7E00FFE353 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				FD8E8BDC1FA5815900DC6DC1 /* Comment.storyboard */,
 				FD606DF31F99B5AE00E4A5F4 /* Create.storyboard */,
 				FD606DF51F99B5AE00E4A5F4 /* Login.storyboard */,
 				FD606DF71F99B5AE00E4A5F4 /* Profile.storyboard */,
@@ -325,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */,
+				FD8E8BDF1FA58C1800DC6DC1 /* CommentTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 				FD3466CA1F8DD329006C4D70 /* GoogleService-Info.plist in Resources */,
 				FD606DFE1F99B5AE00E4A5F4 /* Profile.storyboard in Resources */,
 				FD606DFD1F99B5AE00E4A5F4 /* Login.storyboard in Resources */,
+				FD8E8BDD1FA5815900DC6DC1 /* Comment.storyboard in Resources */,
 				FD27D7741F8DBDB900FFE353 /* Assets.xcassets in Resources */,
 				FD27D7721F8DBDB900FFE353 /* Main.storyboard in Resources */,
 				FD606DFF1F99B5AE00E4A5F4 /* Story.storyboard in Resources */,
@@ -659,6 +666,7 @@
 				FD606E051F9BED8500E4A5F4 /* SortByViewController.swift in Sources */,
 				FDFB941C1F96F227009F332B /* InitialViewController.swift in Sources */,
 				FD70A22B1F90FD6200B83ACE /* SnippetController.swift in Sources */,
+				FD8E8BE01FA58C1800DC6DC1 /* CommentTableViewCell.swift in Sources */,
 				FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */,
 				FDA24EEA1F8EE53300D041E2 /* StoryViewController.swift in Sources */,
 				FD3466C61F8DCA7D006C4D70 /* AuthenticationController.swift in Sources */,
