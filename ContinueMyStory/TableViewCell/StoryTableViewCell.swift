@@ -35,6 +35,7 @@ class StoryTableViewCell: UITableViewCell {
     
     func updateView() {
         guard let author = author else { return }
+        
         if let story = story {
             DispatchQueue.main.async {
                 self.bodyLabel.text = story.body

@@ -58,9 +58,13 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: .commentCellIdentifier, for: indexPath) as? CommentTableViewCell else { return CommentTableViewCell() }
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: .commentCellIdentifier, for: indexPath) as? CommentTableViewCell else { return CommentTableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: .commentCellIdentifier, for: indexPath)
         let comment = comments[indexPath.row]
-        cell.comment = comment
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.text = comment.body
+        cell.detailTextLabel?.text = "\(comment.author) | \(comment.created.toStringWithoutSeconds())"
+        
         return cell
     }
     

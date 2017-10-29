@@ -12,7 +12,7 @@ import Firebase
 class StoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, StoryTableViewCellDelegate {
     
     
-    @IBOutlet var heightLabel: UILabel!
+    
     @IBOutlet var storyTitleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var addSnippetView: UIView!
@@ -51,18 +51,31 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 400
-        
         configureButtons()
         setInitialStoryView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        tableView.isHidden = true
         selectedSnippet = nil
         selectedStory = nil
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        hideAllUntilAfterReload {
+            DispatchQueue.main.async {
+                self.tableView.isHidden = false
+            }
+        }
+    }
+    
+    func hideAllUntilAfterReload(completion: @escaping() -> Void) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        completion()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,8 +91,10 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: .storyCellIdentifier, for: indexPath) as? StoryTableViewCell else { return StoryTableViewCell() }
         cell.delegate = self
+        cell.bodyLabel.numberOfLines = 0
         if indexPath.section == 0 {
             if let story = story {
                 cell.story = story
