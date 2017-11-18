@@ -20,6 +20,41 @@ class UserController {
         user.save()
     }
     
+    func followStory(withUser user: User, andStoryRef storyRef: String, completion: @escaping(User?) -> Void) {
+        var modifiedUser = user
+        if !modifiedUser.stories.contains(storyRef) {
+        modifiedUser.stories.append(storyRef)
+        modifiedUser.save()
+            completion(modifiedUser)
+        } else {
+            completion(nil)
+        }
+    }
+    
+    func follow(user: User, withCurrentUser currentUser: User, completion: @escaping(User?) -> Void) {
+        var modifiedUser = user
+        var modifiedCurrentUser = currentUser
+        guard let currentUserUid = currentUser.identifier,
+            let userUid = user.identifier
+        else { return }
+        
+        if !modifiedUser.followers.contains(currentUserUid) {
+            modifiedUser.followers.append(currentUserUid)
+            modifiedUser.save()
+        } else {
+            print("You are already a follower of \(user.givenName)")
+        }
+        if !modifiedCurrentUser.following.contains(userUid) {
+            modifiedCurrentUser.following.append(userUid)
+            modifiedCurrentUser.save()
+            completion(modifiedCurrentUser)
+        } else {
+            print("Already following \(user.givenName)")
+            completion(nil)
+        }
+        
+    }
+    
     func fetchUser(withIdentifier identifier: String, completion: @escaping (User?) -> Void) {
         let userRef = FirebaseController.databaseRef.child(.usersEndpoint).child(identifier)
         userRef.observeSingleEvent(of: .value, with: { (data) in

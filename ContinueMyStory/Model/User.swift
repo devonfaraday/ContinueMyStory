@@ -12,17 +12,24 @@ import Firebase
 
 struct User: FirebaseType {
     
-    var username: String
-    var givenName: String
-    var familyName: String
     var age: String
     var endpoint: String = .usersEndpoint
+    var familyName: String
+    var followers: [String] = []
+    var following: [String] = []
+    var stories: [String] = []
+    var givenName: String
     var identifier: String?
+    var profileImage: UIImage?
+    var username: String
     var dictionaryCopy: [String : Any] {
         return [.usernameKey: username,
                 .givenNameKey: givenName,
                 .familyNameKey: familyName,
                 .ageKey: age]
+    }
+    var fullName: String {
+        return "\(givenName) \(familyName)"
     }
     
     init(username: String, givenName: String, familyName: String, age: String, identifier: String ) {

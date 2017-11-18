@@ -49,6 +49,9 @@ extension String {
     static var familyNameKey: String { get { return "familyName" } }
     static var ageKey: String { get { return "age" } }
     static var identifierKey: String { get { return "uid" } }
+    static var storyFollowingKey: String { get { return "storiesFollowing" } }
+    static var followingKey: String { get { return "following" } }
+    static var followersKey: String { get { return "followers" } }
     
     // MARK: - Functions
     func date() -> Date? {

@@ -160,7 +160,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationController = segue.destination as? ProfileViewController else { return }
+        guard let destinationController = segue.destination as? BioViewController else { return }
         destinationController.currentUser = currentUser
     }
 }

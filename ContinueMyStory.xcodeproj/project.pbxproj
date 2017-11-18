@@ -19,7 +19,7 @@
 		FD3466C61F8DCA7D006C4D70 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466C51F8DCA7D006C4D70 /* AuthenticationController.swift */; };
 		FD3466C81F8DCC6E006C4D70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466C71F8DCC6E006C4D70 /* LoginViewController.swift */; };
 		FD3466CA1F8DD329006C4D70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD3466C91F8DD329006C4D70 /* GoogleService-Info.plist */; };
-		FD3466CC1F8DDB41006C4D70 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466CB1F8DDB41006C4D70 /* ProfileViewController.swift */; };
+		FD3466CC1F8DDB41006C4D70 /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466CB1F8DDB41006C4D70 /* BioViewController.swift */; };
 		FD3466CE1F8DDBC5006C4D70 /* String+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466CD1F8DDBC5006C4D70 /* String+CMS.swift */; };
 		FD3466D01F8DDFDD006C4D70 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466CF1F8DDFDD006C4D70 /* User.swift */; };
 		FD3466D21F8DDFE5006C4D70 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D11F8DDFE5006C4D70 /* Story.swift */; };
@@ -42,6 +42,7 @@
 		FDA24EE81F8EE51900D041E2 /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EE71F8EE51900D041E2 /* StoryController.swift */; };
 		FDA24EEA1F8EE53300D041E2 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EE91F8EE53300D041E2 /* StoryViewController.swift */; };
 		FDA2EE221F941EF900756068 /* Date+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA2EE211F941EF900756068 /* Date+CMS.swift */; };
+		FDA3A06A1FC0EE42004D7CF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3A0691FC0EE42004D7CF9 /* ProfileViewController.swift */; };
 		FDA99F421F9030670050B09F /* Dictionary+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA99F411F9030670050B09F /* Dictionary+CMS.swift */; };
 		FDB129C91FA184F500000AB5 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129C81FA184F500000AB5 /* CommentViewController.swift */; };
 		FDB129CB1FA1863500000AB5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129CA1FA1863500000AB5 /* Comment.swift */; };
@@ -93,7 +94,7 @@
 		FD3466C51F8DCA7D006C4D70 /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		FD3466C71F8DCC6E006C4D70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD3466C91F8DD329006C4D70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "ContinueMyStory/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		FD3466CB1F8DDB41006C4D70 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FD3466CB1F8DDB41006C4D70 /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
 		FD3466CD1F8DDBC5006C4D70 /* String+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CMS.swift"; sourceTree = "<group>"; };
 		FD3466CF1F8DDFDD006C4D70 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FD3466D11F8DDFE5006C4D70 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		FDA24EE71F8EE51900D041E2 /* StoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
 		FDA24EE91F8EE53300D041E2 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		FDA2EE211F941EF900756068 /* Date+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+CMS.swift"; sourceTree = "<group>"; };
+		FDA3A0691FC0EE42004D7CF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FDA99F411F9030670050B09F /* Dictionary+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+CMS.swift"; sourceTree = "<group>"; };
 		FDB129C81FA184F500000AB5 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		FDB129CA1FA1863500000AB5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -276,12 +278,13 @@
 			children = (
 				FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */,
 				FD3466C71F8DCC6E006C4D70 /* LoginViewController.swift */,
-				FD3466CB1F8DDB41006C4D70 /* ProfileViewController.swift */,
+				FD3466CB1F8DDB41006C4D70 /* BioViewController.swift */,
 				FDA24EE91F8EE53300D041E2 /* StoryViewController.swift */,
 				FD70A2281F908DB300B83ACE /* StoryListViewController.swift */,
 				FDFB941B1F96F227009F332B /* InitialViewController.swift */,
 				FD606E041F9BED8500E4A5F4 /* SortByViewController.swift */,
 				FDB129C81FA184F500000AB5 /* CommentViewController.swift */,
+				FDA3A0691FC0EE42004D7CF9 /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -661,7 +664,8 @@
 				FD3466D01F8DDFDD006C4D70 /* User.swift in Sources */,
 				FD3466D81F8DE570006C4D70 /* Constants.swift in Sources */,
 				FD27D76D1F8DBDB900FFE353 /* AppDelegate.swift in Sources */,
-				FD3466CC1F8DDB41006C4D70 /* ProfileViewController.swift in Sources */,
+				FD3466CC1F8DDB41006C4D70 /* BioViewController.swift in Sources */,
+				FDA3A06A1FC0EE42004D7CF9 /* ProfileViewController.swift in Sources */,
 				FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */,
 				FD606E051F9BED8500E4A5F4 /* SortByViewController.swift in Sources */,
 				FDFB941C1F96F227009F332B /* InitialViewController.swift in Sources */,

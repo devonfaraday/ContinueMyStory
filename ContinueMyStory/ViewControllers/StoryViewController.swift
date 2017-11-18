@@ -11,8 +11,6 @@ import Firebase
 
 class StoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, StoryTableViewCellDelegate {
     
-    
-    
     @IBOutlet var storyTitleLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var addSnippetView: UIView!
@@ -185,7 +183,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: - Text View Delegates
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
-        let numberOfChars = newText.characters.count
+        let numberOfChars = newText.count
         characterCountLabel.text = "\(numberOfChars)/1000"
         return numberOfChars < 1000 ;
     }
