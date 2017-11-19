@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-814" y="36"/>
         </scene>
-        <!--ProfileViewController-->
+        <!--ProfileNavigationController-->
         <scene sceneID="EIJ-9B-nrn">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="ProfileViewController" storyboardName="Profile" referencedIdentifier="ProfileViewController" id="bGb-FF-FCO" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="ProfileNavigationController" storyboardName="Profile" referencedIdentifier="ProfileNavigationController" id="bGb-FF-FCO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="noX-zK-0XD"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMu-NW-9LF" userLabel="First Responder" sceneMemberID="firstResponder"/>

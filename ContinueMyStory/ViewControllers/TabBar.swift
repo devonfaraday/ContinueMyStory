@@ -11,4 +11,8 @@ import UIKit
 class TabBar: UITabBarController {
 
     var currentUser: User?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
 }

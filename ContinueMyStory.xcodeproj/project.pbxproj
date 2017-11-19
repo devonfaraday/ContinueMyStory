@@ -46,6 +46,7 @@
 		FDA3A06C1FC0F037004D7CF9 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDA3A06B1FC0F037004D7CF9 /* TabBar.storyboard */; };
 		FDA3A06E1FC0F2C6004D7CF9 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3A06D1FC0F2C6004D7CF9 /* TabBar.swift */; };
 		FDA3A0701FC10A62004D7CF9 /* StoryListNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3A06F1FC10A62004D7CF9 /* StoryListNavigationController.swift */; };
+		FDA3A0771FC10EC7004D7CF9 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3A0761FC10EC7004D7CF9 /* FollowViewController.swift */; };
 		FDA99F421F9030670050B09F /* Dictionary+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA99F411F9030670050B09F /* Dictionary+CMS.swift */; };
 		FDB129C91FA184F500000AB5 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129C81FA184F500000AB5 /* CommentViewController.swift */; };
 		FDB129CB1FA1863500000AB5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129CA1FA1863500000AB5 /* Comment.swift */; };
@@ -53,6 +54,7 @@
 		FDE1A9D91F8EFD330010ED03 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */; };
 		FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */; };
 		FDFB941C1F96F227009F332B /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB941B1F96F227009F332B /* InitialViewController.swift */; };
+		FDFC86ED1FC13425004580BD /* ProfileNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFC86EC1FC13425004580BD /* ProfileNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,7 @@
 		FDA3A06B1FC0F037004D7CF9 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		FDA3A06D1FC0F2C6004D7CF9 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		FDA3A06F1FC10A62004D7CF9 /* StoryListNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListNavigationController.swift; sourceTree = "<group>"; };
+		FDA3A0761FC10EC7004D7CF9 /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
 		FDA99F411F9030670050B09F /* Dictionary+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+CMS.swift"; sourceTree = "<group>"; };
 		FDB129C81FA184F500000AB5 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		FDB129CA1FA1863500000AB5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -132,6 +135,7 @@
 		FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoryTableViewController.swift; sourceTree = "<group>"; };
 		FDFB941B1F96F227009F332B /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		FDFC86EC1FC13425004580BD /* ProfileNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,6 +353,8 @@
 			children = (
 				FDA3A0691FC0EE42004D7CF9 /* ProfileViewController.swift */,
 				FD3466CB1F8DDB41006C4D70 /* BioViewController.swift */,
+				FDA3A0761FC10EC7004D7CF9 /* FollowViewController.swift */,
+				FDFC86EC1FC13425004580BD /* ProfileNavigationController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -700,6 +706,7 @@
 				FD3466D41F8DE0E0006C4D70 /* FirebaseController.swift in Sources */,
 				FDA3A0701FC10A62004D7CF9 /* StoryListNavigationController.swift in Sources */,
 				FDA2EE221F941EF900756068 /* Date+CMS.swift in Sources */,
+				FDFC86ED1FC13425004580BD /* ProfileNavigationController.swift in Sources */,
 				FD3466D21F8DDFE5006C4D70 /* Story.swift in Sources */,
 				FDB129CD1FA1864800000AB5 /* CommentController.swift in Sources */,
 				FD3466C81F8DCC6E006C4D70 /* LoginViewController.swift in Sources */,
@@ -718,6 +725,7 @@
 				FD27D76D1F8DBDB900FFE353 /* AppDelegate.swift in Sources */,
 				FD3466CC1F8DDB41006C4D70 /* BioViewController.swift in Sources */,
 				FDA3A06A1FC0EE42004D7CF9 /* ProfileViewController.swift in Sources */,
+				FDA3A0771FC10EC7004D7CF9 /* FollowViewController.swift in Sources */,
 				FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */,
 				FD606E051F9BED8500E4A5F4 /* SortByViewController.swift in Sources */,
 				FDFB941C1F96F227009F332B /* InitialViewController.swift in Sources */,

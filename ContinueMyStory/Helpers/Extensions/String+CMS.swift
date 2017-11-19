@@ -16,6 +16,7 @@ extension String {
     static var categoryEndpoint: String { get { return "category" } }
     
     /* Segues */
+    static var toBioViewControllerSegue: String { get { return "toBioViewController" } }
     static var toProfileViewControllerSegue: String { get { return "toProfileViewController" } }
     static var toStoryDetailSegue: String { get { return "toStoryDetail" } }
     static var toStoryListSegue: String { get { return "toStoryList" } }
