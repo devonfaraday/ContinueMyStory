@@ -238,7 +238,7 @@
             </objects>
             <point key="canvasLocation" x="2591" y="644"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="5mP-eF-oig">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="s0A-6N-Mzz" customClass="ProfileViewController" customModule="ContinueMyStory" customModuleProvider="target" sceneMemberID="viewController">
@@ -300,6 +300,9 @@
                                             <constraint firstAttribute="height" constant="30" id="KTb-kO-hg3"/>
                                         </constraints>
                                         <state key="normal" title="Follow"/>
+                                        <connections>
+                                            <action selector="followButtonTapped:" destination="s0A-6N-Mzz" eventType="touchUpInside" id="dmA-UT-kYF"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="RPD-gd-4s4">
                                         <rect key="frame" x="128" y="41" width="217" height="45"/>
@@ -338,18 +341,27 @@
                                                         <state key="normal" title="00">
                                                             <color key="titleColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="storyButtonTapped:" destination="s0A-6N-Mzz" eventType="touchUpInside" id="j5C-gK-fy0"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfV-BZ-Pr2">
                                                         <rect key="frame" x="72.333333333333343" y="0.0" width="72.333333333333343" height="30"/>
                                                         <state key="normal" title="00">
                                                             <color key="titleColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="followersButtonTapped:" destination="s0A-6N-Mzz" eventType="touchUpInside" id="LbO-wb-6Tt"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcJ-VG-8f8">
                                                         <rect key="frame" x="144.66666666666669" y="0.0" width="72.333333333333314" height="30"/>
                                                         <state key="normal" title="00">
                                                             <color key="titleColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="followingButtonTapped:" destination="s0A-6N-Mzz" eventType="touchUpInside" id="Aov-hQ-Cbq"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -360,6 +372,12 @@
                                             <constraint firstItem="HIN-HL-pdi" firstAttribute="width" secondItem="GS9-cg-3kd" secondAttribute="width" id="oqf-u5-kHo"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mou-qo-myA">
+                                        <rect key="frame" x="8" y="8" width="90" height="90"/>
+                                        <connections>
+                                            <action selector="imageButtonTapped:" destination="s0A-6N-Mzz" eventType="touchUpInside" id="SQo-x3-eIl"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -370,10 +388,14 @@
                                     <constraint firstAttribute="bottom" secondItem="E3T-hn-el8" secondAttribute="bottom" constant="8" id="QvJ-qW-NLx"/>
                                     <constraint firstItem="RPD-gd-4s4" firstAttribute="leading" secondItem="E3T-hn-el8" secondAttribute="trailing" constant="30" id="Uza-M5-14R"/>
                                     <constraint firstItem="zf1-1u-eQX" firstAttribute="centerY" secondItem="nQ3-2N-eLy" secondAttribute="centerY" id="ZUg-tF-Txt"/>
+                                    <constraint firstItem="Mou-qo-myA" firstAttribute="width" secondItem="E3T-hn-el8" secondAttribute="width" id="bQK-eX-1s2"/>
+                                    <constraint firstItem="Mou-qo-myA" firstAttribute="centerY" secondItem="E3T-hn-el8" secondAttribute="centerY" id="dL9-0T-9KG"/>
                                     <constraint firstItem="nQ3-2N-eLy" firstAttribute="leading" secondItem="E3T-hn-el8" secondAttribute="trailing" constant="-1" id="dvM-fi-Eha"/>
+                                    <constraint firstItem="Mou-qo-myA" firstAttribute="height" secondItem="E3T-hn-el8" secondAttribute="height" id="gzY-Ej-IGB"/>
                                     <constraint firstItem="E3T-hn-el8" firstAttribute="leading" secondItem="Dvw-Km-eed" secondAttribute="leading" constant="8" id="o0y-u6-KNB"/>
                                     <constraint firstItem="zf1-1u-eQX" firstAttribute="leading" secondItem="nQ3-2N-eLy" secondAttribute="trailing" constant="8" id="oQy-7b-CJH"/>
                                     <constraint firstAttribute="trailing" secondItem="zf1-1u-eQX" secondAttribute="trailing" constant="8" id="rHc-HF-cJ5"/>
+                                    <constraint firstItem="Mou-qo-myA" firstAttribute="centerX" secondItem="E3T-hn-el8" secondAttribute="centerX" id="ue3-0O-w4f"/>
                                     <constraint firstAttribute="height" constant="106" id="zRT-jv-uVI"/>
                                 </constraints>
                             </view>
@@ -390,10 +412,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sSO-Z1-Gl4"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" id="P64-hE-6LB"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="followButton" destination="zf1-1u-eQX" id="BDX-Qb-eoP"/>
+                        <outlet property="followersButton" destination="vfV-BZ-Pr2" id="bHw-Ei-vTa"/>
+                        <outlet property="followingButton" destination="vcJ-VG-8f8" id="ujf-id-Spf"/>
+                        <outlet property="imageButton" destination="Mou-qo-myA" id="REt-cP-onb"/>
+                        <outlet property="profileImageView" destination="E3T-hn-el8" id="6e4-Gz-pfV"/>
+                        <outlet property="storyButton" destination="HIN-HL-pdi" id="Yvp-Vw-sad"/>
+                        <outlet property="tableView" destination="qqg-oo-MQ7" id="fle-We-BfF"/>
+                        <outlet property="usernameLabel" destination="nQ3-2N-eLy" id="46s-Ps-pDy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVb-H5-MUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3680.8000000000002" y="152.95566502463055"/>
+            <point key="canvasLocation" x="3756" y="129"/>
         </scene>
         <!--StoryListViewController-->
         <scene sceneID="H1O-Mc-t4L">

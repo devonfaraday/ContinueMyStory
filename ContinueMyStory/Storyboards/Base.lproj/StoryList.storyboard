@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lkP-fC-vjo">
-                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="553"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="storyListCell" textLabel="wI6-iC-OpN" detailTextLabel="e8u-Iw-AMR" style="IBUITableViewCellStyleValue1" id="kxG-6Y-YaC">
@@ -114,6 +114,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="suE-cm-OD1"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="1ku-jE-GNC"/>
+                    <navigationItem key="navigationItem" id="plZ-dM-cs3"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="hFF-6Y-6f8" id="B4z-Bq-Qed"/>
                         <outlet property="sortButton" destination="Rb2-3Z-5UM" id="gBz-Wv-dVZ"/>
@@ -123,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddx-go-yId" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3208.8000000000002" y="487.10644677661173"/>
+            <point key="canvasLocation" x="3622" y="486"/>
         </scene>
         <!--UIViewController-deP-xI-xV5-->
         <scene sceneID="XB8-Ej-5Db">
@@ -131,7 +134,7 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UIViewController-deP-xI-xV5" id="XRu-7l-P7h" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wc9-02-Yg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4082" y="488"/>
+            <point key="canvasLocation" x="4270" y="666"/>
         </scene>
         <!--Sort By View Controller-->
         <scene sceneID="Xv6-SJ-x2v">
@@ -176,6 +179,7 @@
                             <constraint firstItem="xdk-CL-JgV" firstAttribute="top" secondItem="GY9-ip-1Vr" secondAttribute="top" id="6Cu-In-1NK"/>
                             <constraint firstAttribute="bottom" secondItem="xdk-CL-JgV" secondAttribute="bottom" id="YMz-xl-5aW"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="r2P-xN-NF9"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="xdk-CL-JgV" id="2bX-x4-rFZ"/>
@@ -183,7 +187,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LON-lx-HdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4014" y="337"/>
+            <point key="canvasLocation" x="4352.8000000000002" y="336.88155922038982"/>
+        </scene>
+        <!--Story List Navigation Controller-->
+        <scene sceneID="pwn-3z-TQR">
+            <objects>
+                <navigationController storyboardIdentifier="StoryListNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="nqB-y4-I78" customClass="StoryListNavigationController" customModule="ContinueMyStory" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JTX-53-Sls">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZpJ-lG-njZ" kind="relationship" relationship="rootViewController" id="8v1-8E-fa7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14J-QH-gQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2927" y="485"/>
         </scene>
     </scenes>
 </document>

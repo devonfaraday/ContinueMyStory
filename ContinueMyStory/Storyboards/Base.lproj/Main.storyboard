@@ -1,33 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mQs-hJ-MjB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wPY-wx-Nrk">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="XSq-8B-CGN">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="mQs-hJ-MjB" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="exT-wc-qay">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="wPY-wx-Nrk" kind="relationship" relationship="rootViewController" id="L8n-sZ-WdC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G54-YA-JBW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-231" y="129"/>
-        </scene>
         <!--Initial View Controller-->
         <scene sceneID="Ow6-4Y-6b1">
             <objects>
@@ -41,12 +23,20 @@
                     <navigationItem key="navigationItem" id="mHu-PT-hGd"/>
                     <connections>
                         <segue destination="mBF-cC-ecp" kind="show" identifier="toLoginViewController" id="fwM-bE-F9O"/>
-                        <segue destination="H4m-pK-fYR" kind="show" identifier="toProfileViewController" id="Cbl-Dd-78K"/>
+                        <segue destination="sze-TW-OJD" kind="show" identifier="toProfileViewController" id="AZB-Vg-pmJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Rh-rI-uMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="596" y="129"/>
+        </scene>
+        <!--TabBarController-->
+        <scene sceneID="Ghq-rq-LJQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabBar" referencedIdentifier="TabBarController" id="sze-TW-OJD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWk-LX-CeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1574" y="-12"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="3gV-xg-qr3">
@@ -62,29 +52,29 @@
                 <viewControllerPlaceholder storyboardIdentifier="ProfileViewController" storyboardName="Profile" referencedIdentifier="ProfileViewController" id="H4m-pK-fYR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPS-Ck-RdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1918" y="129"/>
+            <point key="canvasLocation" x="1578" y="284"/>
         </scene>
-        <!--UITableViewController-3An-D1-CHa-->
+        <!--CreateStoryTableViewController-->
         <scene sceneID="0Rt-3B-FAp">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="UITableViewController-3An-D1-CHa" storyboardName="Create" referencedIdentifier="UITableViewController-3An-D1-CHa" id="vTD-5y-nGl" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YY2-BC-fvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="UITableViewController-3An-D1-CHa" storyboardName="Create" referencedIdentifier="CreateStoryTableViewController" id="vTD-5y-nGl" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="2369" y="129"/>
         </scene>
         <!--StoryListViewController-->
         <scene sceneID="VUY-cC-r36">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="StoryListViewController" storyboardName="StoryList" referencedIdentifier="StoryListViewController" id="7DA-Ir-zRa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Afi-it-Q5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="StoryListViewController" storyboardName="StoryList" referencedIdentifier="StoryListViewController" id="7DA-Ir-zRa" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="2859" y="129"/>
         </scene>
         <!--UIViewController-deP-xI-xV5-->
         <scene sceneID="u9W-8L-fZm">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="UIViewController-deP-xI-xV5" storyboardName="Story" referencedIdentifier="UIViewController-deP-xI-xV5" id="uyF-ki-bSV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IXB-7y-eTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="UIViewController-deP-xI-xV5" storyboardName="Story" referencedIdentifier="UIViewController-deP-xI-xV5" id="uyF-ki-bSV" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="3277" y="129"/>
         </scene>
