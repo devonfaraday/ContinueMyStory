@@ -378,6 +378,7 @@
 		FDA3A0751FC10B2F004D7CF9 /* StoryView */ = {
 			isa = PBXGroup;
 			children = (
+				FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */,
 				FDA24EE91F8EE53300D041E2 /* StoryViewController.swift */,
 				FDB129C81FA184F500000AB5 /* CommentViewController.swift */,
 			);
@@ -387,7 +388,6 @@
 		FDE1A9D71F8EFD1A0010ED03 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */,
 				FD8E8BDF1FA58C1800DC6DC1 /* CommentTableViewCell.swift */,
 			);
 			path = TableViewCell;
