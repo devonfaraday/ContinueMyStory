@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -94,15 +94,25 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NK1-Ug-b98">
+                                                    <rect key="frame" x="8" y="75" width="160" height="14.333333333333329"/>
+                                                    <connections>
+                                                        <action selector="authorButtonTapped:" destination="nPD-Ng-LFa" eventType="touchUpInside" id="KtF-wZ-yor"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ZQM-zr-03F" firstAttribute="top" secondItem="0cQ-jC-yc3" secondAttribute="top" constant="8" id="0tY-J7-1tc"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZQM-zr-03F" secondAttribute="trailing" constant="8" id="D35-Pv-AAc"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZQM-zr-03F" secondAttribute="bottom" constant="37.666666666666671" id="FNU-vU-ghK"/>
                                                 <constraint firstItem="ZQM-zr-03F" firstAttribute="leading" secondItem="0cQ-jC-yc3" secondAttribute="leading" constant="8" id="S5C-S7-fzE"/>
-                                                <constraint firstItem="igF-cN-Bs3" firstAttribute="leading" secondItem="9jV-Bj-Ixq" secondAttribute="trailing" constant="2" id="Thr-7l-GGp"/>
+                                                <constraint firstItem="igF-cN-Bs3" firstAttribute="leading" relation="lessThanOrEqual" secondItem="9jV-Bj-Ixq" secondAttribute="trailing" constant="2" id="Thr-7l-GGp"/>
                                                 <constraint firstAttribute="trailing" secondItem="Yu3-q8-ZkH" secondAttribute="trailing" constant="16" id="X0K-04-KYj"/>
+                                                <constraint firstItem="NK1-Ug-b98" firstAttribute="centerY" secondItem="9jV-Bj-Ixq" secondAttribute="centerY" id="bdW-0u-cwb"/>
+                                                <constraint firstItem="NK1-Ug-b98" firstAttribute="width" secondItem="9jV-Bj-Ixq" secondAttribute="width" id="dTJ-Jr-klF"/>
+                                                <constraint firstItem="NK1-Ug-b98" firstAttribute="centerX" secondItem="9jV-Bj-Ixq" secondAttribute="centerX" id="ejG-Ch-9zO"/>
                                                 <constraint firstItem="9jV-Bj-Ixq" firstAttribute="leading" secondItem="0cQ-jC-yc3" secondAttribute="leading" constant="8" id="fPg-Se-7GZ"/>
+                                                <constraint firstItem="NK1-Ug-b98" firstAttribute="height" secondItem="9jV-Bj-Ixq" secondAttribute="height" id="tut-IX-w4w"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -217,11 +227,20 @@
                         <outlet property="storyTitleLabel" destination="YfB-GD-395" id="PPy-JF-epS"/>
                         <outlet property="tableView" destination="Ryg-kU-lh9" id="UMY-6Z-H3G"/>
                         <segue destination="QtE-c0-UvS" kind="show" identifier="toCommentViewController" id="Z63-jm-53j"/>
+                        <segue destination="T2J-CE-2JO" kind="show" identifier="toProfileViewController" id="tjY-aG-mgB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mpl-uV-EEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4080.8000000000002" y="486.94581280788179"/>
+        </scene>
+        <!--ProfileViewController-->
+        <scene sceneID="Lub-Ew-oEu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileViewController" id="T2J-CE-2JO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VqZ-2g-XQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5168" y="388"/>
         </scene>
         <!--CommentViewController-->
         <scene sceneID="f3n-s4-Xe0">

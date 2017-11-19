@@ -221,7 +221,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="LoginViewController" storyboardName="Login" referencedIdentifier="LoginViewController" id="mBF-cC-ecp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xf-S7-YnN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2553" y="575"/>
+            <point key="canvasLocation" x="2696" y="692"/>
         </scene>
         <!--UITableViewController-3An-D1-CHa-->
         <scene sceneID="53q-dm-Vb1">
@@ -486,7 +486,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVb-H5-MUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2043.5" y="128"/>
+            <point key="canvasLocation" x="2316" y="128"/>
         </scene>
         <!--StoryListViewController-->
         <scene sceneID="H1O-Mc-t4L">
@@ -512,7 +512,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbp-GZ-5zn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="129"/>
+            <point key="canvasLocation" x="1768" y="128"/>
         </scene>
     </scenes>
 </document>

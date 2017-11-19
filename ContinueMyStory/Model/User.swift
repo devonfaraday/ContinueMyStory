@@ -26,7 +26,10 @@ struct User: FirebaseType {
         return [.usernameKey: username,
                 .givenNameKey: givenName,
                 .familyNameKey: familyName,
-                .ageKey: age]
+                .ageKey: age,
+                .followingKey: following,
+                .followersKey: followers,
+                .storyFollowingKey: stories]
     }
     var fullName: String {
         return "\(givenName) \(familyName)"
@@ -44,11 +47,15 @@ struct User: FirebaseType {
         guard let username = dictionary[.usernameKey] as? String,
             let givenName = dictionary[.givenNameKey] as? String,
             let familyName = dictionary[.familyNameKey] as? String,
-            let age = dictionary[.ageKey] as? String else { return nil }
+            let age = dictionary[.ageKey] as? String
+        else { return nil }
         self.identifier = identifier
         self.username = username
         self.givenName = givenName
         self.familyName = familyName
         self.age = age
+        if let followers = dictionary[.followersKey] as? [String] { self.followers = followers }
+        if let following = dictionary[.followingKey] as? [String] { self.following = following }
+        if let stories = dictionary[.storyFollowingKey] as? [String] { self.stories = stories }
     }
 }

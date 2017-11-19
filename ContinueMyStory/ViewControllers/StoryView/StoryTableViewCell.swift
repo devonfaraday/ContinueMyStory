@@ -55,6 +55,10 @@ class StoryTableViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func authorButtonTapped(_ sender: UIButton) {
+        delegate?.storyCellAuthorButtonTapped(self)
+    }
+    
     @IBAction func commentButtonTapped(_ sender: UIButton) {
         delegate?.storyTableCommentButtonTapped(self)
     }
@@ -137,4 +141,5 @@ class StoryTableViewCell: UITableViewCell {
 protocol StoryTableViewCellDelegate: class {
 //    func storySelectedForPresentation(_ sender: StoryTableViewCell)
     func storyTableCommentButtonTapped(_ sender: StoryTableViewCell)
+    func storyCellAuthorButtonTapped(_ sender: StoryTableViewCell)
 }

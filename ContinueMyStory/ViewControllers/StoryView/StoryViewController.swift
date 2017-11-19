@@ -20,6 +20,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var backButton: UIButton!
     
     var comments = [Comment]()
+    var selectedAuthor: User?
     var story: Story?  {
         didSet {
             if !isViewLoaded {
@@ -37,8 +38,6 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
                         self.tableView.reloadData()
                     }
                 })
-
-                
             })
         }
     }
@@ -134,6 +133,11 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         performSegue(withIdentifier: .toCommentViewControllerSegue, sender: self)
     }
+   
+    func storyCellAuthorButtonTapped(_ sender: StoryTableViewCell) {
+        self.selectedAuthor = sender.author
+        performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
+    }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         if isAddingSnippet {
@@ -176,8 +180,6 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         addSnippetTextView.layer.borderWidth = 5
         addSnippetTextView.layer.borderColor = UIColor.black.cgColor
         addSnippetTextView.backgroundColor = .white
-        
-        
     }
     
     // MARK: - Text View Delegates
@@ -208,6 +210,9 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
                     destination.comments = comments.sorted(by: { $0.created > $1.created })
                 }
             }
+        } else if segue.identifier == String.toProfileViewControllerSegue {
+            guard let destination = segue.destination as? ProfileViewController else { return }
+            destination.profileUser = selectedAuthor
         }
     }
 }
