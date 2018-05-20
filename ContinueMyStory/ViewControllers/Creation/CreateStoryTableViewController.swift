@@ -28,14 +28,18 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     
     // MARK: - IB Actions
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
-        let _ = navigationController?.popViewController(animated: true)
+        titleTextField.text = ""
+        storyBodyTextView.text = ""
+        titleTextField.resignFirstResponder()
+        storyBodyTextView.resignFirstResponder()
+        self.tabBarController?.selectedIndex = 1
     }
     
     @IBAction func saveStoryButtonTapped(_ sender: UIButton) {
         sender.isEnabled = false
         createStory {
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: .toStoryListSegue, sender: self)
+                self.tabBarController?.selectedIndex = 1
                 sender.isEnabled = true
             }
         }
@@ -85,6 +89,10 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
             let selectedCategory = selectedCategory else { return }
         StoryController().createStory(withTitle: title, body: body, author: userUid, category: selectedCategory) {
             print("Story saved")
+            self.titleTextField.text = ""
+            self.storyBodyTextView.text = ""
+            self.titleTextField.resignFirstResponder()
+            self.storyBodyTextView.resignFirstResponder()
             completion()
         }
     }

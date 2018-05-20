@@ -36,8 +36,8 @@
                                             <constraint firstAttribute="width" secondItem="E3T-hn-el8" secondAttribute="height" multiplier="1:1" id="o1p-Yl-jhf"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DevonFaraday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQ3-2N-eLy">
-                                        <rect key="frame" x="97.000000000000014" y="8" width="131.33333333333337" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQ3-2N-eLy">
+                                        <rect key="frame" x="97" y="8" width="0.0" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="Qcz-1k-PTG"/>
                                         </constraints>
@@ -46,7 +46,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zf1-1u-eQX">
-                                        <rect key="frame" x="236.33333333333337" y="7" width="130.66666666666663" height="30"/>
+                                        <rect key="frame" x="105" y="7" width="262" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="KTb-kO-hg3"/>
                                         </constraints>
@@ -320,10 +320,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tPu-fE-YPw"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="qWQ-hh-V4c" id="6dG-p3-hB4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUh-bZ-jtr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2132" y="810.96059113300498"/>
+            <point key="canvasLocation" x="2111" y="805"/>
         </scene>
         <!--BioViewController-->
         <scene sceneID="voN-XP-pBE">

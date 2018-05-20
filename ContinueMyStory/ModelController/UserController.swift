@@ -57,8 +57,8 @@ class UserController {
     
     func fetchUser(withIdentifier identifier: String, completion: @escaping (User?) -> Void) {
         let userRef = FirebaseController.databaseRef.child(.usersEndpoint).child(identifier)
-        userRef.observeSingleEvent(of: .value, with: { (data) in
-            guard let userDict = data.value as? [String: Any] else {
+        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let userDict = snapshot.value as? JSONDictionary else {
                 completion(nil)
                 return
             }
@@ -67,4 +67,4 @@ class UserController {
         })
     }
     
-}
+} 
