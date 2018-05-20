@@ -18,7 +18,7 @@ enum ProfileViewState {
     case isViewing
 }
 
-enum StoryCategory: String {
+enum StoryCategoryType: String {
     case none = "---"
     case crime = "Crime"
     case fable = "Fable"

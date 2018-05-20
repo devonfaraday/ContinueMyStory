@@ -10,12 +10,14 @@
 		996D09071D90D11B31320A38 /* Pods_ContinueMyStoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52999DFF81C248B4B452FF10 /* Pods_ContinueMyStoryUITests.framework */; };
 		B4D650BFAFF4A8ED09DE58A1 /* Pods_ContinueMyStoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B08C4DD2E273F557BD1EAA5 /* Pods_ContinueMyStoryTests.framework */; };
 		F5DD11C1BE8078FB8370295D /* Pods_ContinueMyStory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90BAD29ECE6D810DB10C41D3 /* Pods_ContinueMyStory.framework */; };
+		FD10F5F71FDCDEE600698CFA /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD10F5F61FDCDEE600698CFA /* ImageController.swift */; };
 		FD27D76D1F8DBDB900FFE353 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27D76C1F8DBDB900FFE353 /* AppDelegate.swift */; };
 		FD27D7721F8DBDB900FFE353 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD27D7701F8DBDB900FFE353 /* Main.storyboard */; };
 		FD27D7741F8DBDB900FFE353 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD27D7731F8DBDB900FFE353 /* Assets.xcassets */; };
 		FD27D7771F8DBDB900FFE353 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD27D7751F8DBDB900FFE353 /* LaunchScreen.storyboard */; };
 		FD27D7821F8DBDB900FFE353 /* ContinueMyStoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27D7811F8DBDB900FFE353 /* ContinueMyStoryTests.swift */; };
 		FD27D78D1F8DBDB900FFE353 /* ContinueMyStoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD27D78C1F8DBDB900FFE353 /* ContinueMyStoryUITests.swift */; };
+		FD295E2520AD1B01008D8893 /* ProfileFeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD295E2420AD1B01008D8893 /* ProfileFeedCollectionViewCell.swift */; };
 		FD3466C61F8DCA7D006C4D70 /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466C51F8DCA7D006C4D70 /* AuthenticationController.swift */; };
 		FD3466C81F8DCC6E006C4D70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466C71F8DCC6E006C4D70 /* LoginViewController.swift */; };
 		FD3466CA1F8DD329006C4D70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD3466C91F8DD329006C4D70 /* GoogleService-Info.plist */; };
@@ -26,6 +28,7 @@
 		FD3466D41F8DE0E0006C4D70 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D31F8DE0E0006C4D70 /* FirebaseController.swift */; };
 		FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D51F8DE14D006C4D70 /* Enums.swift */; };
 		FD3466D81F8DE570006C4D70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3466D71F8DE570006C4D70 /* Constants.swift */; };
+		FD4A18AC1FC3D98000E6F264 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4A18AB1FC3D98000E6F264 /* ProfileTableViewCell.swift */; };
 		FD606DFB1F99B5AE00E4A5F4 /* StoryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF11F99B5AE00E4A5F4 /* StoryList.storyboard */; };
 		FD606DFC1F99B5AE00E4A5F4 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF31F99B5AE00E4A5F4 /* Create.storyboard */; };
 		FD606DFD1F99B5AE00E4A5F4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF51F99B5AE00E4A5F4 /* Login.storyboard */; };
@@ -37,6 +40,8 @@
 		FD70A22B1F90FD6200B83ACE /* SnippetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD70A22A1F90FD6200B83ACE /* SnippetController.swift */; };
 		FD8E8BDD1FA5815900DC6DC1 /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8E8BDC1FA5815900DC6DC1 /* Comment.storyboard */; };
 		FD8E8BE01FA58C1800DC6DC1 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8E8BDF1FA58C1800DC6DC1 /* CommentTableViewCell.swift */; };
+		FD9D444B20ABFBCD001CD8DF /* ProfileFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9D444A20ABFBCD001CD8DF /* ProfileFeedViewController.swift */; };
+		FD9D444D20ABFDB8001CD8DF /* Bio.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9D444C20ABFCB8001CD8DF /* Bio.storyboard */; };
 		FDA24EDE1F8E5E5800D041E2 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EDD1F8E5E5800D041E2 /* UserController.swift */; };
 		FDA24EE21F8E89A900D041E2 /* Snippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EE11F8E89A900D041E2 /* Snippet.swift */; };
 		FDA24EE81F8EE51900D041E2 /* StoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA24EE71F8EE51900D041E2 /* StoryController.swift */; };
@@ -51,6 +56,7 @@
 		FDB129C91FA184F500000AB5 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129C81FA184F500000AB5 /* CommentViewController.swift */; };
 		FDB129CB1FA1863500000AB5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129CA1FA1863500000AB5 /* Comment.swift */; };
 		FDB129CD1FA1864800000AB5 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129CC1FA1864800000AB5 /* CommentController.swift */; };
+		FDD78B1F20ABD58100384B00 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD78B1E20ABD58100384B00 /* Category.swift */; };
 		FDE1A9D91F8EFD330010ED03 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */; };
 		FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */; };
 		FDFB941C1F96F227009F332B /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFB941B1F96F227009F332B /* InitialViewController.swift */; };
@@ -84,6 +90,7 @@
 		95CABF82BEF19ECE35E1F219 /* Pods-ContinueMyStoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinueMyStoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContinueMyStoryTests/Pods-ContinueMyStoryTests.release.xcconfig"; sourceTree = "<group>"; };
 		B55E09AB07B6BBD1AD002B23 /* Pods-ContinueMyStory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinueMyStory.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContinueMyStory/Pods-ContinueMyStory.release.xcconfig"; sourceTree = "<group>"; };
 		D47C4276EF2A3D20856D9B98 /* Pods-ContinueMyStoryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContinueMyStoryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContinueMyStoryUITests/Pods-ContinueMyStoryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FD10F5F61FDCDEE600698CFA /* ImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
 		FD27D7691F8DBDB900FFE353 /* ContinueMyStory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContinueMyStory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD27D76C1F8DBDB900FFE353 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD27D7711F8DBDB900FFE353 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,6 +103,7 @@
 		FD27D7881F8DBDB900FFE353 /* ContinueMyStoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContinueMyStoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD27D78C1F8DBDB900FFE353 /* ContinueMyStoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueMyStoryUITests.swift; sourceTree = "<group>"; };
 		FD27D78E1F8DBDB900FFE353 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD295E2420AD1B01008D8893 /* ProfileFeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		FD3466C51F8DCA7D006C4D70 /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		FD3466C71F8DCC6E006C4D70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FD3466C91F8DD329006C4D70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "ContinueMyStory/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -106,6 +114,7 @@
 		FD3466D31F8DE0E0006C4D70 /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		FD3466D51F8DE14D006C4D70 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		FD3466D71F8DE570006C4D70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FD4A18AB1FC3D98000E6F264 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		FD606DEB1F985A9800E4A5F4 /* ContinueMyStory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ContinueMyStory.entitlements; sourceTree = "<group>"; };
 		FD606DF21F99B5AE00E4A5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/StoryList.storyboard; sourceTree = "<group>"; };
 		FD606DF41F99B5AE00E4A5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Create.storyboard; sourceTree = "<group>"; };
@@ -118,6 +127,8 @@
 		FD70A22A1F90FD6200B83ACE /* SnippetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetController.swift; sourceTree = "<group>"; };
 		FD8E8BDC1FA5815900DC6DC1 /* Comment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
 		FD8E8BDF1FA58C1800DC6DC1 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		FD9D444A20ABFBCD001CD8DF /* ProfileFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFeedViewController.swift; sourceTree = "<group>"; };
+		FD9D444C20ABFCB8001CD8DF /* Bio.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Bio.storyboard; path = /Users/christianmcmullin/Desktop/Swift/ContinueMyStory/ContinueMyStory/Storyboards/Bio.storyboard; sourceTree = "<absolute>"; };
 		FDA24EDD1F8E5E5800D041E2 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		FDA24EE11F8E89A900D041E2 /* Snippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snippet.swift; sourceTree = "<group>"; };
 		FDA24EE71F8EE51900D041E2 /* StoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryController.swift; sourceTree = "<group>"; };
@@ -132,6 +143,7 @@
 		FDB129C81FA184F500000AB5 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		FDB129CA1FA1863500000AB5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		FDB129CC1FA1864800000AB5 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
+		FDD78B1E20ABD58100384B00 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoryTableViewController.swift; sourceTree = "<group>"; };
 		FDFB941B1F96F227009F332B /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +267,7 @@
 				FD3466D51F8DE14D006C4D70 /* Enums.swift */,
 				FD3466D31F8DE0E0006C4D70 /* FirebaseController.swift */,
 				FD3466D71F8DE570006C4D70 /* Constants.swift */,
+				FD10F5F61FDCDEE600698CFA /* ImageController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -271,6 +284,7 @@
 		FD27D79C1F8DBE7E00FFE353 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				FD9D444C20ABFCB8001CD8DF /* Bio.storyboard */,
 				FD8E8BDC1FA5815900DC6DC1 /* Comment.storyboard */,
 				FD606DF31F99B5AE00E4A5F4 /* Create.storyboard */,
 				FD606DF51F99B5AE00E4A5F4 /* Login.storyboard */,
@@ -292,8 +306,8 @@
 				FDA3A0731FC10B09004D7CF9 /* Creation */,
 				FDA3A0721FC10AF9004D7CF9 /* Profile */,
 				FDA3A0711FC10ADE004D7CF9 /* StoryList */,
-				FDFB941B1F96F227009F332B /* InitialViewController.swift */,
 				FDA3A06D1FC0F2C6004D7CF9 /* TabBar.swift */,
+				FDFB941B1F96F227009F332B /* InitialViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -316,6 +330,7 @@
 				FD3466D11F8DDFE5006C4D70 /* Story.swift */,
 				FDA24EE11F8E89A900D041E2 /* Snippet.swift */,
 				FDB129CA1FA1863500000AB5 /* Comment.swift */,
+				FDD78B1E20ABD58100384B00 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -341,8 +356,9 @@
 		FDA3A0711FC10ADE004D7CF9 /* StoryList */ = {
 			isa = PBXGroup;
 			children = (
-				FD70A2281F908DB300B83ACE /* StoryListViewController.swift */,
+				FDA3A0761FC10EC7004D7CF9 /* FollowViewController.swift */,
 				FD606E041F9BED8500E4A5F4 /* SortByViewController.swift */,
+				FD70A2281F908DB300B83ACE /* StoryListViewController.swift */,
 				FDA3A06F1FC10A62004D7CF9 /* StoryListNavigationController.swift */,
 			);
 			path = StoryList;
@@ -351,10 +367,11 @@
 		FDA3A0721FC10AF9004D7CF9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				FDA3A0691FC0EE42004D7CF9 /* ProfileViewController.swift */,
 				FD3466CB1F8DDB41006C4D70 /* BioViewController.swift */,
-				FDA3A0761FC10EC7004D7CF9 /* FollowViewController.swift */,
 				FDFC86EC1FC13425004580BD /* ProfileNavigationController.swift */,
+				FDA3A0691FC0EE42004D7CF9 /* ProfileViewController.swift */,
+				FD9D444A20ABFBCD001CD8DF /* ProfileFeedViewController.swift */,
+				FD295E2420AD1B01008D8893 /* ProfileFeedCollectionViewCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -389,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				FD8E8BDF1FA58C1800DC6DC1 /* CommentTableViewCell.swift */,
+				FD4A18AB1FC3D98000E6F264 /* ProfileTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -517,6 +535,7 @@
 				FD27D7771F8DBDB900FFE353 /* LaunchScreen.storyboard in Resources */,
 				FDA3A06C1FC0F037004D7CF9 /* TabBar.storyboard in Resources */,
 				FD3466CA1F8DD329006C4D70 /* GoogleService-Info.plist in Resources */,
+				FD9D444D20ABFDB8001CD8DF /* Bio.storyboard in Resources */,
 				FD606DFE1F99B5AE00E4A5F4 /* Profile.storyboard in Resources */,
 				FD606DFD1F99B5AE00E4A5F4 /* Login.storyboard in Resources */,
 				FD8E8BDD1FA5815900DC6DC1 /* Comment.storyboard in Resources */,
@@ -635,12 +654,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ContinueMyStory/Pods-ContinueMyStory-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,13 +727,16 @@
 				FD3466D41F8DE0E0006C4D70 /* FirebaseController.swift in Sources */,
 				FDA3A0701FC10A62004D7CF9 /* StoryListNavigationController.swift in Sources */,
 				FDA2EE221F941EF900756068 /* Date+CMS.swift in Sources */,
+				FD4A18AC1FC3D98000E6F264 /* ProfileTableViewCell.swift in Sources */,
 				FDFC86ED1FC13425004580BD /* ProfileNavigationController.swift in Sources */,
 				FD3466D21F8DDFE5006C4D70 /* Story.swift in Sources */,
+				FDD78B1F20ABD58100384B00 /* Category.swift in Sources */,
 				FDB129CD1FA1864800000AB5 /* CommentController.swift in Sources */,
 				FD3466C81F8DCC6E006C4D70 /* LoginViewController.swift in Sources */,
 				FDA24EE81F8EE51900D041E2 /* StoryController.swift in Sources */,
 				FD70A2291F908DB300B83ACE /* StoryListViewController.swift in Sources */,
 				FDA99F421F9030670050B09F /* Dictionary+CMS.swift in Sources */,
+				FD295E2520AD1B01008D8893 /* ProfileFeedCollectionViewCell.swift in Sources */,
 				FDA24EE21F8E89A900D041E2 /* Snippet.swift in Sources */,
 				FDB129C91FA184F500000AB5 /* CommentViewController.swift in Sources */,
 				FDA24EDE1F8E5E5800D041E2 /* UserController.swift in Sources */,
@@ -723,6 +747,7 @@
 				FD3466D01F8DDFDD006C4D70 /* User.swift in Sources */,
 				FD3466D81F8DE570006C4D70 /* Constants.swift in Sources */,
 				FD27D76D1F8DBDB900FFE353 /* AppDelegate.swift in Sources */,
+				FD9D444B20ABFBCD001CD8DF /* ProfileFeedViewController.swift in Sources */,
 				FD3466CC1F8DDB41006C4D70 /* BioViewController.swift in Sources */,
 				FDA3A06A1FC0EE42004D7CF9 /* ProfileViewController.swift in Sources */,
 				FDA3A0771FC10EC7004D7CF9 /* FollowViewController.swift in Sources */,
@@ -733,6 +758,7 @@
 				FD8E8BE01FA58C1800DC6DC1 /* CommentTableViewCell.swift in Sources */,
 				FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */,
 				FDA24EEA1F8EE53300D041E2 /* StoryViewController.swift in Sources */,
+				FD10F5F71FDCDEE600698CFA /* ImageController.swift in Sources */,
 				FD3466C61F8DCA7D006C4D70 /* AuthenticationController.swift in Sources */,
 				FDE1A9D91F8EFD330010ED03 /* StoryTableViewCell.swift in Sources */,
 			);

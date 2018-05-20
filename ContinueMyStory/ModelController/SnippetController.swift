@@ -26,13 +26,13 @@ class SnippetController {
             print(snapshot.description)
             guard let snapDictionary = snapshot.value as? [String: JSONDictionary] else { completion([]); return }
             
-            let snippets = snapDictionary.flatMap { Snippet(dictionary: $1, identifier: $0) }.sorted(by: {$0.created < $1.created})
+            let snippets = snapDictionary.compactMap { Snippet(dictionary: $1, identifier: $0) }.sorted(by: {$0.created < $1.created})
             
             completion(snippets)
         })
     }
     
-    func modify(snippet: Snippet, inStoryCategory category: StoryCategory, completion: @escaping() -> Void) {
+    func modify(snippet: Snippet, inStoryCategory category: StoryCategoryType, completion: @escaping() -> Void) {
         var newSnippet = snippet
         newSnippet.saveSnippet(storyIdentifier: newSnippet.storyRef, storyCategory: category)
     }
@@ -46,9 +46,9 @@ class SnippetController {
  
  guard let snapDictionary = snapshot.value as? [String: [String: JSONDictionary]] else { print("No dictionary resturned"); return }
  
- let catdict = snapDictionary.flatMap { $1 }
+ let catdict = snapDictionary.compactMap { $1 }
  
- let stories = catdict.flatMap { Story(dictionary: $1, identifier: $0) }
+ let stories = catdict.compactMap { Story(dictionary: $1, identifier: $0) }
  
  completion(stories)
  })

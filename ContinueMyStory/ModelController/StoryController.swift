@@ -11,7 +11,7 @@ import Firebase
 
 class StoryController {
     
-    func createStory(withTitle title: String, body: String, author: String, category: StoryCategory, completion: @escaping() -> Void) {
+    func createStory(withTitle title: String, body: String, author: String, category: StoryCategoryType, completion: @escaping() -> Void) {
         var story = Story(title: title, body: body, author: author, category: category)
         story.saveStory(toCategory: category)
         completion()
@@ -25,17 +25,19 @@ class StoryController {
 
         let catdict = snapDictionary.flatMap { $1 }
 
-        let stories = catdict.flatMap { Story(dictionary: $1, identifier: $0) }.sorted(by: { $0.created < $1.created })
+        let stories = catdict.compactMap({
+            Story(dictionary: $1, identifier: $0)
+        }).sorted(by: { $0.created < $1.created })
         
         completion(stories)
         })
     }
     
-    func fetchStories(withCategory category: StoryCategory, completion: @escaping([Story]) -> Void) {
+    func fetchStories(withCategory category: StoryCategoryType, completion: @escaping([Story]) -> Void) {
         let storiesRef = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(String.categoryEndpoint)/\(category)")
         storiesRef.observe(.value, with: { (snapshot) in
             guard let snapDictionary = snapshot.value as? [String: JSONDictionary] else { return }
-            let stories = snapDictionary.flatMap { Story(dictionary: $1, identifier: $0) }.sorted(by: { $0.created < $1.created})
+            let stories = snapDictionary.compactMap { Story(dictionary: $1, identifier: $0) }.sorted(by: { $0.created < $1.created})
             completion(stories)
         })
     }
@@ -45,7 +47,7 @@ class StoryController {
         storiesRef.observe(.value, with: { (snapshot) in
         guard let snapDictionary = snapshot.value as? [String: [String: JSONDictionary]] else { print("No dictionary resturned"); return }
         let catDictionary = snapDictionary.flatMap { $1 }
-            let stories = catDictionary.flatMap { Story(dictionary: $1, identifier: $0) }.filter { $0.author == user.identifier }
+            let stories = catDictionary.compactMap { Story(dictionary: $1, identifier: $0) }.filter { $0.author == user.identifier }
            
             completion(stories)
     })

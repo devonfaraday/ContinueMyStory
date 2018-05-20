@@ -40,7 +40,7 @@ class CommentController {
         snippetRef.observe(.value, with: { (snapshot) in
             print(snapshot.description)
             guard let snapDictionary = snapshot.value as? [String: JSONDictionary] else { completion([]); return }
-            let comments = snapDictionary.flatMap { Comment(dictionary: $1, identifier: $0) }.sorted(by: {$0.created < $1.created})
+            let comments = snapDictionary.compactMap { Comment(dictionary: $1, identifier: $0) }.sorted(by: {$0.created < $1.created})
             
             completion(comments)
         })
@@ -56,7 +56,7 @@ class CommentController {
                 let snippetRef = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(String.categoryEndpoint)/\(category)/\(snippet.storyRef)/\(String.snippetKey)/\(snippetUUID)/\(String.commentsKey)")
                 snippetRef.observe(.value, with: { (snapshot) in
                     guard let snapDictionary = snapshot.value as? [String: JSONDictionary] else { completion([]); return }
-                    let snippetComments = snapDictionary.flatMap { Comment(dictionary: $1, identifier: $0) }.sorted(by: { $0.created < $1.created })
+                    let snippetComments = snapDictionary.compactMap { Comment(dictionary: $1, identifier: $0) }.sorted(by: { $0.created < $1.created })
                     print(snapDictionary)
                     comments.append(contentsOf: snippetComments)
                     counter -= 1
@@ -76,7 +76,7 @@ class CommentController {
         snippetRef.observe(.value, with: { (snapshot) in
             print(snapshot.description)
             guard let snapDictionary = snapshot.value as? [String: JSONDictionary] else { completion([]); return }
-            let snippets = snapDictionary.flatMap { Snippet(dictionary: $1, identifier: $0) }.sorted(by: {$0.created < $1.created})
+            let snippets = snapDictionary.compactMap { Snippet(dictionary: $1, identifier: $0) }.sorted(by: {$0.created < $1.created})
             
             completion(snippets)
         })

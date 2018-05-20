@@ -15,8 +15,21 @@ extension String {
     static var storiesEndpoint: String { get { return "stories" } }
     static var categoryEndpoint: String { get { return "category" } }
     
+    /* Firebase Storage */
+    static var profileImagesKey: String { get { return "profileImages" } }
+    static var imagesKey: String { get { return "images" } }
+    
+    /* Reuse Identifiers */
+    static var commentCellIdentifier: String { get { return "commentCell" } }
+    static var profileCellIdentifier: String { get { return "profileCell" } }
+    static var snippetCellIdentifier: String { get { return "snippetCell" } }
+    static var sortyByCellIdentifier: String { get { return "sortByCell" } }
+    static var storyCellIdentifier: String { get { return "storyCell" } }
+    static var storyListCellIdentifier: String { get { return "storyListCell" } }
+    
     /* Segues */
     static var toBioViewControllerSegue: String { get { return "toBioViewController" } }
+    static var toProfileFeedEmbededSegueKey: String { get { return "toProfileFeed" } }
     static var toProfileViewControllerSegue: String { get { return "toProfileViewController" } }
     static var toStoryDetailSegue: String { get { return "toStoryDetail" } }
     static var toStoryListSegue: String { get { return "toStoryList" } }
@@ -37,12 +50,6 @@ extension String {
     static var createdKey: String { get { return "created" } }
     static var likesKey: String { get { return "likes" } }
     
-    /* Reuse Identifiers */
-    static var storyListCellIdentifier: String { get { return "storyListCell" } }
-    static var storyCellIdentifier: String { get { return "storyCell" } }
-    static var snippetCellIdentifier: String { get { return "snippetCell" } }
-    static var sortyByCellIdentifier: String { get { return "sortByCell" } }
-    static var commentCellIdentifier: String { get { return "commentCell" } }
     
     /* User Firebase keys */
     static var usernameKey: String { get { return "username" } }

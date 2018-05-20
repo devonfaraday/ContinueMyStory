@@ -20,9 +20,9 @@ class Snippet: FirebaseType {
     var endpoint: String = .snippetKey
     var identifier: String?
     var likes: [String]?
-    let category: StoryCategory
+    let category: StoryCategoryType
     
-    init(body: String, author: String, storyRef: String, comments: [Comment] = [], likes: [String] = [], category: StoryCategory) {
+    init(body: String, author: String, storyRef: String, comments: [Comment] = [], likes: [String] = [], category: StoryCategoryType) {
         self.body = body
         self.author = author
         self.storyRef = storyRef
@@ -55,23 +55,23 @@ class Snippet: FirebaseType {
         self.storyRef = storyRef
         self.created = created
         switch category {
-        case StoryCategory.fantasy.rawValue: self.category = StoryCategory.fantasy
-        case StoryCategory.sifi.rawValue: self.category = StoryCategory.sifi
-        case StoryCategory.suspense.rawValue: self.category = StoryCategory.suspense
-        case StoryCategory.crime.rawValue: self.category = StoryCategory.crime
-        case StoryCategory.fable.rawValue: self.category = StoryCategory.fable
-        case StoryCategory.fanFiction.rawValue: self.category = StoryCategory.fanFiction
-        case StoryCategory.historicalFiction.rawValue: self.category = StoryCategory.historicalFiction
-        case StoryCategory.horror.rawValue: self.category = StoryCategory.horror
-        case StoryCategory.legend.rawValue: self.category = StoryCategory.legend
-        case StoryCategory.mystery.rawValue: self.category = StoryCategory.mystery
-        case StoryCategory.mythology.rawValue: self.category = StoryCategory.mythology
-        case StoryCategory.romance.rawValue: self.category = StoryCategory.romance
-        case StoryCategory.shortStory.rawValue: self.category = StoryCategory.shortStory
-        case StoryCategory.tallTale.rawValue: self.category = StoryCategory.tallTale
-        case StoryCategory.western.rawValue: self.category = StoryCategory.western
+        case StoryCategoryType.fantasy.rawValue: self.category = StoryCategoryType.fantasy
+        case StoryCategoryType.sifi.rawValue: self.category = StoryCategoryType.sifi
+        case StoryCategoryType.suspense.rawValue: self.category = StoryCategoryType.suspense
+        case StoryCategoryType.crime.rawValue: self.category = StoryCategoryType.crime
+        case StoryCategoryType.fable.rawValue: self.category = StoryCategoryType.fable
+        case StoryCategoryType.fanFiction.rawValue: self.category = StoryCategoryType.fanFiction
+        case StoryCategoryType.historicalFiction.rawValue: self.category = StoryCategoryType.historicalFiction
+        case StoryCategoryType.horror.rawValue: self.category = StoryCategoryType.horror
+        case StoryCategoryType.legend.rawValue: self.category = StoryCategoryType.legend
+        case StoryCategoryType.mystery.rawValue: self.category = StoryCategoryType.mystery
+        case StoryCategoryType.mythology.rawValue: self.category = StoryCategoryType.mythology
+        case StoryCategoryType.romance.rawValue: self.category = StoryCategoryType.romance
+        case StoryCategoryType.shortStory.rawValue: self.category = StoryCategoryType.shortStory
+        case StoryCategoryType.tallTale.rawValue: self.category = StoryCategoryType.tallTale
+        case StoryCategoryType.western.rawValue: self.category = StoryCategoryType.western
         default:
-            self.category = StoryCategory.none
+            self.category = StoryCategoryType.none
         }
         self.comments = dictionary[.commentsKey] as? [Comment]
         self.likes = dictionary[.likesKey] as? [String]

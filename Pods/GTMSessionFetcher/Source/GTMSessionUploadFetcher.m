@@ -221,6 +221,7 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
   uploadFetcher.sessionUserInfo = metadata;
   uploadFetcher.useBackgroundSession = YES;
   uploadFetcher.currentOffset = currentOffset;
+  uploadFetcher.delegateCallbackQueue = uploadFetcher.callbackQueue;
   uploadFetcher.allowedInsecureSchemes = @[ @"http" ];  // Allowed on restored upload fetcher.
   return uploadFetcher;
 }
@@ -1404,7 +1405,7 @@ NSString *const kGTMSessionFetcherUploadLocationObtainedNotification =
     BOOL isFinalStatus = (uploadStatus == kStatusFinal);
     #pragma unused(hasUploadAllData,isFinalStatus)
     GTMSESSION_ASSERT_DEBUG(hasUploadAllData == isFinalStatus || !hasKnownChunkSize,
-                            @"uploadStatus:%@  newOffset:%zd (%lld + %zd)  fullUploadLength:%lld"
+                            @"uploadStatus:%@  newOffset:%lld (%lld + %lld)  fullUploadLength:%lld"
                             @" chunkFetcher:%@ requestHeaders:%@ responseHeaders:%@",
                             [responseHeaders objectForKey:kGTMSessionHeaderXGoogUploadStatus],
                             newOffset, self.currentOffset, previousContentLength,

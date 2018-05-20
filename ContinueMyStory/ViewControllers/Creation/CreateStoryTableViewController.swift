@@ -15,8 +15,8 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var storyBodyTextView: UITextView!
     
-    var categories: [StoryCategory] = [.none, .crime, .fable, .fanFiction, .fantasy, .folklore, .historicalFiction, .horror, .legend, .mystery, .mythology, .romance, .sifi, .shortStory, .suspense, .tallTale, .western]
-    var selectedCategory: StoryCategory?
+    var categories: [StoryCategoryType] = [.none, .crime, .fable, .fanFiction, .fantasy, .folklore, .historicalFiction, .horror, .legend, .mystery, .mythology, .romance, .sifi, .shortStory, .suspense, .tallTale, .western]
+    var selectedCategory: StoryCategoryType?
     var userUid = ""
     
     override func viewDidLoad() {
