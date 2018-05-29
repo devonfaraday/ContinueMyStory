@@ -11,6 +11,8 @@ import Firebase
 
 class UserController {
     
+    var user: User?
+    
     func createUser(withUsername username: String, givenName: String, familyName: String, age: String) {
         var uid = ""
         if let currentUser = Auth.auth().currentUser {
