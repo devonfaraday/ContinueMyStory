@@ -11,7 +11,7 @@ import UIKit
 
 class ImageController {
     var imageReference: StorageReference {
-        return Storage.storage().reference().child("profileImages")
+        return Storage.storage().reference().child(String.profileImagesKey)
     }
     
     // MARK: - Create
@@ -31,8 +31,18 @@ class ImageController {
     }
     
     // MARK: - Read
-    func fetchImage() {
+    func fetchImage(forUser user: User?, completion: @escaping(UIImage?) -> Void) {
+        guard let userId = user?.identifier else { return }
         
+        let imageRef = imageReference.child("\(userId).jpg")
+        imageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let image = UIImage(data: data)
+                completion(image)
+            }
+        }
     }
     
     func fetchImages() {

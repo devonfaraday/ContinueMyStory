@@ -57,6 +57,7 @@
 		FDB129C91FA184F500000AB5 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129C81FA184F500000AB5 /* CommentViewController.swift */; };
 		FDB129CB1FA1863500000AB5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129CA1FA1863500000AB5 /* Comment.swift */; };
 		FDB129CD1FA1864800000AB5 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129CC1FA1864800000AB5 /* CommentController.swift */; };
+		FDBC33C420DEA5500068C072 /* UIImage+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBC33C320DEA5500068C072 /* UIImage+CMS.swift */; };
 		FDD78B1F20ABD58100384B00 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD78B1E20ABD58100384B00 /* Category.swift */; };
 		FDE1A9D91F8EFD330010ED03 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */; };
 		FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */; };
@@ -145,6 +146,7 @@
 		FDB129C81FA184F500000AB5 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		FDB129CA1FA1863500000AB5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		FDB129CC1FA1864800000AB5 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
+		FDBC33C320DEA5500068C072 /* UIImage+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CMS.swift"; sourceTree = "<group>"; };
 		FDD78B1E20ABD58100384B00 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoryTableViewController.swift; sourceTree = "<group>"; };
@@ -269,7 +271,6 @@
 				FD3466D51F8DE14D006C4D70 /* Enums.swift */,
 				FD3466D31F8DE0E0006C4D70 /* FirebaseController.swift */,
 				FD3466D71F8DE570006C4D70 /* Constants.swift */,
-				FD10F5F61FDCDEE600698CFA /* ImageController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -317,10 +318,11 @@
 		FD27D79E1F8DBE8100FFE353 /* ModelController */ = {
 			isa = PBXGroup;
 			children = (
-				FDA24EDD1F8E5E5800D041E2 /* UserController.swift */,
+				FDB129CC1FA1864800000AB5 /* CommentController.swift */,
+				FD10F5F61FDCDEE600698CFA /* ImageController.swift */,
 				FDA24EE71F8EE51900D041E2 /* StoryController.swift */,
 				FD70A22A1F90FD6200B83ACE /* SnippetController.swift */,
-				FDB129CC1FA1864800000AB5 /* CommentController.swift */,
+				FDA24EDD1F8E5E5800D041E2 /* UserController.swift */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -345,6 +347,7 @@
 				FDA2EE211F941EF900756068 /* Date+CMS.swift */,
 				FD606E081F9C71FB00E4A5F4 /* UIColor+CMS.swift */,
 				FD7FF96920B2739D0028D1F8 /* CollectionView+CMS.swift */,
+				FDBC33C320DEA5500068C072 /* UIImage+CMS.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				FD3466D41F8DE0E0006C4D70 /* FirebaseController.swift in Sources */,
 				FDA3A0701FC10A62004D7CF9 /* StoryListNavigationController.swift in Sources */,
 				FDA2EE221F941EF900756068 /* Date+CMS.swift in Sources */,
+				FDBC33C420DEA5500068C072 /* UIImage+CMS.swift in Sources */,
 				FD4A18AC1FC3D98000E6F264 /* ProfileTableViewCell.swift in Sources */,
 				FDFC86ED1FC13425004580BD /* ProfileNavigationController.swift in Sources */,
 				FD3466D21F8DDFE5006C4D70 /* Story.swift in Sources */,
