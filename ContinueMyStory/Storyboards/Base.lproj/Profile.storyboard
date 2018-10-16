@@ -222,7 +222,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbp-GZ-5zn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1278" y="120"/>
+            <point key="canvasLocation" x="1417" y="120"/>
         </scene>
         <!--Profile Feed View Controller-->
         <scene sceneID="sIZ-bJ-Yrk">

@@ -99,11 +99,8 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
             destination.delegate = self
         }
         if segue.identifier == String.toStoryDetailSegue {
-            guard let destination = segue.destination as? StoryViewController else { return }
+            guard let destination = segue.destination as? StoryPageViewController else { return }
             destination.story = selectedStory
         }
-        
     }
- 
-
 }

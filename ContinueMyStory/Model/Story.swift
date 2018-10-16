@@ -18,12 +18,12 @@ class Story: FirebaseType {
     var comments: [Comment]?
     // snippets is of type string so it can hold the uid of the snippets saved.
     var category: StoryCategoryType
-    let snippets: [String]?
+    let snippets: [Snippet]
     var endpoint: String = .storiesEndpoint
     var identifier: String?
     var likes: [String]?
     
-    init(title: String, body: String, author: String, comments: [Comment] = [], category: StoryCategoryType, snippets: [String] = [], likes: [String] = []) {
+    init(title: String, body: String, author: String, comments: [Comment] = [], category: StoryCategoryType, snippets: [Snippet] = [], likes: [String] = []) {
         self.title = title
         self.body = body
         self.author = author
@@ -51,6 +51,14 @@ class Story: FirebaseType {
             let dateString = dictionary[.createdKey] as? String,
             let date = dateString.date()
             else { return nil }
+        if let snippetsDictioanry = dictionary[.snippetKey] as? JSONDictionary {
+            self.snippets = snippetsDictioanry.compactMap({
+                guard let value = $0.value as? JSONDictionary else { return nil }
+                return Snippet(dictionary: value, identifier: $0.key)
+            })
+        } else {
+            self.snippets = []
+        }
         self.identifier = identifier
         self.title = title
         self.body = body
@@ -76,7 +84,6 @@ class Story: FirebaseType {
             self.category = StoryCategoryType.none
         }
         self.comments = dictionary[.commentsKey] as? [Comment]
-        self.snippets = dictionary[.snippetKey] as? [String]
         self.likes = dictionary[.likesKey] as? [String]
     }
 }

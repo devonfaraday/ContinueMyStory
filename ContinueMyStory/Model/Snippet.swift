@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Snippet: FirebaseType {
+class Snippet: FirebaseType, Equatable {
     
     var body: String
     let author: String
@@ -76,4 +76,8 @@ class Snippet: FirebaseType {
         self.comments = dictionary[.commentsKey] as? [Comment]
         self.likes = dictionary[.likesKey] as? [String]
     }
+}
+
+func ==(lhs: Snippet, rhs: Snippet) -> Bool {
+    return lhs.identifier == rhs.identifier
 }

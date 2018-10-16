@@ -36,6 +36,8 @@
 		FD606DFF1F99B5AE00E4A5F4 /* Story.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD606DF91F99B5AE00E4A5F4 /* Story.storyboard */; };
 		FD606E051F9BED8500E4A5F4 /* SortByViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD606E041F9BED8500E4A5F4 /* SortByViewController.swift */; };
 		FD606E091F9C71FB00E4A5F4 /* UIColor+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD606E081F9C71FB00E4A5F4 /* UIColor+CMS.swift */; };
+		FD63DB0021728D22000486F6 /* StoryPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD63DAFF21728D22000486F6 /* StoryPageViewController.swift */; };
+		FD63DB0221728D33000486F6 /* StoryEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD63DB0121728D33000486F6 /* StoryEntryViewController.swift */; };
 		FD70A2291F908DB300B83ACE /* StoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD70A2281F908DB300B83ACE /* StoryListViewController.swift */; };
 		FD70A22B1F90FD6200B83ACE /* SnippetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD70A22A1F90FD6200B83ACE /* SnippetController.swift */; };
 		FD7FF96A20B2739D0028D1F8 /* CollectionView+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7FF96920B2739D0028D1F8 /* CollectionView+CMS.swift */; };
@@ -125,6 +127,8 @@
 		FD606DFA1F99B5AE00E4A5F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Story.storyboard; sourceTree = "<group>"; };
 		FD606E041F9BED8500E4A5F4 /* SortByViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByViewController.swift; sourceTree = "<group>"; };
 		FD606E081F9C71FB00E4A5F4 /* UIColor+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CMS.swift"; sourceTree = "<group>"; };
+		FD63DAFF21728D22000486F6 /* StoryPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPageViewController.swift; sourceTree = "<group>"; };
+		FD63DB0121728D33000486F6 /* StoryEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryEntryViewController.swift; sourceTree = "<group>"; };
 		FD70A2281F908DB300B83ACE /* StoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListViewController.swift; sourceTree = "<group>"; };
 		FD70A22A1F90FD6200B83ACE /* SnippetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetController.swift; sourceTree = "<group>"; };
 		FD7FF96920B2739D0028D1F8 /* CollectionView+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+CMS.swift"; sourceTree = "<group>"; };
@@ -404,6 +408,8 @@
 				FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */,
 				FDA24EE91F8EE53300D041E2 /* StoryViewController.swift */,
 				FDB129C81FA184F500000AB5 /* CommentViewController.swift */,
+				FD63DAFF21728D22000486F6 /* StoryPageViewController.swift */,
+				FD63DB0121728D33000486F6 /* StoryEntryViewController.swift */,
 			);
 			path = StoryView;
 			sourceTree = "<group>";
@@ -756,6 +762,7 @@
 				FD27D76D1F8DBDB900FFE353 /* AppDelegate.swift in Sources */,
 				FD9D444B20ABFBCD001CD8DF /* ProfileFeedViewController.swift in Sources */,
 				FD3466CC1F8DDB41006C4D70 /* BioViewController.swift in Sources */,
+				FD63DB0221728D33000486F6 /* StoryEntryViewController.swift in Sources */,
 				FDA3A06A1FC0EE42004D7CF9 /* ProfileViewController.swift in Sources */,
 				FD7FF96A20B2739D0028D1F8 /* CollectionView+CMS.swift in Sources */,
 				FDA3A0771FC10EC7004D7CF9 /* FollowViewController.swift in Sources */,
@@ -767,6 +774,7 @@
 				FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */,
 				FDA24EEA1F8EE53300D041E2 /* StoryViewController.swift in Sources */,
 				FD10F5F71FDCDEE600698CFA /* ImageController.swift in Sources */,
+				FD63DB0021728D22000486F6 /* StoryPageViewController.swift in Sources */,
 				FD3466C61F8DCA7D006C4D70 /* AuthenticationController.swift in Sources */,
 				FDE1A9D91F8EFD330010ED03 /* StoryTableViewCell.swift in Sources */,
 			);

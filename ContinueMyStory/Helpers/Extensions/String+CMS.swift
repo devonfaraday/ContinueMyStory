@@ -44,7 +44,7 @@ extension String {
     static var commentsKey: String { get { return "comments" } }
     static var snippetIdentifierKey: String { get { return "snippetIdentifiers" } }
     static var categoryKey: String { get { return "category" } }
-    static var snippetKey: String { get { return "snippets" } }
+    static var snippetKey: String { get { return "snippet" } }
     static var storyReferenceKey: String { get { return "storyReference" } }
     static var snippetReferenceKey: String { get { return "snippetReference" } }
     static var createdKey: String { get { return "created" } }
