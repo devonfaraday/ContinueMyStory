@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="3622" y="486"/>
         </scene>
-        <!--StoryPageViewController-->
+        <!--StoryEntryViewController-->
         <scene sceneID="XB8-Ej-5Db">
             <objects>
-                <viewControllerPlaceholder storyboardName="Story" referencedIdentifier="StoryPageViewController" id="XRu-7l-P7h" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="StoryEntryViewController" storyboardName="Story" referencedIdentifier="StoryEntryViewController" id="XRu-7l-P7h" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wc9-02-Yg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4269" y="667"/>

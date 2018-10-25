@@ -12,16 +12,17 @@ class StoryEntryViewController: UIViewController {
 
     @IBOutlet var authorLabel: UILabel!
     @IBOutlet var commentButton: UIButton!
-    @IBOutlet var continueMyStoryLabel: UILabel!
-    @IBOutlet var continueMyStoryButton: UIButton!
-    @IBOutlet var entryBodyTextView: UITextView!
+    @IBOutlet var likeButton: UIButton!
     @IBOutlet var pageCountLabel: UILabel!
     @IBOutlet var profileImageButton: UIButton!
-    @IBOutlet var likeButton: UIButton!
+    @IBOutlet var storyContainerView: UIView!
     
     var author: User?
     var currentPageNumber: Int = 1
-    var maxPageNumber: Int = 1
+    var maxPageNumber: Int {
+        guard let story = story else { return 0 }
+        return story.snippets.count + 2
+    }
     var snippet: Snippet?
     var story: Story?
     var viewState: StoryEntryViewState = .story
@@ -47,31 +48,18 @@ class StoryEntryViewController: UIViewController {
     
     func updateViews() {
         DispatchQueue.main.async {
-            self.updateViewsForSnippet()
-            self.updateViewsForStory()
-            self.updateViewsForCMS()
-            self.updatePageNumber()
+            self.setProfileImageViewAttributes()
+            self.updatePageNumber(toNumber: self.currentPageNumber)
             self.updateViewsHiddenState()
         }
     }
     
-    func updateViewsForSnippet() {
-        guard let snippet = self.snippet else { return }
-        updateEntry(withBody: snippet.body)
-        profileImageButton.setTitle("Profile\nImage\nHere", for: .normal)
+    func setProfileImageViewAttributes() {
+        profileImageButton.layer.cornerRadius = profileImageButton.frame.width / 2
+        profileImageButton.layer.borderWidth = 1.0
+        profileImageButton.layer.borderColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.10).cgColor
     }
-    
-    func updateViewsForStory() {
-        guard let story = self.story else { return }
-        updateEntry(withBody: story.body)
-    }
-    
-    func updateViewsForCMS() {
-        if viewState == .continueMyStory {
-            
-        }
-    }
-    
+
     func updateAuthor() {
         authorLabel.text = author?.fullName
     }
@@ -81,48 +69,43 @@ class StoryEntryViewController: UIViewController {
         authorLabel.isHidden = viewState == .continueMyStory
         likeButton.isHidden = viewState == .continueMyStory
         commentButton.isHidden = viewState == .continueMyStory
-        continueMyStoryLabel.isHidden = viewState != .continueMyStory
-        continueMyStoryButton.isHidden = viewState != .continueMyStory
         pageCountLabel.isHidden = viewState == .continueMyStory
-        entryBodyTextView.isHidden = viewState == .continueMyStory
     }
     
-    func updatePageNumber() {
-        pageCountLabel.text = "\(currentPageNumber)/\(maxPageNumber)"
-    }
-    
-    func updateEntry(withBody body: String) {
-        entryBodyTextView.text = body
-        entryBodyTextView.isEditable = false
-    }
-    
-    @IBAction func continueMyStoryButtonTapped(_ sender: Any) {
+    func updatePageNumber(toNumber aNumber: Int) {
+        pageCountLabel.text = "\(aNumber)/\(maxPageNumber)"
     }
     
     @IBAction func likeButtonTapped(_ sender: Any) {
+        
     }
     
     @IBAction func commentButtonTapped(_ sender: Any) {
+        
     }
-    
     
     @IBAction func profileImageButtonTapped(_ sender: Any) {
+        
     }
     
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "StoryPageViewController" {
+            guard let storyPageViewController = segue.destination as? StoryPageViewController else { return }
+            storyPageViewController.storyDelegate = self
+            storyPageViewController.story = story
+        }
     }
-    */
-    
-    enum StoryEntryViewState {
-        case story
-        case snippet
-        case continueMyStory
-    }
+}
 
+extension StoryEntryViewController: StoryDelegate {
+    func storyPageDidTurn(toPageNumber pageNumber: Int) {
+        updatePageNumber(toNumber: pageNumber)
+    }
+}
+
+enum StoryEntryViewState {
+    case story
+    case snippet
+    case continueMyStory
 }
