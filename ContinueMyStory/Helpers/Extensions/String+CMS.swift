@@ -40,7 +40,7 @@ extension String {
     /* Story Keys */
     static var titleKey: String { get { return "title" } }
     static var bodyKey: String { get { return "body" } }
-    static var authorKey: String { get { return "authorUid" } }
+    static var authorKey: String { get { return "author" } }
     static var commentsKey: String { get { return "comments" } }
     static var snippetIdentifierKey: String { get { return "snippetIdentifiers" } }
     static var categoryKey: String { get { return "category" } }

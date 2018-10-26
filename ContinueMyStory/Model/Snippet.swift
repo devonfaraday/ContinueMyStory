@@ -11,7 +11,8 @@ import Foundation
 class Snippet: FirebaseType, Equatable {
     
     var body: String
-    let author: String
+    var author: User?
+    var authorUid: String? = nil
     let storyRef: String
     var created: Date = Date()
     // this may become a model
@@ -22,7 +23,7 @@ class Snippet: FirebaseType, Equatable {
     var likes: [String]?
     let category: StoryCategoryType
     
-    init(body: String, author: String, storyRef: String, comments: [Comment] = [], likes: [String] = [], category: StoryCategoryType) {
+    init(body: String, author: User, storyRef: String, comments: [Comment] = [], likes: [String] = [], category: StoryCategoryType) {
         self.body = body
         self.author = author
         self.storyRef = storyRef
@@ -34,7 +35,7 @@ class Snippet: FirebaseType, Equatable {
     
     var dictionaryCopy: JSONDictionary {
         return [.bodyKey: body,
-                .authorKey: author,
+                .authorKey: author?.dictionaryCopy as Any,
                 .storyReferenceKey: storyRef,
                 .createdKey: created.toString(),
                 .likesKey: likes as Any,
@@ -43,15 +44,18 @@ class Snippet: FirebaseType, Equatable {
     
     required init?(dictionary: JSONDictionary, identifier: String) {
         guard let body = dictionary[.bodyKey] as? String,
-            let author = dictionary[.authorKey] as? String,
             let storyRef = dictionary[.storyReferenceKey] as? String,
             let createdString = dictionary[.createdKey] as? String,
             let category = dictionary[.categoryKey] as? String,
             let created = createdString.date()
             else { return nil }
+        if let authorUid = dictionary["authorUid"] as? String { self.authorUid = authorUid }
+        if let authorDict = dictionary[.authorKey] as? JSONDictionary,
+            let uid = authorDict[.identifierKey] as? String {
+            self.author = User(dictionary: authorDict, identifier: uid)
+        }
         self.identifier = identifier
         self.body = body
-        self.author = author
         self.storyRef = storyRef
         self.created = created
         switch category {

@@ -10,7 +10,7 @@ import Foundation
 
 class SnippetController {
     
-    func createSnippet(withBody body: String, author: String, story: Story, completion: @escaping(Snippet) -> Void) {
+    func createSnippet(withBody body: String, author: User, story: Story, completion: @escaping(Snippet) -> Void) {
         guard let storyRef = story.identifier else { return }
         let category = story.category
         var snippet = Snippet(body: body, author: author, storyRef: storyRef, category: story.category )

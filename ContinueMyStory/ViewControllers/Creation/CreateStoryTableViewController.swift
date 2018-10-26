@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
+class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate, CurrentUserUsable {
     
     @IBOutlet var categoryPickerView: UIPickerView!
     @IBOutlet var titleTextField: UITextField!
@@ -86,8 +86,10 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     func createStory(completion: @escaping() -> Void) {
         guard let title = titleTextField.text,
             let body = storyBodyTextView.text,
-            let selectedCategory = selectedCategory else { return }
-        StoryController().createStory(withTitle: title, body: body, author: userUid, category: selectedCategory) {
+            let selectedCategory = selectedCategory,
+            let user = currentUser
+            else { return }
+        StoryController().createStory(withTitle: title, body: body, author: user, category: selectedCategory) {
             print("Story saved")
             self.titleTextField.text = ""
             self.storyBodyTextView.text = ""

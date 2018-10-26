@@ -17,7 +17,7 @@ class StoryPageViewController: UIPageViewController {
     }
     var maxPageCount: Int {
         guard let story = self.story else { return 0 }
-        return story.snippets.count + 1
+        return story.snippets.count + 2
     }
     var orderedViewControllers: [UIViewController] = []
     weak var storyDelegate: StoryDelegate?
@@ -41,7 +41,9 @@ class StoryPageViewController: UIPageViewController {
     func addStoryToViewControllers() {
         guard let story = story else { return }
         let storyVC: StoryEntryContainerViewController = instantiateStoryEntryViewController()
+        storyVC.pageNumber = 1
         storyVC.entryBody = story.body
+        storyVC.author = story.author
         storyVC.viewState = .story
         orderedViewControllers.append(storyVC)
     }
@@ -51,7 +53,10 @@ class StoryPageViewController: UIPageViewController {
         guard let story = story
         else { return }
         for snippet in story.snippets {
+            guard let index = story.snippets.index(of: snippet) else { return }
             let snippetVC: StoryEntryContainerViewController = instantiateStoryEntryViewController()
+            snippetVC.pageNumber = index + 2
+            snippetVC.author = snippet.author
             snippetVC.entryBody = snippet.body
             snippetVC.viewState = .snippet
             snippetControllers.append(snippetVC)
@@ -61,6 +66,7 @@ class StoryPageViewController: UIPageViewController {
     
     func appendContinueMyStoryViewToOrderedViewControllers() {
         let continueMyStoryView: StoryEntryContainerViewController = instantiateStoryEntryViewController()
+        continueMyStoryView.pageNumber = maxPageCount
         continueMyStoryView.entryBody = ""
         continueMyStoryView.viewState = .continueMyStory
         orderedViewControllers.append(continueMyStoryView)
@@ -91,13 +97,12 @@ extension StoryPageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else { return nil }
-        currentPage = viewControllerIndex
-        var previousIndex = viewControllerIndex - 1
-        if previousIndex < 0 {
-            previousIndex = orderedViewControllers.count - 1
-            currentPage = orderedViewControllers.count
+        guard viewControllerIndex != 0 else {
+            return nil
         }
-        guard previousIndex >= 0 else {
+        currentPage = viewControllerIndex
+        let previousIndex = viewControllerIndex - 1
+        guard previousIndex > 0 else {
             currentPage = 1
             return orderedViewControllers.first
         }

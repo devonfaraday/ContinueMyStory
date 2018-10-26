@@ -20,6 +20,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var backButton: UIButton!
     
     var comments = [Comment]()
+    var currentUser: User?
     var selectedAuthor: User?
     var story: Story?  {
         didSet {
@@ -109,9 +110,9 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func addSnippetButtonTapped(_ sender: UIButton) {
         if isAddingSnippet {
             if let body = addSnippetTextView.text,
-                let authorID = Auth.auth().currentUser?.uid,
+                let user = currentUser,
                 let story = story {
-                SnippetController().createSnippet(withBody: body, author: authorID, story: story, completion: { (snippet) in
+                SnippetController().createSnippet(withBody: body, author: user, story: story, completion: { (snippet) in
                     self.snippets.append(snippet)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -187,7 +188,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.count
         characterCountLabel.text = "\(numberOfChars)/1000"
-        return numberOfChars < 1000 ;
+        return numberOfChars <= 1000 ;
     }
     
     

@@ -12,18 +12,16 @@ class Story: FirebaseType {
     
     var title: String
     var body: String
-    let author: String
+    let author: User?
     var created: Date = Date()
-    // this may become a model
     var comments: [Comment]?
-    // snippets is of type string so it can hold the uid of the snippets saved.
     var category: StoryCategoryType
     let snippets: [Snippet]
     var endpoint: String = .storiesEndpoint
     var identifier: String?
     var likes: [String]?
     
-    init(title: String, body: String, author: String, comments: [Comment] = [], category: StoryCategoryType, snippets: [Snippet] = [], likes: [String] = []) {
+    init(title: String, body: String, author: User, comments: [Comment] = [], category: StoryCategoryType, snippets: [Snippet] = [], likes: [String] = []) {
         self.title = title
         self.body = body
         self.author = author
@@ -36,7 +34,7 @@ class Story: FirebaseType {
     var dictionaryCopy: JSONDictionary {
         return [.titleKey: title,
                 .bodyKey: body,
-                .authorKey: author,
+                .authorKey: author?.dictionaryCopy as Any,
                 .categoryKey: category.rawValue,
                 .createdKey: created.toString(),
                 .likesKey: likes as Any
@@ -46,11 +44,13 @@ class Story: FirebaseType {
     required init?(dictionary: JSONDictionary, identifier: String) {
         guard let title = dictionary[.titleKey] as? String,
             let body = dictionary[.bodyKey] as? String,
-            let author = dictionary[.authorKey] as? String,
+            let author = dictionary[.authorKey] as? JSONDictionary,
+            let authorId = author[.identifierKey] as? String,
             let category = dictionary[.categoryKey] as? String,
             let dateString = dictionary[.createdKey] as? String,
             let date = dateString.date()
             else { return nil }
+        self.author = User(dictionary: author, identifier: authorId)
         if let snippetsDictioanry = dictionary[.snippetKey] as? JSONDictionary {
             self.snippets = snippetsDictioanry.compactMap({
                 guard let value = $0.value as? JSONDictionary else { return nil }
@@ -62,7 +62,6 @@ class Story: FirebaseType {
         self.identifier = identifier
         self.title = title
         self.body = body
-        self.author = author
         self.created = date
         switch category {
         case StoryCategoryType.fantasy.rawValue: self.category = StoryCategoryType.fantasy

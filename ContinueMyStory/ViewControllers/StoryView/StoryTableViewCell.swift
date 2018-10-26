@@ -17,16 +17,8 @@ class StoryTableViewCell: UITableViewCell {
     @IBOutlet var likeNumberLabel: UILabel!
     
     var delegate: StoryTableViewCellDelegate?
-    var story: Story? {
-        didSet {
-            fetchAuthor()
-        }
-    }
-    var snippet: Snippet? {
-        didSet {
-            fetchAuthor()
-        }
-    }
+    var story: Story?
+    var snippet: Snippet?
     var author: User?
     var currentUserUID: String {
         guard let user = Auth.auth().currentUser else { return "" }
@@ -119,22 +111,6 @@ class StoryTableViewCell: UITableViewCell {
             print("Snippet modified")
         }
 
-    }
-    
-    func fetchAuthor() {
-        var authorid = ""
-        if let story = story {
-            authorid = story.author
-        } else if let snippet = snippet {
-            authorid = snippet.author
-        }
-        UserController().fetchUser(withIdentifier: authorid) { (author) in
-            if let author = author {
-                self.author = author
-                self.updateView()
-            }
-        }
-        
     }
 }
 

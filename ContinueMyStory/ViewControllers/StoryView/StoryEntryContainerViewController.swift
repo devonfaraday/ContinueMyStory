@@ -10,11 +10,18 @@ import UIKit
 
 class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet var authorLabel: UILabel!
     @IBOutlet var cmsLabel: UILabel!
     @IBOutlet var continueMyStoryButton: UIButton!
+    @IBOutlet var commentButton: UIButton!
     @IBOutlet var entryBodyTextView: UITextView!
+    @IBOutlet var likeButton: UIButton!
+    @IBOutlet var pageNumberLabel: UILabel!
+    @IBOutlet var profileImageButton: UIButton!
     
+    var author: User?
     var entryBody: String = ""
+    var pageNumber: Int = 1
     var viewState: StoryEntryViewState = .story
     
     override func viewDidLoad() {
@@ -25,8 +32,20 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
     }
     
     func updateViews() {
+        updatePageNumber()
         updateEntryBodyTextView()
         updateForContinueMyStoryStateIfNeeded()
+        updateAuthorInfo()
+    }
+    
+    func updatePageNumber() {
+        pageNumberLabel.text = "\(pageNumber)"
+    }
+    
+    func updateAuthorInfo() {
+        guard let author: User = self.author
+            else { return }
+        authorLabel.text = author.fullName
     }
     
     func updateEntryBodyTextView() {
@@ -37,11 +56,27 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
     }
     
     func updateForContinueMyStoryStateIfNeeded() {
-            cmsLabel.isHidden = viewState != .continueMyStory
-            continueMyStoryButton.isHidden = viewState != .continueMyStory
+        cmsLabel.isHidden = viewState != .continueMyStory
+        continueMyStoryButton.isHidden = viewState != .continueMyStory
+        authorLabel.isHidden = viewState == .continueMyStory
+        likeButton.isHidden = viewState == .continueMyStory
+        commentButton.isHidden = viewState == .continueMyStory
+        profileImageButton.isHidden = viewState == .continueMyStory
     }
     
     @IBAction func continueMyStoryButtonTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func likeButtonTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func commentButtonTapped(_ sender: Any) {
+        
+    }
+    
+    @IBAction func profileImageButtonTapped(_ sender: Any) {
         
     }
     

@@ -11,9 +11,8 @@ import Firebase
 
 class StoryController {
     
-    func createStory(withTitle title: String, body: String, author: String, category: StoryCategoryType, completion: @escaping() -> Void) {
+    func createStory(withTitle title: String, body: String, author: User, category: StoryCategoryType, completion: @escaping() -> Void) {
         var story = Story(title: title, body: body, author: author, category: category)
-        
         story.saveStory(toCategory: category)
         completion()
     }
@@ -48,7 +47,7 @@ class StoryController {
         storiesRef.observe(.value, with: { (snapshot) in
             guard let snapDictionary = snapshot.value as? [String: [String: JSONDictionary]] else { print("No dictionary resturned"); return }
             let catDictionary = snapDictionary.flatMap { $1 }
-            let stories = catDictionary.compactMap { Story(dictionary: $1, identifier: $0) }.filter { $0.author == userId }
+            let stories = catDictionary.compactMap { Story(dictionary: $1, identifier: $0) }.filter { $0.author?.identifier == userId }
             
             completion(stories)
         })

@@ -12,7 +12,7 @@ import Firebase
 
 struct User: FirebaseType {
     
-    var age: String
+    var age: String?
     var endpoint: String = .usersEndpoint
     var familyName: String
     var followers: [String] = []
@@ -26,10 +26,11 @@ struct User: FirebaseType {
         return [.usernameKey: username,
                 .givenNameKey: givenName,
                 .familyNameKey: familyName,
-                .ageKey: age,
+                .ageKey: age ?? "0",
                 .followingKey: following,
                 .followersKey: followers,
-                .storyFollowingKey: stories]
+                .storyFollowingKey: stories,
+                .identifierKey: identifier as Any]
     }
     var fullName: String {
         return "\(givenName) \(familyName)"
@@ -43,19 +44,40 @@ struct User: FirebaseType {
         self.identifier = identifier
     }
     
+    func setUserInUserDefaults() {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(dictionaryCopy, forKey: "user")
+    }
+    
+    static func getCurrentUserFromUserDefaults() -> User? {
+        let userDefaults = UserDefaults.standard
+        guard let userDict = userDefaults.dictionary(forKey: "user"),
+            let uid = userDict[.identifierKey] as? String else { return nil }
+        return User(dictionary: userDict, identifier: uid)
+    }
+    
     init?(dictionary: JSONDictionary, identifier: String) {
         guard let username = dictionary[.usernameKey] as? String,
             let givenName = dictionary[.givenNameKey] as? String,
-            let familyName = dictionary[.familyNameKey] as? String,
-            let age = dictionary[.ageKey] as? String
+            let familyName = dictionary[.familyNameKey] as? String
         else { return nil }
         self.identifier = identifier
         self.username = username
         self.givenName = givenName
         self.familyName = familyName
-        self.age = age
+        if let age = dictionary[.ageKey] as? String { self.age = age }
         if let followers = dictionary[.followersKey] as? [String] { self.followers = followers }
         if let following = dictionary[.followingKey] as? [String] { self.following = following }
         if let stories = dictionary[.storyFollowingKey] as? [String] { self.stories = stories }
+    }
+}
+
+protocol CurrentUserUsable {
+    
+}
+
+extension CurrentUserUsable {
+    var currentUser: User? {
+        return User.getCurrentUserFromUserDefaults()
     }
 }
