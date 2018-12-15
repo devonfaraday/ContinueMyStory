@@ -33,7 +33,6 @@ class ImageController {
     // MARK: - Read
     func fetchImage(forUser user: User?, completion: @escaping(UIImage?) -> Void) {
         guard let userId = user?.identifier else { return }
-        
         let imageRef = imageReference.child("\(userId).jpg")
         imageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
             if let error = error {

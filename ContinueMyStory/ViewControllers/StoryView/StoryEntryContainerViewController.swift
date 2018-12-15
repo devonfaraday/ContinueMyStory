@@ -31,7 +31,28 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
         view.layer.borderColor = UIColor.black.cgColor
     }
     
+    func fetchProfileImage() {
+        let imageController = ImageController()
+        DispatchQueue.global().async {
+            imageController.fetchImage(forUser: self.author) { (image) in
+                DispatchQueue.main.async {
+                    self.profileImageButton.setBackgroundImage(image, for: .normal)
+                    self.profileImageButton.setTitle("", for: .normal)
+                }
+            }
+        }
+    }
+    
+    func layoutProfileImageButton() {
+        self.profileImageButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.09915453767)
+        self.profileImageButton.layer.borderWidth = -2
+        self.profileImageButton.layer.cornerRadius = self.profileImageButton.frame.width / 2
+        self.profileImageButton.imageView?.layer.cornerRadius = self.profileImageButton.frame.width / 2
+    }
+    
     func updateViews() {
+        layoutProfileImageButton()
+        fetchProfileImage()
         updatePageNumber()
         updateEntryBodyTextView()
         updateForContinueMyStoryStateIfNeeded()
@@ -65,6 +86,7 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func continueMyStoryButtonTapped(_ sender: Any) {
+        continueMyStoryButton.isHidden = true
         
     }
     

@@ -11,6 +11,7 @@ import UIKit
 class StoryEntryViewController: UIViewController {
 
     @IBOutlet var storyContainerView: UIView!
+    @IBOutlet var storyTitleLabel: UILabel!
     
     var author: User?
     var currentPageNumber: Int = 1
@@ -19,7 +20,14 @@ class StoryEntryViewController: UIViewController {
         return story.snippets.count + 2
     }
     var snippet: Snippet?
-    var story: Story?
+    var story: Story? {
+        didSet {
+            if !isViewLoaded {
+                loadViewIfNeeded()
+            }
+            storyTitleLabel.text = story?.title
+        }
+    }
     var viewState: StoryEntryViewState = .story
     
     override func viewDidLoad() {
