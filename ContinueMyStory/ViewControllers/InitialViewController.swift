@@ -38,7 +38,7 @@ class InitialViewController: UIViewController {
         func fetchCurrentUser(completion: @escaping() -> Void) {
             guard let currentUser = Auth.auth().currentUser else { completion(); return }
             let uid = currentUser.uid
-            UserController().fetchUser(withIdentifier: uid) { (user) in
+            UserController().fetchUser(withIdentifier: uid) { (user, error)  in
                 print("User Fetched in profile")
                 self.currentUser = user
                 completion()

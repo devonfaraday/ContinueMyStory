@@ -27,10 +27,8 @@ class CommentTableViewCell: UITableViewCell {
     
     func updateViews() {
         guard let comment = comment else { return }
-        DispatchQueue.main.async {
-            self.authorLabel.text = "\(comment.author) | \(comment.created.toStringWithoutSeconds())"
-            self.bodyLabel.text = comment.body
-        }
+        self.authorLabel.text = "\(comment.author.username) | \(comment.created.toStringWithoutSeconds())"
+        self.bodyLabel.text = comment.body
     }
     
 }

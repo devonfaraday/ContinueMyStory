@@ -8,72 +8,59 @@
 
 import Foundation
 
-class Snippet: FirebaseType {
+class Snippet: Equatable {
     
     var body: String
-    let author: String
+    var author: User?
+    var authorUid: String? = nil
     let storyRef: String
     var created: Date = Date()
     // this may become a model
-    var comments: [Comment]?
+    var comments: [Comment] = []
     // snippets is of type string so it can hold the uid of the snippets saved.
-    var endpoint: String = .snippetKey
-    var identifier: String?
-    var likes: [String]?
-    let category: StoryCategory
+    var collectionPathKey: String = .snippetsKey
+    var uid: String
+    var likes: [String]
     
-    init(body: String, author: String, storyRef: String, comments: [Comment] = [], likes: [String] = [], category: StoryCategory) {
+    init(body: String, author: User, storyRef: String, comments: [Comment] = [], likes: [String] = []) {
         self.body = body
         self.author = author
         self.storyRef = storyRef
         self.comments = comments
         self.likes = likes
-        self.category = category
-        
+        self.uid = UUID().uuidString
     }
     
-    var dictionaryCopy: JSONDictionary {
+    var documentData: JSONDictionary {
         return [.bodyKey: body,
-                .authorKey: author,
+                .authorKey: author?.basicUserData as Any,
                 .storyReferenceKey: storyRef,
+                .commentsKey: comments.compactMap({ $0.dictionaryRepresentation }),
                 .createdKey: created.toString(),
                 .likesKey: likes as Any,
-                .categoryKey: category.rawValue]
+                .identifierKey: uid]
     }
     
-    required init?(dictionary: JSONDictionary, identifier: String) {
+    required init?(dictionary: JSONDictionary) {
         guard let body = dictionary[.bodyKey] as? String,
-            let author = dictionary[.authorKey] as? String,
             let storyRef = dictionary[.storyReferenceKey] as? String,
             let createdString = dictionary[.createdKey] as? String,
-            let category = dictionary[.categoryKey] as? String,
-            let created = createdString.date()
+            let created = createdString.date(),
+            let uid = dictionary[.identifierKey] as? String
             else { return nil }
-        self.identifier = identifier
+        if let authorUid = dictionary["authorUid"] as? String { self.authorUid = authorUid }
+        if let authorDict = dictionary[.authorKey] as? JSONDictionary {
+            self.author = User(dictionary: authorDict)
+        }
+        self.uid = uid
         self.body = body
-        self.author = author
         self.storyRef = storyRef
         self.created = created
-        switch category {
-        case StoryCategory.fantasy.rawValue: self.category = StoryCategory.fantasy
-        case StoryCategory.sifi.rawValue: self.category = StoryCategory.sifi
-        case StoryCategory.suspense.rawValue: self.category = StoryCategory.suspense
-        case StoryCategory.crime.rawValue: self.category = StoryCategory.crime
-        case StoryCategory.fable.rawValue: self.category = StoryCategory.fable
-        case StoryCategory.fanFiction.rawValue: self.category = StoryCategory.fanFiction
-        case StoryCategory.historicalFiction.rawValue: self.category = StoryCategory.historicalFiction
-        case StoryCategory.horror.rawValue: self.category = StoryCategory.horror
-        case StoryCategory.legend.rawValue: self.category = StoryCategory.legend
-        case StoryCategory.mystery.rawValue: self.category = StoryCategory.mystery
-        case StoryCategory.mythology.rawValue: self.category = StoryCategory.mythology
-        case StoryCategory.romance.rawValue: self.category = StoryCategory.romance
-        case StoryCategory.shortStory.rawValue: self.category = StoryCategory.shortStory
-        case StoryCategory.tallTale.rawValue: self.category = StoryCategory.tallTale
-        case StoryCategory.western.rawValue: self.category = StoryCategory.western
-        default:
-            self.category = StoryCategory.none
-        }
-        self.comments = dictionary[.commentsKey] as? [Comment]
-        self.likes = dictionary[.likesKey] as? [String]
+        if let comments = dictionary[.commentsKey] as? [JSONDictionary] { self.comments = comments.compactMap({ Comment(dictionary: $0) }) }
+        self.likes = dictionary[.likesKey] as? [String] ?? []
     }
+}
+
+func ==(lhs: Snippet, rhs: Snippet) -> Bool {
+    return lhs.uid == rhs.uid
 }

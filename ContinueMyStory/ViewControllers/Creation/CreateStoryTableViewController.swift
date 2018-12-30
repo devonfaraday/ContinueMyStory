@@ -9,14 +9,14 @@
 import UIKit
 import Firebase
 
-class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate {
+class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate, CurrentUserUsable {
     
     @IBOutlet var categoryPickerView: UIPickerView!
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var storyBodyTextView: UITextView!
     
-    var categories: [StoryCategory] = [.none, .crime, .fable, .fanFiction, .fantasy, .folklore, .historicalFiction, .horror, .legend, .mystery, .mythology, .romance, .sifi, .shortStory, .suspense, .tallTale, .western]
-    var selectedCategory: StoryCategory?
+    var categories: [StoryCategoryType] = [.none, .crime, .fable, .fanFiction, .fantasy, .folklore, .historicalFiction, .horror, .legend, .mystery, .mythology, .romance, .sifi, .shortStory, .suspense, .tallTale, .western]
+    var selectedCategory: StoryCategoryType?
     var userUid = ""
     
     override func viewDidLoad() {
@@ -28,17 +28,23 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     
     // MARK: - IB Actions
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
-        let _ = navigationController?.popViewController(animated: true)
+        titleTextField.text = ""
+        storyBodyTextView.text = ""
+        titleTextField.resignFirstResponder()
+        storyBodyTextView.resignFirstResponder()
+        self.tabBarController?.selectedIndex = 1
     }
     
     @IBAction func saveStoryButtonTapped(_ sender: UIButton) {
         sender.isEnabled = false
-        createStory {
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: .toStoryListSegue, sender: self)
-                sender.isEnabled = true
+        createStory(completion: { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tabBarController?.selectedIndex = 1
+                }
             }
-        }
+            sender.isEnabled = true
+        })
     }
     
     // MARK: - Category Picker
@@ -79,13 +85,22 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     }
     
     // MARK: - Helpers
-    func createStory(completion: @escaping() -> Void) {
+    func createStory(completion: @escaping(_ success: Bool) -> Void) {
         guard let title = titleTextField.text,
             let body = storyBodyTextView.text,
-            let selectedCategory = selectedCategory else { return }
-        StoryController().createStory(withTitle: title, body: body, author: userUid, category: selectedCategory) {
-            print("Story saved")
-            completion()
+            let selectedCategory = selectedCategory,
+            let user = currentUser
+            else { return }
+        StoryController().createStory(withTitle: title, body: body, author: user, category: selectedCategory) { (success) in
+            if success {
+                print("Story saved")
+                self.titleTextField.text = ""
+                self.storyBodyTextView.text = ""
+                self.titleTextField.resignFirstResponder()
+                self.storyBodyTextView.resignFirstResponder()
+            }
+            completion(success)
+            
         }
     }
     

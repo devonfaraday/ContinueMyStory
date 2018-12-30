@@ -10,48 +10,22 @@ import Foundation
 
 class SnippetController {
     
-    func createSnippet(withBody body: String, author: String, story: Story, completion: @escaping(Snippet) -> Void) {
-        guard let storyRef = story.identifier else { return }
-        let category = story.category
-        var snippet = Snippet(body: body, author: author, storyRef: storyRef, category: story.category )
-        snippet.saveSnippet(storyIdentifier: storyRef, storyCategory: category)
-        completion(snippet)
+    func createSnippet(withBody body: String, author: User, story: Story, completion: @escaping(Snippet?) -> Void) {
+        let snippet = Snippet(body: body, author: author, storyRef: story.uid)
+        story.snippets.append(snippet)
+        story.saveToFirestore { (success, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(nil)
+            } else if success {
+                completion(snippet)
+            }
+        }
+        completion(nil)
     }
     
-    func fetchSnippets(fromStory story: Story, completion: @escaping([Snippet])-> Void) {
-        guard let storyRef = story.identifier else { completion([]); return }
-        let storyCategory = story.category
-        let snippetRef = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(String.categoryEndpoint)/\(storyCategory.rawValue)/\(storyRef)/\(String.snippetKey)")
-        snippetRef.observe(.value, with: { (snapshot) in
-            print(snapshot.description)
-            guard let snapDictionary = snapshot.value as? [String: JSONDictionary] else { completion([]); return }
-            
-            let snippets = snapDictionary.flatMap { Snippet(dictionary: $1, identifier: $0) }.sorted(by: {$0.created < $1.created})
-            
-            completion(snippets)
-        })
-    }
-    
-    func modify(snippet: Snippet, inStoryCategory category: StoryCategory, completion: @escaping() -> Void) {
-        var newSnippet = snippet
-        newSnippet.saveSnippet(storyIdentifier: newSnippet.storyRef, storyCategory: category)
+    func modifySnippet(with snippet: Snippet) {
+        let fc: FirebaseController = FirebaseController()
+        fc.updateData(fromCollection: .storiescollectionPathKey, inDocument: snippet.storyRef, newData: [String.snippetReferenceKey: snippet.documentData])
     }
 }
-
-
-/*
- 
- let storiesRef = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(String.categoryEndpoint)")
- storiesRef.observe(.value, with: { (snapshot) in
- 
- guard let snapDictionary = snapshot.value as? [String: [String: JSONDictionary]] else { print("No dictionary resturned"); return }
- 
- let catdict = snapDictionary.flatMap { $1 }
- 
- let stories = catdict.flatMap { Story(dictionary: $1, identifier: $0) }
- 
- completion(stories)
- })
- }
- 
- */

@@ -108,7 +108,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.warningAlert(withTitle: "Invalid Credentials", message: "Your email and/or password are incorrect")
             } else {
                 print("Signed In")
-                self.fetchCurrentUser {
+                self.fetchCurrentUser { _ in
                     DispatchQueue.main.async {
                         self.performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
                         self.resetTextFields()
@@ -140,13 +140,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func fetchCurrentUser(completion: @escaping() -> Void) {
-        guard let currentUser = Auth.auth().currentUser else { completion(); return }
+    func fetchCurrentUser(completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else { completion(nil); return }
         let uid = currentUser.uid
-        UserController().fetchUser(withIdentifier: uid) { (user) in
+        UserController().fetchUser(withIdentifier: uid) { (user, error) in
             print("User Fetched in profile")
             self.currentUser = user
-            completion()
+            completion(error)
         }
     }
     

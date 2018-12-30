@@ -24,19 +24,14 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
     // TODO: - Figure out how to fetch comments for snippets
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideSortByOptions()
-        StoryController().fetchAllStories { (stories) in
-            for story in stories {
-                DispatchQueue.global().async {
-                CommentController().fetchComments(fromStory: story, completion: { (comments) in
-                    story.comments = comments
-                })
-                }
-        
-            }
+        hideSortByOptions(withDuration: 0.0)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        StoryController().fetchAllStories { (stories, error) in
             self.stories = stories
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,11 +42,7 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: .storyListCellIdentifier, for: indexPath)
         let story = stories[indexPath.row]
         cell.textLabel?.text = story.title
-        UserController().fetchUser(withIdentifier: story.author) { (user) in
-            guard let user = user else { return }
-            cell.detailTextLabel?.text = "By: \(user.username)"
-        }
-        
+        cell.detailTextLabel?.text = "By: \(story.author?.username ?? "Unknown Author")"
         return cell
     }
     
@@ -84,26 +75,21 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func hideSortByOptions() {
-        UIView.animate(withDuration: 0.3) {
+    func hideSortByOptions(withDuration duration: TimeInterval = 0.3) {
+        UIView.animate(withDuration: duration) {
             self.containerView.transform = CGAffineTransform(translationX: 0, y: -self.containerView.frame.height)
         }
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
         if segue.identifier == String.toSortByViewControllerSegue {
             guard let destination = segue.destination as? SortByViewController else { return }
             destination.delegate = self
         }
         if segue.identifier == String.toStoryDetailSegue {
-            guard let destination = segue.destination as? StoryViewController else { return }
+            guard let destination = segue.destination as? StoryEntryViewController else { return }
             destination.story = selectedStory
         }
-        
     }
- 
-
 }
