@@ -25,15 +25,7 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         hideSortByOptions()
-        StoryController().fetchAllStories { (stories) in
-            for story in stories {
-                DispatchQueue.global().async {
-                CommentController().fetchComments(fromStory: story, completion: { (comments) in
-                    story.comments = comments
-                })
-                }
-        
-            }
+        StoryController().fetchAllStories { (stories, error) in
             self.stories = stories
         }
         

@@ -10,14 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--LoginViewController-->
-        <scene sceneID="3gV-xg-qr3">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="LoginViewController" storyboardName="Login" referencedIdentifier="LoginViewController" id="mBF-cC-ecp" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6xf-S7-YnN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3273" y="178"/>
-        </scene>
         <!--Profile View Controller-->
         <scene sceneID="5mP-eF-oig">
             <objects>
@@ -192,19 +184,14 @@
                         <outlet property="profileImageView" destination="E3T-hn-el8" id="6e4-Gz-pfV"/>
                         <outlet property="storyButton" destination="HIN-HL-pdi" id="Yvp-Vw-sad"/>
                         <outlet property="usernameLabel" destination="nQ3-2N-eLy" id="46s-Ps-pDy"/>
+                        <segue destination="hX3-QT-waY" kind="show" identifier="toStoryList" id="04v-Ew-V6s"/>
+                        <segue destination="wxO-LC-LAI" kind="show" identifier="toFollowers" id="DVD-Ua-Trv"/>
+                        <segue destination="wxO-LC-LAI" kind="show" identifier="toFollowing" id="pje-8E-vOv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVb-H5-MUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2112.8000000000002" y="119.70443349753695"/>
-        </scene>
-        <!--StoryListViewController-->
-        <scene sceneID="H1O-Mc-t4L">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="StoryListViewController" storyboardName="Main" referencedIdentifier="StoryListViewController" id="SlT-I4-9tj" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qpe-0G-CQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3291" y="120"/>
         </scene>
         <!--Profile-->
         <scene sceneID="XoD-Og-6mf">
@@ -229,11 +216,11 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileFeedViewController" id="hX3-QT-waY" customClass="ProfileFeedViewController" customModule="ContinueMyStory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yE4-3B-TwE">
-                        <rect key="frame" x="0.0" y="0.0" width="355" height="579"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qWQ-hh-V4c">
-                                <rect key="frame" x="0.0" y="0.0" width="355" height="579"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="615-FD-Lue">
                                     <size key="itemSize" width="114" height="97"/>
@@ -309,13 +296,42 @@
             </objects>
             <point key="canvasLocation" x="2719" y="804"/>
         </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="sxL-XC-WbA">
+            <objects>
+                <collectionViewController id="wxO-LC-LAI" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="DeN-6w-Ize">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mIO-vY-ZXz">
+                            <size key="itemSize" width="99" height="75"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="wxO-LC-LAI" id="zrn-0T-hk2"/>
+                            <outlet property="delegate" destination="wxO-LC-LAI" id="xn8-AX-k3i"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aRy-fw-yKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3215" y="100"/>
+        </scene>
         <!--BioViewController-->
         <scene sceneID="voN-XP-pBE">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="BioViewController" storyboardName="Bio" referencedIdentifier="BioViewController" id="JWG-Yi-kyo" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NN3-6W-qN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2791" y="120"/>
+            <point key="canvasLocation" x="2698" y="168"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pje-8E-vOv"/>
+        <segue reference="04v-Ew-V6s"/>
+    </inferredMetricsTieBreakers>
 </document>

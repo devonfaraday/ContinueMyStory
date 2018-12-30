@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Snippet: FirebaseType, Equatable {
+class Snippet: Equatable {
     
     var body: String
     var author: User?
@@ -16,72 +16,49 @@ class Snippet: FirebaseType, Equatable {
     let storyRef: String
     var created: Date = Date()
     // this may become a model
-    var comments: [Comment]?
+    var comments: [Comment]
     // snippets is of type string so it can hold the uid of the snippets saved.
-    var endpoint: String = .snippetKey
-    var identifier: String?
-    var likes: [String]?
-    let category: StoryCategoryType
+    var collectionPathKey: String = .snippetKey
+    var uid: String
+    var likes: [String]
     
-    init(body: String, author: User, storyRef: String, comments: [Comment] = [], likes: [String] = [], category: StoryCategoryType) {
+    init(body: String, author: User, storyRef: String, comments: [Comment] = [], likes: [String] = []) {
         self.body = body
         self.author = author
         self.storyRef = storyRef
         self.comments = comments
         self.likes = likes
-        self.category = category
-        
+        self.uid = UUID().uuidString
     }
     
-    var dictionaryCopy: JSONDictionary {
+    var documentData: JSONDictionary {
         return [.bodyKey: body,
-                .authorKey: author?.dictionaryCopy as Any,
+                .authorKey: author?.documentData as Any,
                 .storyReferenceKey: storyRef,
                 .createdKey: created.toString(),
-                .likesKey: likes as Any,
-                .categoryKey: category.rawValue]
+                .likesKey: likes as Any]
     }
     
-    required init?(dictionary: JSONDictionary, identifier: String) {
+    required init?(dictionary: JSONDictionary) {
         guard let body = dictionary[.bodyKey] as? String,
             let storyRef = dictionary[.storyReferenceKey] as? String,
             let createdString = dictionary[.createdKey] as? String,
-            let category = dictionary[.categoryKey] as? String,
-            let created = createdString.date()
+            let created = createdString.date(),
+            let uid = dictionary[.identifierKey] as? String
             else { return nil }
         if let authorUid = dictionary["authorUid"] as? String { self.authorUid = authorUid }
-        if let authorDict = dictionary[.authorKey] as? JSONDictionary,
-            let uid = authorDict[.identifierKey] as? String {
-            self.author = User(dictionary: authorDict, identifier: uid)
+        if let authorDict = dictionary[.authorKey] as? JSONDictionary {
+            self.author = User(dictionary: authorDict)
         }
-        self.identifier = identifier
+        self.uid = uid
         self.body = body
         self.storyRef = storyRef
         self.created = created
-        switch category {
-        case StoryCategoryType.fantasy.rawValue: self.category = StoryCategoryType.fantasy
-        case StoryCategoryType.sifi.rawValue: self.category = StoryCategoryType.sifi
-        case StoryCategoryType.suspense.rawValue: self.category = StoryCategoryType.suspense
-        case StoryCategoryType.crime.rawValue: self.category = StoryCategoryType.crime
-        case StoryCategoryType.fable.rawValue: self.category = StoryCategoryType.fable
-        case StoryCategoryType.fanFiction.rawValue: self.category = StoryCategoryType.fanFiction
-        case StoryCategoryType.historicalFiction.rawValue: self.category = StoryCategoryType.historicalFiction
-        case StoryCategoryType.horror.rawValue: self.category = StoryCategoryType.horror
-        case StoryCategoryType.legend.rawValue: self.category = StoryCategoryType.legend
-        case StoryCategoryType.mystery.rawValue: self.category = StoryCategoryType.mystery
-        case StoryCategoryType.mythology.rawValue: self.category = StoryCategoryType.mythology
-        case StoryCategoryType.romance.rawValue: self.category = StoryCategoryType.romance
-        case StoryCategoryType.shortStory.rawValue: self.category = StoryCategoryType.shortStory
-        case StoryCategoryType.tallTale.rawValue: self.category = StoryCategoryType.tallTale
-        case StoryCategoryType.western.rawValue: self.category = StoryCategoryType.western
-        default:
-            self.category = StoryCategoryType.none
-        }
-        self.comments = dictionary[.commentsKey] as? [Comment]
-        self.likes = dictionary[.likesKey] as? [String]
+        self.comments = dictionary[.commentsKey] as? [Comment] ?? []
+        self.likes = dictionary[.likesKey] as? [String] ?? []
     }
 }
 
 func ==(lhs: Snippet, rhs: Snippet) -> Bool {
-    return lhs.identifier == rhs.identifier
+    return lhs.uid == rhs.uid
 }

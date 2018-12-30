@@ -60,6 +60,8 @@
 		FDB129C91FA184F500000AB5 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129C81FA184F500000AB5 /* CommentViewController.swift */; };
 		FDB129CB1FA1863500000AB5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129CA1FA1863500000AB5 /* Comment.swift */; };
 		FDB129CD1FA1864800000AB5 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB129CC1FA1864800000AB5 /* CommentController.swift */; };
+		FDB3F92F21D5D0F100B878AC /* UserListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3F92E21D5D0F100B878AC /* UserListCollectionViewController.swift */; };
+		FDB3F93221D5D10700B878AC /* UserListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3F93021D5D10700B878AC /* UserListCollectionViewCell.swift */; };
 		FDBC33C420DEA5500068C072 /* UIImage+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBC33C320DEA5500068C072 /* UIImage+CMS.swift */; };
 		FDD78B1F20ABD58100384B00 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD78B1E20ABD58100384B00 /* Category.swift */; };
 		FDE1A9D91F8EFD330010ED03 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */; };
@@ -152,6 +154,9 @@
 		FDB129C81FA184F500000AB5 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		FDB129CA1FA1863500000AB5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		FDB129CC1FA1864800000AB5 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
+		FDB3F92E21D5D0F100B878AC /* UserListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCollectionViewController.swift; sourceTree = "<group>"; };
+		FDB3F93021D5D10700B878AC /* UserListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserListCollectionViewCell.swift; path = /Users/christianmcmullin/Desktop/Swift/ContinueMyStory/ContinueMyStory/ViewControllers/Profile/UserListCollectionViewCell.swift; sourceTree = "<absolute>"; };
+		FDB3F93121D5D10700B878AC /* UserListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UserListCollectionViewCell.xib; path = /Users/christianmcmullin/Desktop/Swift/ContinueMyStory/ContinueMyStory/ViewControllers/Profile/UserListCollectionViewCell.xib; sourceTree = "<absolute>"; };
 		FDBC33C320DEA5500068C072 /* UIImage+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CMS.swift"; sourceTree = "<group>"; };
 		FDD78B1E20ABD58100384B00 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -303,6 +308,7 @@
 				FD27D7751F8DBDB900FFE353 /* LaunchScreen.storyboard */,
 				FD27D7701F8DBDB900FFE353 /* Main.storyboard */,
 				FDA3A06B1FC0F037004D7CF9 /* TabBar.storyboard */,
+				FDB3F93121D5D10700B878AC /* UserListCollectionViewCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -379,11 +385,13 @@
 		FDA3A0721FC10AF9004D7CF9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				FDB3F93021D5D10700B878AC /* UserListCollectionViewCell.swift */,
 				FD3466CB1F8DDB41006C4D70 /* BioViewController.swift */,
 				FDFC86EC1FC13425004580BD /* ProfileNavigationController.swift */,
 				FDA3A0691FC0EE42004D7CF9 /* ProfileViewController.swift */,
 				FD9D444A20ABFBCD001CD8DF /* ProfileFeedViewController.swift */,
 				FD295E2420AD1B01008D8893 /* ProfileFeedCollectionViewCell.swift */,
+				FDB3F92E21D5D0F100B878AC /* UserListCollectionViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -438,7 +446,7 @@
 				FD27D7661F8DBDB900FFE353 /* Frameworks */,
 				FD27D7671F8DBDB900FFE353 /* Resources */,
 				E4806E6A7CBC5D3D16D17C37 /* [CP] Embed Pods Frameworks */,
-				4ABB9BF2ADFEDCDFE45B965E /* [CP] Copy Pods Resources */,
+				1299370D6447567023C20CE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -457,8 +465,6 @@
 				FD27D7791F8DBDB900FFE353 /* Sources */,
 				FD27D77A1F8DBDB900FFE353 /* Frameworks */,
 				FD27D77B1F8DBDB900FFE353 /* Resources */,
-				F337E8C140C1A079CF0A360B /* [CP] Embed Pods Frameworks */,
-				A6FC642AC7203114C117FF9C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -478,8 +484,6 @@
 				FD27D7841F8DBDB900FFE353 /* Sources */,
 				FD27D7851F8DBDB900FFE353 /* Frameworks */,
 				FD27D7861F8DBDB900FFE353 /* Resources */,
-				F36B11FEE102EE585C58DC53 /* [CP] Embed Pods Frameworks */,
-				9A28E11D564AF53D6391BB92 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -597,19 +601,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4ABB9BF2ADFEDCDFE45B965E /* [CP] Copy Pods Resources */ = {
+		1299370D6447567023C20CE3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ContinueMyStory/Pods-ContinueMyStory-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContinueMyStory/Pods-ContinueMyStory-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ContinueMyStory/Pods-ContinueMyStory-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		95831A338CEC03E8812CEB15 /* [CP] Check Pods Manifest.lock */ = {
@@ -630,88 +641,36 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9A28E11D564AF53D6391BB92 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContinueMyStoryUITests/Pods-ContinueMyStoryUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6FC642AC7203114C117FF9C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContinueMyStoryTests/Pods-ContinueMyStoryTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E4806E6A7CBC5D3D16D17C37 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ContinueMyStory/Pods-ContinueMyStory-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ContinueMyStory/Pods-ContinueMyStory-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContinueMyStory/Pods-ContinueMyStory-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F337E8C140C1A079CF0A360B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContinueMyStoryTests/Pods-ContinueMyStoryTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F36B11FEE102EE585C58DC53 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ContinueMyStoryUITests/Pods-ContinueMyStoryUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ContinueMyStory/Pods-ContinueMyStory-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F79AB70B71F8A2C6B90E111B /* [CP] Check Pods Manifest.lock */ = {
@@ -769,6 +728,7 @@
 				FDA3A06A1FC0EE42004D7CF9 /* ProfileViewController.swift in Sources */,
 				FD7FF96A20B2739D0028D1F8 /* CollectionView+CMS.swift in Sources */,
 				FD63DB042176DEC1000486F6 /* StoryEntryContainerViewController.swift in Sources */,
+				FDB3F93221D5D10700B878AC /* UserListCollectionViewCell.swift in Sources */,
 				FDA3A0771FC10EC7004D7CF9 /* FollowViewController.swift in Sources */,
 				FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */,
 				FD606E051F9BED8500E4A5F4 /* SortByViewController.swift in Sources */,
@@ -776,6 +736,7 @@
 				FD70A22B1F90FD6200B83ACE /* SnippetController.swift in Sources */,
 				FD8E8BE01FA58C1800DC6DC1 /* CommentTableViewCell.swift in Sources */,
 				FD3466D61F8DE14D006C4D70 /* Enums.swift in Sources */,
+				FDB3F92F21D5D0F100B878AC /* UserListCollectionViewController.swift in Sources */,
 				FDA24EEA1F8EE53300D041E2 /* StoryViewController.swift in Sources */,
 				FD10F5F71FDCDEE600698CFA /* ImageController.swift in Sources */,
 				FD63DB0021728D22000486F6 /* StoryPageViewController.swift in Sources */,

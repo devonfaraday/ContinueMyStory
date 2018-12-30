@@ -10,14 +10,17 @@ import Foundation
 
 extension String {
     
-    /* Firebase Endpoints */
-    static var usersEndpoint: String { get { return "users" } }
-    static var storiesEndpoint: String { get { return "stories" } }
-    static var categoryEndpoint: String { get { return "category" } }
+    /* Firebase collectionPathKeys */
+    static var userscollectionPathKey: String { get { return "users" } }
+    static var storiescollectionPathKey: String { get { return "stories" } }
+    static var categorycollectionPathKey: String { get { return "category" } }
     
     /* Firebase Storage */
     static var profileImagesKey: String { get { return "profileImages" } }
     static var imagesKey: String { get { return "images" } }
+    
+    /* Nibs */
+    static var userListCollectionViewCellNibName: String { get { return "UserListCollectionViewCell" } }
     
     /* Reuse Identifiers */
     static var commentCellIdentifier: String { get { return "commentCell" } }
@@ -29,6 +32,8 @@ extension String {
     
     /* Segues */
     static var toBioViewControllerSegue: String { get { return "toBioViewController" } }
+    static var toFollowersSegueKey: String { get { return "toFollowers" } }
+    static var toFollowingSegueKey: String { get { return "toFollowing" } }
     static var toProfileFeedEmbededSegueKey: String { get { return "toProfileFeed" } }
     static var toProfileViewControllerSegue: String { get { return "toProfileViewController" } }
     static var toStoryDetailSegue: String { get { return "toStoryDetail" } }
@@ -49,7 +54,6 @@ extension String {
     static var snippetReferenceKey: String { get { return "snippetReference" } }
     static var createdKey: String { get { return "created" } }
     static var likesKey: String { get { return "likes" } }
-    
     
     /* User Firebase keys */
     static var usernameKey: String { get { return "username" } }

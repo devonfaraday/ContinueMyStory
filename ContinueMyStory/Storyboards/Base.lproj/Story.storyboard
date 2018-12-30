@@ -202,7 +202,7 @@
                 <pageViewController storyboardIdentifier="StoryPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Pko-ef-k7A" customClass="StoryPageViewController" customModule="ContinueMyStory" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fsv-yt-8Jm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3508" y="528"/>
+            <point key="canvasLocation" x="3454" y="651"/>
         </scene>
     </scenes>
 </document>

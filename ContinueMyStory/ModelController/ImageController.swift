@@ -16,8 +16,7 @@ class ImageController {
     
     // MARK: - Create
     func createProfileImage(withImageData imageData: Data, forUser user: User?) {
-        guard let userId = user?.identifier else { return }
-
+        guard let userId = user?.uid else { return }
         let imageRef = imageReference.child("\(userId).jpg")
         let uploadTask = imageRef.putData(imageData, metadata: nil) { (metaData, error) in
             print(metaData ?? "NO META DATA")
@@ -32,7 +31,19 @@ class ImageController {
     
     // MARK: - Read
     func fetchImage(forUser user: User?, completion: @escaping(UIImage?) -> Void) {
-        guard let userId = user?.identifier else { return }
+        guard let userId = user?.uid else { completion(nil); return }
+        let imageRef = imageReference.child("\(userId).jpg")
+        imageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let image = UIImage(data: data)
+                completion(image)
+            }
+        }
+    }
+    
+    func fetchImage(withUserId userId: String, completion: @escaping(UIImage?) -> Void) {
         let imageRef = imageReference.child("\(userId).jpg")
         imageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
             if let error = error {

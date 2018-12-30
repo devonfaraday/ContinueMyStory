@@ -13,16 +13,16 @@ import Firebase
 struct User: FirebaseType {
     
     var age: String?
-    var endpoint: String = .usersEndpoint
+    var collectionPathKey: String = .userscollectionPathKey
     var familyName: String
     var followers: [String] = []
     var following: [String] = []
     var stories: [String] = []
     var givenName: String
-    var identifier: String?
+    var uid: String
     var profileImage: UIImage?
     var username: String
-    var dictionaryCopy: [String : Any] {
+    var documentData: JSONDictionary {
         return [.usernameKey: username,
                 .givenNameKey: givenName,
                 .familyNameKey: familyName,
@@ -30,38 +30,38 @@ struct User: FirebaseType {
                 .followingKey: following,
                 .followersKey: followers,
                 .storyFollowingKey: stories,
-                .identifierKey: identifier as Any]
+                .identifierKey: uid as Any]
     }
     var fullName: String {
         return "\(givenName) \(familyName)"
     }
     
-    init(username: String, givenName: String, familyName: String, age: String, identifier: String ) {
+    init(username: String, givenName: String, familyName: String, age: String, uid: String ) {
         self.username = username
         self.givenName = givenName
         self.familyName = familyName
         self.age = age
-        self.identifier = identifier
+        self.uid = uid
     }
     
     func setUserInUserDefaults() {
         let userDefaults = UserDefaults.standard
-        userDefaults.set(dictionaryCopy, forKey: "user")
+        userDefaults.set(documentData, forKey: "user")
     }
     
     static func getCurrentUserFromUserDefaults() -> User? {
         let userDefaults = UserDefaults.standard
-        guard let userDict = userDefaults.dictionary(forKey: "user"),
-            let uid = userDict[.identifierKey] as? String else { return nil }
-        return User(dictionary: userDict, identifier: uid)
+        guard let userDict = userDefaults.dictionary(forKey: "user") else { return nil }
+        return User(dictionary: userDict)
     }
     
-    init?(dictionary: JSONDictionary, identifier: String) {
+    init?(dictionary: JSONDictionary) {
         guard let username = dictionary[.usernameKey] as? String,
             let givenName = dictionary[.givenNameKey] as? String,
-            let familyName = dictionary[.familyNameKey] as? String
+            let familyName = dictionary[.familyNameKey] as? String,
+            let uid = dictionary[.identifierKey] as? String
         else { return nil }
-        self.identifier = identifier
+        self.uid = uid
         self.username = username
         self.givenName = givenName
         self.familyName = familyName
@@ -72,9 +72,7 @@ struct User: FirebaseType {
     }
 }
 
-protocol CurrentUserUsable {
-    
-}
+protocol CurrentUserUsable {}
 
 extension CurrentUserUsable {
     var currentUser: User? {

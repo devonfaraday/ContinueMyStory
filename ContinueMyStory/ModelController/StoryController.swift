@@ -11,50 +11,46 @@ import Firebase
 
 class StoryController {
     
-    func createStory(withTitle title: String, body: String, author: User, category: StoryCategoryType, completion: @escaping() -> Void) {
-        var story = Story(title: title, body: body, author: author, category: category)
-        story.saveStory(toCategory: category)
-        completion()
+    func createStory(withTitle title: String, body: String, author: User, category: StoryCategoryType, completion: @escaping(_ success: Bool) -> Void) {
+        let story = Story(title: title, body: body, author: author, category: category)
+        story.saveToFirestore { (success, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            completion(success)
+        }
     }
     
-    func fetchAllStories(completion: @escaping([Story]) -> Void) {
-        let storiesRef = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(String.categoryEndpoint)")
-       storiesRef.observe(.value, with: { (snapshot) in
-        
-        guard let snapDictionary = snapshot.value as? [String: [String: JSONDictionary]] else { print("No dictionary resturned"); return }
-
-        let catdict = snapDictionary.flatMap { $1 }
-
-        let stories = catdict.compactMap({
-            Story(dictionary: $1, identifier: $0)
-        }).sorted(by: { $0.created < $1.created })
-        
-        completion(stories)
-        })
+    func fetchAllStories(completion: @escaping([Story], Error?) -> Void) {
+        let fc: FirebaseController = FirebaseController()
+        fc.fetchAllDocuments(fromCollection: .storiescollectionPathKey) { (documents, error) in
+            let stories = documents.compactMap({ Story(dictionary: $0) })
+            completion(stories, error)
+        }
     }
     
-    func fetchStories(withCategory category: StoryCategoryType, completion: @escaping([Story]) -> Void) {
-        let storiesRef = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(String.categoryEndpoint)/\(category)")
-        storiesRef.observe(.value, with: { (snapshot) in
-            guard let snapDictionary = snapshot.value as? [String: JSONDictionary] else { return }
-            let stories = snapDictionary.compactMap { Story(dictionary: $1, identifier: $0) }.sorted(by: { $0.created < $1.created})
-            completion(stories)
-        })
+    func fetchStories(withCategory category: StoryCategoryType, completion: @escaping([Story], Error?) -> Void) {
+        let fc: FirebaseController = FirebaseController()
+        fc.fetchAllDocuments(fromCollection: .storiescollectionPathKey, whereField: .categorycollectionPathKey, isEqualTo: category.rawValue) { (documents, error) in
+            let stories = documents.compactMap({ Story(dictionary: $0) })
+            completion(stories, error)
+        }
     }
     
-    func fetchStories(withUserId userId: String, completion: @escaping([Story]) -> Void) {
-        let storiesRef = FirebaseController.databaseRef.child("\(String.storiesEndpoint)/\(String.categoryEndpoint)")
-        storiesRef.observe(.value, with: { (snapshot) in
-            guard let snapDictionary = snapshot.value as? [String: [String: JSONDictionary]] else { print("No dictionary resturned"); return }
-            let catDictionary = snapDictionary.flatMap { $1 }
-            let stories = catDictionary.compactMap { Story(dictionary: $1, identifier: $0) }.filter { $0.author?.identifier == userId }
-            
-            completion(stories)
-        })
+    func fetchStories(withUserId userId: String, completion: @escaping([Story], Error?) -> Void) {
+        let fc: FirebaseController = FirebaseController()
+        fc.fetchAllDocuments(fromCollection: .storiescollectionPathKey, whereField: .authorKey, isEqualTo: userId) { (documents, error) in
+            let stories = documents.compactMap({ Story(dictionary: $0) })
+            completion(stories, error)
+        }
     }
     
-    func modify(story: Story, completion: @escaping() -> Void) {
-        var newStory = story
-        newStory.saveStory(toCategory: story.category)
+    func modify(story: Story, completion: @escaping(_ success: Bool) -> Void) {
+        story.update { (success, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            completion(success)
+        }
     }
 }

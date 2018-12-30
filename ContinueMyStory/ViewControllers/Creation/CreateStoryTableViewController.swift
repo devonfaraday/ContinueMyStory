@@ -37,12 +37,14 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     
     @IBAction func saveStoryButtonTapped(_ sender: UIButton) {
         sender.isEnabled = false
-        createStory {
-            DispatchQueue.main.async {
-                self.tabBarController?.selectedIndex = 1
-                sender.isEnabled = true
+        createStory(completion: { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tabBarController?.selectedIndex = 1
+                }
             }
-        }
+            sender.isEnabled = true
+        })
     }
     
     // MARK: - Category Picker
@@ -83,19 +85,22 @@ class CreateStoryTableViewController: UITableViewController, UIPickerViewDelegat
     }
     
     // MARK: - Helpers
-    func createStory(completion: @escaping() -> Void) {
+    func createStory(completion: @escaping(_ success: Bool) -> Void) {
         guard let title = titleTextField.text,
             let body = storyBodyTextView.text,
             let selectedCategory = selectedCategory,
             let user = currentUser
             else { return }
-        StoryController().createStory(withTitle: title, body: body, author: user, category: selectedCategory) {
-            print("Story saved")
-            self.titleTextField.text = ""
-            self.storyBodyTextView.text = ""
-            self.titleTextField.resignFirstResponder()
-            self.storyBodyTextView.resignFirstResponder()
-            completion()
+        StoryController().createStory(withTitle: title, body: body, author: user, category: selectedCategory) { (success) in
+            if success {
+                print("Story saved")
+                self.titleTextField.text = ""
+                self.storyBodyTextView.text = ""
+                self.titleTextField.resignFirstResponder()
+                self.storyBodyTextView.resignFirstResponder()
+            }
+            completion(success)
+            
         }
     }
     

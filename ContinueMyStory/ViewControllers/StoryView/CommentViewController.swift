@@ -37,16 +37,14 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     var user: User?
     var story: Story?
     var snippet: Snippet?
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 150
         
         setupCommentTextView()
-        UserController().fetchUser(withIdentifier: userID) { (user) in
+        UserController().fetchUser(withIdentifier: userID) { (user, error) in
             guard let user = user else { return }
             self.user = user
         }
@@ -75,11 +73,13 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         let authorsFullName = "\(user.givenName) \(user.familyName)"
         
         if let story = story {
-            let comment = Comment(author: authorsFullName, body: body, storyRef: story.identifier)
-            saveToStory(withComment: comment)
+            let comment = Comment(author: authorsFullName, body: body, storyRef: story.uid)
+            story.comments.append(comment)
+            story.update()
         } else if let snippet = snippet {
-            let comment = Comment(author: authorsFullName, body: body, snippetRef: snippet.identifier)
-            saveToSnippet(withComment: comment)
+            let comment = Comment(author: authorsFullName, body: body, snippetRef: snippet.uid)
+            snippet.comments.append(comment)
+            SnippetController().modifySnippet(with: snippet)
         }
         commentTextView.text = ""
     }

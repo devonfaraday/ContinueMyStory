@@ -14,12 +14,12 @@ class Story: FirebaseType {
     var body: String
     let author: User?
     var created: Date = Date()
-    var comments: [Comment]?
+    var comments: [Comment] = []
     var category: StoryCategoryType
-    let snippets: [Snippet]
-    var endpoint: String = .storiesEndpoint
-    var identifier: String?
-    var likes: [String]?
+    var snippets: [Snippet]
+    var collectionPathKey: String = .storiescollectionPathKey
+    var uid: String
+    var likes: [String] = []
     
     init(title: String, body: String, author: User, comments: [Comment] = [], category: StoryCategoryType, snippets: [Snippet] = [], likes: [String] = []) {
         self.title = title
@@ -29,37 +29,38 @@ class Story: FirebaseType {
         self.comments = comments
         self.snippets = snippets
         self.likes = likes
+        self.uid = UUID().uuidString
     }
     
-    var dictionaryCopy: JSONDictionary {
+    var documentData: JSONDictionary {
         return [.titleKey: title,
                 .bodyKey: body,
-                .authorKey: author?.dictionaryCopy as Any,
+                .authorKey: author?.documentData as Any,
                 .categoryKey: category.rawValue,
                 .createdKey: created.toString(),
                 .likesKey: likes as Any
         ]
     }
     
-    required init?(dictionary: JSONDictionary, identifier: String) {
+    required init?(dictionary: JSONDictionary) {
         guard let title = dictionary[.titleKey] as? String,
             let body = dictionary[.bodyKey] as? String,
             let author = dictionary[.authorKey] as? JSONDictionary,
-            let authorId = author[.identifierKey] as? String,
             let category = dictionary[.categoryKey] as? String,
             let dateString = dictionary[.createdKey] as? String,
-            let date = dateString.date()
+            let date = dateString.date(),
+            let uid = dictionary[.identifierKey] as? String
             else { return nil }
-        self.author = User(dictionary: author, identifier: authorId)
+        self.author = User(dictionary: author)
         if let snippetsDictioanry = dictionary[.snippetKey] as? JSONDictionary {
             self.snippets = snippetsDictioanry.compactMap({
                 guard let value = $0.value as? JSONDictionary else { return nil }
-                return Snippet(dictionary: value, identifier: $0.key)
+                return Snippet(dictionary: value)
             })
         } else {
             self.snippets = []
         }
-        self.identifier = identifier
+        self.uid = uid
         self.title = title
         self.body = body
         self.created = date
@@ -82,8 +83,8 @@ class Story: FirebaseType {
         default:
             self.category = StoryCategoryType.none
         }
-        self.comments = dictionary[.commentsKey] as? [Comment]
-        self.likes = dictionary[.likesKey] as? [String]
+        if let comments = dictionary[.commentsKey] as? [Comment] { self.comments = comments }
+        if let likes = dictionary[.likesKey] as? [String] { self.likes = likes }
     }
 }
 

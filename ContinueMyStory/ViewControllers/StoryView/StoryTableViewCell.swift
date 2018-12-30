@@ -27,22 +27,21 @@ class StoryTableViewCell: UITableViewCell {
     
     func updateView() {
         guard let author = author else { return }
-        
         if let story = story {
             DispatchQueue.main.async {
                 self.bodyLabel.text = story.body
-                self.likeNumberLabel.text = "\(self.story?.likes?.count ?? 0)"
+                self.likeNumberLabel.text = "\(story.likes.count)"
             }
         } else if let snippet = snippet {
             DispatchQueue.main.async {
                 self.bodyLabel.text = snippet.body
-                self.likeNumberLabel.text = "\(self.snippet?.likes?.count ?? 0)"
+                self.likeNumberLabel.text = "\(snippet.likes.count)"
             }
         }
         DispatchQueue.main.async {
             self.authorLabel.text = "By: \(author.username)"
             // comment count will come from the count of array of comments
-            self.commentNumberLabel.text = "\(self.story?.comments?.count ?? self.snippet?.comments?.count ?? 0)"
+            self.commentNumberLabel.text = "\(self.story?.comments.count ?? self.snippet?.comments.count ?? 0)"
             
         }
     }
@@ -64,53 +63,36 @@ class StoryTableViewCell: UITableViewCell {
     }
     
     func storyLiked() {
-        if story?.likes == nil {
-            story?.likes = []
-        }
-        guard let story = story,
-            let likes = story.likes else { return }
-        let modifiedStory = story
-        
-        if likes.contains(currentUserUID) {
-            guard let index = likes.index(of: currentUserUID) else { return }
-            modifiedStory.likes?.remove(at: index)
+        guard let story = story
+            else { return }
+        if story.likes.contains(currentUserUID) {
+            guard let index = story.likes.index(of: currentUserUID) else { return }
+            story.likes.remove(at: index)
         } else {
-            modifiedStory.likes?.append(currentUserUID)
+            story.likes.append(currentUserUID)
         }
         
-        if let newLikes = modifiedStory.likes {
-            DispatchQueue.main.async {
-                self.likeNumberLabel.text = "\(newLikes.count)"
-            }
+        let newLikes = story.likes
+        DispatchQueue.main.async {
+            self.likeNumberLabel.text = "\(newLikes.count)"
         }
-        StoryController().modify(story: modifiedStory) {
+        StoryController().modify(story: story) { (success) in
             print("Story Modified")
         }
     }
     
     func snippetLiked() {
-        if snippet?.likes == nil {
-            snippet?.likes = []
-        }
-        guard let snippet = snippet,
-            let likes = snippet.likes else { return }
-        let modifiedSnippet = snippet
-        if likes.contains(currentUserUID) {
-            guard let index = likes.index(of: currentUserUID) else { return }
-            modifiedSnippet.likes?.remove(at: index)
+        guard let snippet = snippet else { return }
+        if snippet.likes.contains(currentUserUID) {
+            guard let index = snippet.likes.index(of: currentUserUID) else { return }
+            snippet.likes.remove(at: index)
         } else {
-            modifiedSnippet.likes?.append(currentUserUID)
+            snippet.likes.append(currentUserUID)
+        }
+        DispatchQueue.main.async {
+            self.likeNumberLabel.text = "\(snippet.likes.count)"
         }
         
-        if let newLikes = modifiedSnippet.likes {
-            DispatchQueue.main.async {
-                self.likeNumberLabel.text = "\(newLikes.count)"
-            }
-        }
-        SnippetController().modify(snippet: modifiedSnippet, inStoryCategory: modifiedSnippet.category) {
-            print("Snippet modified")
-        }
-
     }
 }
 

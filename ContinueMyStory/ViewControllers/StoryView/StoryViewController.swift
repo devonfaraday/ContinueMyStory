@@ -29,17 +29,10 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             storyTitleLabel.text = story?.title
             guard let story = story else { return }
-            SnippetController().fetchSnippets(fromStory: story, completion: { (snippets) in
-                CommentController().fetchComments(fromSnippets: snippets, completion: { (comments) in
-                    for snippet in snippets {
-                        snippet.comments = comments.filter { $0.snippetRef == snippet.identifier }
-                    }
-                    self.snippets = snippets
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                })
-            })
+            self.snippets = story.snippets
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     var selectedStory: Story?
@@ -113,6 +106,7 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
                 let user = currentUser,
                 let story = story {
                 SnippetController().createSnippet(withBody: body, author: user, story: story, completion: { (snippet) in
+                    guard let snippet = snippet else { return }
                     self.snippets.append(snippet)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
@@ -202,14 +196,12 @@ class StoryViewController: UIViewController, UITableViewDataSource, UITableViewD
             guard let destination = segue.destination as? CommentViewController else { return }
             if let selectedStory = selectedStory {
                 destination.story = selectedStory
-                if let comments = selectedStory.comments {
-                    destination.comments = comments.sorted(by: { $0.created > $1.created })
-                }
+                let comments = selectedStory.comments
+                destination.comments = comments.sorted(by: { $0.created > $1.created })
             } else if let selectedSnippet = selectedSnippet {
                 destination.snippet = selectedSnippet
-                if let comments = selectedSnippet.comments {
-                    destination.comments = comments.sorted(by: { $0.created > $1.created })
-                }
+                let comments = selectedSnippet.comments
+                destination.comments = comments.sorted(by: { $0.created > $1.created })
             }
         } else if segue.identifier == String.toProfileViewControllerSegue {
             guard let destination = segue.destination as? ProfileViewController else { return }
