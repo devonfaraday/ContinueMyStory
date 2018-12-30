@@ -158,6 +158,13 @@
                                     <action selector="profileImageButtonTapped:" destination="kya-dY-zOy" eventType="touchUpInside" id="kfq-gx-d9K"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aiy-ra-1g5">
+                                <rect key="frame" x="92" y="54" width="60" height="30"/>
+                                <state key="normal" title="Unfollow"/>
+                                <connections>
+                                    <action selector="followButtonTapped:" destination="kya-dY-zOy" eventType="touchUpInside" id="Uqh-vG-H6J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -177,7 +184,9 @@
                             <constraint firstItem="PGg-CQ-5cG" firstAttribute="leading" secondItem="4Q4-qv-bEQ" secondAttribute="trailing" constant="3" id="bdf-qu-yMW"/>
                             <constraint firstItem="muZ-Zd-lAv" firstAttribute="centerX" secondItem="QEv-G2-9zL" secondAttribute="centerX" id="eRq-oR-2nn"/>
                             <constraint firstItem="4Q4-qv-bEQ" firstAttribute="leading" secondItem="TEf-tb-lXN" secondAttribute="leading" constant="29" id="lhs-vh-3Ms"/>
+                            <constraint firstItem="Aiy-ra-1g5" firstAttribute="leading" secondItem="4Q4-qv-bEQ" secondAttribute="trailing" constant="3" id="mBv-7H-CE2"/>
                             <constraint firstItem="ESV-LV-5ks" firstAttribute="centerX" secondItem="QEv-G2-9zL" secondAttribute="centerX" id="szw-Th-IPl"/>
+                            <constraint firstItem="Aiy-ra-1g5" firstAttribute="top" secondItem="4Q4-qv-bEQ" secondAttribute="top" id="tX1-mA-xaq"/>
                             <constraint firstItem="4Q4-qv-bEQ" firstAttribute="width" secondItem="4Q4-qv-bEQ" secondAttribute="height" multiplier="1:1" id="vFg-hX-M5A"/>
                             <constraint firstItem="ESV-LV-5ks" firstAttribute="top" secondItem="AMw-hl-L2V" secondAttribute="bottom" constant="-42" id="zif-J3-dAk"/>
                         </constraints>
@@ -189,6 +198,7 @@
                         <outlet property="commentButton" destination="bxf-Ib-FK9" id="mcA-e0-G9Z"/>
                         <outlet property="continueMyStoryButton" destination="ESV-LV-5ks" id="KlI-dc-xOI"/>
                         <outlet property="entryBodyTextView" destination="aI2-hy-JDT" id="CJF-1A-fv0"/>
+                        <outlet property="followButton" destination="Aiy-ra-1g5" id="nhm-3u-ujO"/>
                         <outlet property="likeButton" destination="y0n-g8-YuK" id="YZV-zv-bFw"/>
                         <outlet property="pageNumberLabel" destination="muZ-Zd-lAv" id="BH3-d3-7Qh"/>
                         <outlet property="profileImageButton" destination="4Q4-qv-bEQ" id="IoS-OS-Rh6"/>

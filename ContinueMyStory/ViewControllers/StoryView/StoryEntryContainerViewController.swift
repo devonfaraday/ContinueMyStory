@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
+class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, CurrentUserUsable {
 
     @IBOutlet var authorLabel: UILabel!
     @IBOutlet var cmsLabel: UILabel!
@@ -19,6 +19,7 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var likeButton: UIButton!
     @IBOutlet var pageNumberLabel: UILabel!
     @IBOutlet var profileImageButton: UIButton!
+    @IBOutlet var followButton: UIButton!
     
     var author: User?
     var entryBody: String = ""
@@ -27,6 +28,11 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
     var storyRef: String = ""
     var snippet: Snippet?
     var viewState: StoryEntryViewState = .story
+    private var followState: FollowState = .follow
+    
+    private enum FollowState {
+        case unfollow, hidden, follow, followBack
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +74,7 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
         updateAuthorInfo()
         updateLikeTitle()
         updateCommentNumber()
+        updateFollowButton()
     }
     
     func updateCommentNumber() {
@@ -113,7 +120,65 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
         profileImageButton.isHidden = viewState == .continueMyStory
     }
     
+    func updateFollowButton() {
+        guard let author = author, let currentUser = currentUser else { return }
+        if author.uid == currentUser.uid {
+            followButton.isHidden = true
+            followState = .hidden
+        } else if currentUser.following.contains(author.uid) {
+            followButton.setTitle("Unfollow", for: .normal)
+            followState = .unfollow
+        } else if currentUser.followers.contains(author.uid) {
+            followButton.setTitle("Follow Back", for: .normal)
+            followState = .followBack
+        } else if !currentUser.following.contains(author.uid) {
+            followButton.setTitle("Follow", for: .normal)
+            followState = .follow
+        }
+    }
+    
     // MARK: - IBActions
+    @IBAction func followButtonTapped(_ sender: Any) {
+        switch followState {
+        case .follow, .followBack:
+            follow()
+            followState = .unfollow
+            updateFollowButton()
+        case .hidden:
+            print("Button hidden")
+        case .unfollow:
+            unfollow()
+        }
+    }
+    
+    func follow() {
+        guard var currentUser = currentUser, var author = author else { return }
+        currentUser.following.append(author.uid)
+        currentUser.setUserInUserDefaults()
+        author.followers.append(currentUser.uid)
+        currentUser.update()
+        author.update()
+    }
+    
+    func unfollow() {
+        guard var currentUser = currentUser,
+            let author = author,
+            let followingIndex = currentUser.following.index(of: author.uid)
+            else { return }
+        UserController().fetchUser(withIdentifier: author.uid) { (author, error) in
+            guard let followerIndex = author?.followers.index(of: currentUser.uid)
+                else { return }
+            self.author = author
+            self.author?.followers.remove(at: followerIndex)
+            self.author?.update()
+            currentUser.following.remove(at: followingIndex)
+            currentUser.setUserInUserDefaults()
+            currentUser.update()
+            self.followState = self.currentUser?.followers.contains(author?.uid ?? "") == true ? .followBack : .follow
+            self.updateFollowButton()
+        }
+    }
+    
     
     @IBAction func continueMyStoryButtonTapped(_ sender: Any) {
         self.author = User.getCurrentUserFromUserDefaults()
