@@ -42,7 +42,6 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 150
-        
         setupCommentTextView()
         UserController().fetchUser(withIdentifier: userID) { (user, error) in
             guard let user = user else { return }
@@ -61,8 +60,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         let comment = comments[indexPath.row]
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.text = comment.body
-        cell.detailTextLabel?.text = "\(comment.author) | \(comment.created.toStringWithoutSeconds())"
-        
+        cell.detailTextLabel?.text = "\(comment.author.username) | \(comment.created.toStringWithoutSeconds())"
         return cell
     }
     
@@ -72,38 +70,30 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             else { return }
         if let story = story {
             let comment = Comment(author: user, body: body, storyRef: story.uid)
-            story.comments.append(comment)
-            story.update()
+            self.comments.insert(comment, at: 0)
+            saveToStory(withComment: comment)
         } else if let snippet = snippet {
             let comment = Comment(author: user, body: body, snippetRef: snippet.uid)
-            snippet.comments.append(comment)
-            SnippetController().modifySnippet(with: snippet)
+            self.comments.insert(comment, at: 0)
+            saveToStory(withComment: comment)
         }
         commentTextView.text = ""
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
-            let _ = navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
     }
     
     func saveToStory(withComment comment: Comment) {
         guard let story = story else { return }
-        CommentController().save(comment: comment, toStory: story) {
-            self.comments.insert(comment, at: 0)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        story.comments.insert(comment, at: 0)
+        story.update()
     }
     
     func saveToSnippet(withComment comment: Comment) {
         guard let snippet = snippet else { return }
-        CommentController().save(comment: comment, toSnippet: snippet) {
-            self.comments.insert(comment, at: 0)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        snippet.comments.insert(comment, at: 0)
+        story?.update()
     }
     
     func setupCommentTextView() {

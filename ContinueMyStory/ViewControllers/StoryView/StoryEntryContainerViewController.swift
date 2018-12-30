@@ -62,6 +62,12 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
         updateForContinueMyStoryStateIfNeeded()
         updateAuthorInfo()
         updateLikeTitle()
+        updateCommentNumber()
+    }
+    
+    func updateCommentNumber() {
+        let commentNumber = self.snippet != nil ? self.snippet?.comments.count ?? 0 : self.story?.comments.count ?? 0
+        commentButton.setTitle("Comment \(commentNumber)", for: .normal)
     }
     
     func updateLikeTitle()  {

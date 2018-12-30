@@ -38,6 +38,7 @@ class Story: FirebaseType {
                 .bodyKey: body,
                 .authorKey: author?.dataForStorySnippetComment as Any,
                 .snippetsKey: snippets.compactMap({ $0.documentData }),
+                .commentsKey: comments.compactMap({ $0.dictionaryRepresentation }),
                 .categoryKey: category.rawValue,
                 .createdKey: created.toString(),
                 .updatedKey: updated.toString(),
@@ -88,7 +89,7 @@ class Story: FirebaseType {
         default:
             self.category = StoryCategoryType.none
         }
-        if let comments = dictionary[.commentsKey] as? [Comment] { self.comments = comments }
+        if let comments = dictionary[.commentsKey] as? [JSONDictionary] { self.comments = comments.compactMap({ Comment(dictionary: $0) }) }
         if let likes = dictionary[.likesKey] as? [String] { self.likes = likes }
     }
 }

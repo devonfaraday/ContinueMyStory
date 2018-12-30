@@ -35,7 +35,8 @@ struct Comment {
 }
 
 extension Comment {
-    init?(dictionary: JSONDictionary, identifier: String) {
+    
+    init?(dictionary: JSONDictionary) {
         guard let authorDictionay = dictionary[.authorKey] as? JSONDictionary,
             let author = User(dictionary: authorDictionay),
             let body = dictionary[.bodyKey] as? String,
