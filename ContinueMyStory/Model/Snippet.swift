@@ -16,7 +16,7 @@ class Snippet: Equatable {
     let storyRef: String
     var created: Date = Date()
     // this may become a model
-    var comments: [Comment]
+    var comments: [Comment] = []
     // snippets is of type string so it can hold the uid of the snippets saved.
     var collectionPathKey: String = .snippetsKey
     var uid: String
@@ -35,6 +35,7 @@ class Snippet: Equatable {
         return [.bodyKey: body,
                 .authorKey: author?.dataForStorySnippetComment as Any,
                 .storyReferenceKey: storyRef,
+                .commentsKey: comments.compactMap({ $0.dictionaryRepresentation }),
                 .createdKey: created.toString(),
                 .likesKey: likes as Any,
                 .identifierKey: uid]
@@ -55,7 +56,7 @@ class Snippet: Equatable {
         self.body = body
         self.storyRef = storyRef
         self.created = created
-        self.comments = dictionary[.commentsKey] as? [Comment] ?? []
+        if let comments = dictionary[.commentsKey] as? [JSONDictionary] { self.comments = comments.compactMap({ Comment(dictionary: $0) }) }
         self.likes = dictionary[.likesKey] as? [String] ?? []
     }
 }

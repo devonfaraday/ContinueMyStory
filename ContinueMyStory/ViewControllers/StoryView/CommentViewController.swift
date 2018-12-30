@@ -68,12 +68,12 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let body = commentTextView.text,
             let user = user
             else { return }
-        if let story = story {
-            let comment = Comment(author: user, body: body, storyRef: story.uid)
-            self.comments.insert(comment, at: 0)
-            saveToStory(withComment: comment)
-        } else if let snippet = snippet {
+        if let snippet = snippet {
             let comment = Comment(author: user, body: body, snippetRef: snippet.uid)
+            self.comments.insert(comment, at: 0)
+            saveToSnippet(withComment: comment)
+        } else if let story = story {
+            let comment = Comment(author: user, body: body, storyRef: story.uid)
             self.comments.insert(comment, at: 0)
             saveToStory(withComment: comment)
         }
@@ -91,8 +91,8 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func saveToSnippet(withComment comment: Comment) {
-        guard let snippet = snippet else { return }
-        snippet.comments.insert(comment, at: 0)
+        guard let snippet = snippet, let index = story?.snippets.index(of: snippet) else { return }
+        story?.snippets[index].comments.insert(comment, at: 0)
         story?.update()
     }
     
