@@ -25,7 +25,7 @@ struct Comment {
     }
     
     var dictionaryRepresentation: JSONDictionary {
-        var returnDictionary: JSONDictionary = [String.authorKey: author.dataForStorySnippetComment,
+        var returnDictionary: JSONDictionary = [String.authorKey: author.basicUserData,
                                 String.bodyKey: body,
                                 String.createdKey: created.toString()]
         if let storyRef = storyRef { returnDictionary[String.storyReferenceKey] = storyRef }

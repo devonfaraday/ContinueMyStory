@@ -36,7 +36,7 @@ class Story: FirebaseType {
     var documentData: JSONDictionary {
         return [.titleKey: title,
                 .bodyKey: body,
-                .authorKey: author?.dataForStorySnippetComment as Any,
+                .authorKey: author?.basicUserData as Any,
                 .snippetsKey: snippets.compactMap({ $0.documentData }),
                 .commentsKey: comments.compactMap({ $0.dictionaryRepresentation }),
                 .categoryKey: category.rawValue,

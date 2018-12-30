@@ -9,29 +9,30 @@
 import Foundation
 import Firebase
 
-struct User: FirebaseType {
+struct User: FirebaseType, Equatable {
     
     var age: String?
     var collectionPathKey: String = .userscollectionPathKey
     var familyName: String
-    var followers: [String] = []
-    var following: [String] = []
+    var followers: [User] = []
+    var following: [User] = []
     var stories: [String] = []
     var givenName: String
     var uid: String
     var profileImage: UIImage?
     var username: String
+    
     var documentData: JSONDictionary {
         return [.usernameKey: username,
                 .givenNameKey: givenName,
                 .familyNameKey: familyName,
                 .ageKey: age ?? "0",
-                .followingKey: following,
-                .followersKey: followers,
+                .followingKey: following.compactMap({ $0.basicUserData }),
+                .followersKey: followers.compactMap({ $0.basicUserData }),
                 .storyFollowingKey: stories,
                 .identifierKey: uid as Any]
     }
-    var dataForStorySnippetComment: JSONDictionary {
+    var basicUserData: JSONDictionary {
         return [.usernameKey: username,
                 .identifierKey: uid,
                 .familyNameKey: familyName,
@@ -72,10 +73,14 @@ struct User: FirebaseType {
         self.givenName = givenName
         self.familyName = familyName
         if let age = dictionary[.ageKey] as? String { self.age = age }
-        if let followers = dictionary[.followersKey] as? [String] { self.followers = followers }
-        if let following = dictionary[.followingKey] as? [String] { self.following = following }
+        if let followers = dictionary[.followersKey] as? [JSONDictionary] { self.followers = followers.compactMap({ User(dictionary: $0) }) }
+        if let following = dictionary[.followingKey] as? [JSONDictionary] { self.following = following.compactMap({ User(dictionary: $0) }) }
         if let stories = dictionary[.storyFollowingKey] as? [String] { self.stories = stories }
     }
+}
+
+func ==(lhs: User, rhs: User) -> Bool {
+    return lhs.uid == rhs.uid
 }
 
 protocol CurrentUserUsable {}

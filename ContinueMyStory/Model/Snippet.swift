@@ -33,7 +33,7 @@ class Snippet: Equatable {
     
     var documentData: JSONDictionary {
         return [.bodyKey: body,
-                .authorKey: author?.dataForStorySnippetComment as Any,
+                .authorKey: author?.basicUserData as Any,
                 .storyReferenceKey: storyRef,
                 .commentsKey: comments.compactMap({ $0.dictionaryRepresentation }),
                 .createdKey: created.toString(),

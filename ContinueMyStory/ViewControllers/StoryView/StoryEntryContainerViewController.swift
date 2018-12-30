@@ -139,13 +139,13 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
         if author.uid == currentUser.uid || viewState == .continueMyStory {
             followButton.isHidden = true
             followState = .hidden
-        } else if currentUser.following.contains(author.uid) {
+        } else if currentUser.following.contains(author) {
             followButton.setTitle("Unfollow", for: .normal)
             followState = .unfollow
-        } else if currentUser.followers.contains(author.uid) {
+        } else if currentUser.followers.contains(author) {
             followButton.setTitle("Follow Back", for: .normal)
             followState = .followBack
-        } else if !currentUser.following.contains(author.uid) {
+        } else if !currentUser.following.contains(author) {
             followButton.setTitle("Follow", for: .normal)
             followState = .follow
         }
@@ -168,11 +168,11 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
     func follow() {
         followButton.isEnabled = false
         guard var currentUser = currentUser, let author = author else { return }
-        currentUser.following.append(author.uid)
+        currentUser.following.append(author)
         currentUser.setUserInUserDefaults()
         currentUser.update { (success, error) in
             if success {
-                self.author?.followers.append(currentUser.uid)
+                self.author?.followers.append(currentUser)
                 self.author?.update()
             }
             DispatchQueue.main.async {
@@ -185,9 +185,9 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
         followButton.isEnabled = false
         guard var currentUser = currentUser,
             let author = author,
-            let followingIndex = currentUser.following.index(of: author.uid)
+            let followingIndex = currentUser.following.index(of: author)
             else { return }
-        guard let followerIndex = author.followers.index(of: currentUser.uid)
+        guard let followerIndex = author.followers.index(of: currentUser)
             else { return }
         self.author?.followers.remove(at: followerIndex)
         DispatchQueue.global().async {
@@ -196,7 +196,7 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
                     currentUser.following.remove(at: followingIndex)
                     currentUser.setUserInUserDefaults()
                     currentUser.update()
-                    self.followState = self.currentUser?.followers.contains(author.uid) == true ? .followBack : .follow
+                    self.followState = self.currentUser?.followers.contains(author) == true ? .followBack : .follow
                     self.updateFollowButton()
                 }
                 DispatchQueue.main.async {

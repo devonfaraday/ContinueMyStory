@@ -63,6 +63,8 @@
 		FDB3F92F21D5D0F100B878AC /* UserListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3F92E21D5D0F100B878AC /* UserListCollectionViewController.swift */; };
 		FDB3F93221D5D10700B878AC /* UserListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3F93021D5D10700B878AC /* UserListCollectionViewCell.swift */; };
 		FDBC33C420DEA5500068C072 /* UIImage+CMS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBC33C320DEA5500068C072 /* UIImage+CMS.swift */; };
+		FDC2CEDF21D8B54A0018980F /* UserListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC2CEDD21D8B54A0018980F /* UserListCollectionViewCell.xib */; };
+		FDC2CEE021D8B54A0018980F /* UserList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDC2CEDE21D8B54A0018980F /* UserList.storyboard */; };
 		FDD78B1F20ABD58100384B00 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD78B1E20ABD58100384B00 /* Category.swift */; };
 		FDE1A9D91F8EFD330010ED03 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */; };
 		FDE1A9DB1F8F03490010ED03 /* CreateStoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */; };
@@ -156,8 +158,9 @@
 		FDB129CC1FA1864800000AB5 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		FDB3F92E21D5D0F100B878AC /* UserListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCollectionViewController.swift; sourceTree = "<group>"; };
 		FDB3F93021D5D10700B878AC /* UserListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserListCollectionViewCell.swift; path = /Users/christianmcmullin/Desktop/Swift/ContinueMyStory/ContinueMyStory/ViewControllers/Profile/UserListCollectionViewCell.swift; sourceTree = "<absolute>"; };
-		FDB3F93121D5D10700B878AC /* UserListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UserListCollectionViewCell.xib; path = /Users/christianmcmullin/Desktop/Swift/ContinueMyStory/ContinueMyStory/ViewControllers/Profile/UserListCollectionViewCell.xib; sourceTree = "<absolute>"; };
 		FDBC33C320DEA5500068C072 /* UIImage+CMS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CMS.swift"; sourceTree = "<group>"; };
+		FDC2CEDD21D8B54A0018980F /* UserListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListCollectionViewCell.xib; sourceTree = "<group>"; };
+		FDC2CEDE21D8B54A0018980F /* UserList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserList.storyboard; sourceTree = "<group>"; };
 		FDD78B1E20ABD58100384B00 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FDE1A9D81F8EFD330010ED03 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		FDE1A9DA1F8F03490010ED03 /* CreateStoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoryTableViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +301,8 @@
 		FD27D79C1F8DBE7E00FFE353 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				FDC2CEDE21D8B54A0018980F /* UserList.storyboard */,
+				FDC2CEDD21D8B54A0018980F /* UserListCollectionViewCell.xib */,
 				FD9D444C20ABFCB8001CD8DF /* Bio.storyboard */,
 				FD8E8BDC1FA5815900DC6DC1 /* Comment.storyboard */,
 				FD606DF31F99B5AE00E4A5F4 /* Create.storyboard */,
@@ -308,7 +313,6 @@
 				FD27D7751F8DBDB900FFE353 /* LaunchScreen.storyboard */,
 				FD27D7701F8DBDB900FFE353 /* Main.storyboard */,
 				FDA3A06B1FC0F037004D7CF9 /* TabBar.storyboard */,
-				FDB3F93121D5D10700B878AC /* UserListCollectionViewCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -559,10 +563,12 @@
 				FD606DFD1F99B5AE00E4A5F4 /* Login.storyboard in Resources */,
 				FD8E8BDD1FA5815900DC6DC1 /* Comment.storyboard in Resources */,
 				FD27D7741F8DBDB900FFE353 /* Assets.xcassets in Resources */,
+				FDC2CEDF21D8B54A0018980F /* UserListCollectionViewCell.xib in Resources */,
 				FD27D7721F8DBDB900FFE353 /* Main.storyboard in Resources */,
 				FD606DFF1F99B5AE00E4A5F4 /* Story.storyboard in Resources */,
 				FD606DFC1F99B5AE00E4A5F4 /* Create.storyboard in Resources */,
 				FD606DFB1F99B5AE00E4A5F4 /* StoryList.storyboard in Resources */,
+				FDC2CEE021D8B54A0018980F /* UserList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

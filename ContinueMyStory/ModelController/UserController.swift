@@ -53,16 +53,14 @@ class UserController {
     func follow(user: User, withCurrentUser currentUser: User, completion: @escaping(User?) -> Void) {
         var modifiedUser = user
         var modifiedCurrentUser = currentUser
-        let currentUserUid = currentUser.uid
-        let userUid = user.uid
-        if !modifiedUser.followers.contains(currentUserUid) {
-            modifiedUser.followers.append(currentUserUid)
+        if !modifiedUser.followers.contains(currentUser) {
+            modifiedUser.followers.append(currentUser)
             modifyUser(user: modifiedUser)
         } else {
             print("You are already a follower of \(user.givenName)")
         }
-        if !modifiedCurrentUser.following.contains(userUid) {
-            modifiedCurrentUser.following.append(userUid)
+        if !modifiedCurrentUser.following.contains(user) {
+            modifiedCurrentUser.following.append(user)
             modifyUser(user: modifiedCurrentUser)
             completion(modifiedCurrentUser)
         } else {
