@@ -10,13 +10,13 @@ import Foundation
 
 struct Comment {
     
-    var author: String
+    var author: User
     var body: String
     var created: Date
     var storyRef: String?
     var snippetRef: String?
     
-    init(author: String, body: String, created: Date = Date(), storyRef: String? = nil, snippetRef: String? = nil) {
+    init(author: User, body: String, created: Date = Date(), storyRef: String? = nil, snippetRef: String? = nil) {
         self.author = author
         self.body = body
         self.created = created
@@ -25,19 +25,19 @@ struct Comment {
     }
     
     var dictionaryRepresentation: JSONDictionary {
-        var returnDictionary = [String.authorKey: author,
+        var returnDictionary: JSONDictionary = [String.authorKey: author.dataForStorySnippetComment,
                                 String.bodyKey: body,
                                 String.createdKey: created.toString()]
         if let storyRef = storyRef { returnDictionary[String.storyReferenceKey] = storyRef }
         if let snippetRef = snippetRef { returnDictionary[String.snippetReferenceKey] = snippetRef }
         return returnDictionary
-        
     }
 }
 
 extension Comment {
     init?(dictionary: JSONDictionary, identifier: String) {
-        guard let author = dictionary[.authorKey] as? String,
+        guard let authorDictionay = dictionary[.authorKey] as? JSONDictionary,
+            let author = User(dictionary: authorDictionay),
             let body = dictionary[.bodyKey] as? String,
             let created = dictionary[.createdKey] as? String,
             let date = created.date()

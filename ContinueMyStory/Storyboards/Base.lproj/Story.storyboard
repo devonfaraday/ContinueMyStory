@@ -71,7 +71,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="CommentViewController" storyboardName="Comment" referencedIdentifier="CommentViewController" id="QtE-c0-UvS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FM9-fu-Jqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5694" y="431"/>
+            <point key="canvasLocation" x="5802" y="448"/>
         </scene>
         <!--Story Entry Container View Controller-->
         <scene sceneID="bi7-gc-DVI">
@@ -81,11 +81,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="This is a sample" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI2-hy-JDT">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="This is a sample" translatesAutoresizingMaskIntoConstraints="NO" id="aI2-hy-JDT">
                                 <rect key="frame" x="0.0" y="127" width="375" height="611"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kya-dY-zOy" id="tR4-PD-oeD"/>
+                                </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESV-LV-5ks">
                                 <rect key="frame" x="119.66666666666669" y="328" width="136" height="136"/>
@@ -118,7 +121,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGg-CQ-5cG">
-                                <rect key="frame" x="92" y="74.333333333333329" width="39.666666666666657" height="19.333333333333329"/>
+                                <rect key="frame" x="92" y="94.666666666666671" width="39.666666666666657" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -145,7 +148,7 @@
                                     <action selector="commentButtonTapped:" destination="kya-dY-zOy" eventType="touchUpInside" id="Ou5-fg-ObJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Q4-qv-bEQ">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Q4-qv-bEQ">
                                 <rect key="frame" x="29" y="54" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="LRw-Q2-UpE"/>
@@ -161,9 +164,9 @@
                         <constraints>
                             <constraint firstItem="TEf-tb-lXN" firstAttribute="trailing" secondItem="aI2-hy-JDT" secondAttribute="trailing" id="0SB-uw-jCa"/>
                             <constraint firstItem="aI2-hy-JDT" firstAttribute="leading" secondItem="TEf-tb-lXN" secondAttribute="leading" id="0uu-XE-QK2"/>
-                            <constraint firstItem="PGg-CQ-5cG" firstAttribute="centerY" secondItem="4Q4-qv-bEQ" secondAttribute="centerY" id="4gf-7h-xZg"/>
                             <constraint firstItem="4Q4-qv-bEQ" firstAttribute="top" secondItem="TEf-tb-lXN" secondAttribute="top" constant="10" id="9Vc-wy-f4e"/>
                             <constraint firstItem="muZ-Zd-lAv" firstAttribute="bottom" secondItem="TEf-tb-lXN" secondAttribute="bottom" constant="-15" id="B6O-6e-B0I"/>
+                            <constraint firstItem="PGg-CQ-5cG" firstAttribute="bottom" secondItem="4Q4-qv-bEQ" secondAttribute="bottom" id="ExY-dK-ngl"/>
                             <constraint firstItem="ESV-LV-5ks" firstAttribute="centerY" secondItem="QEv-G2-9zL" secondAttribute="centerY" constant="-10" id="F6v-dM-824"/>
                             <constraint firstItem="bxf-Ib-FK9" firstAttribute="centerY" secondItem="y0n-g8-YuK" secondAttribute="centerY" id="GIc-SZ-ohT"/>
                             <constraint firstItem="aI2-hy-JDT" firstAttribute="top" secondItem="4Q4-qv-bEQ" secondAttribute="bottom" constant="13" id="UyX-I4-q1O"/>
@@ -190,6 +193,7 @@
                         <outlet property="likeButton" destination="y0n-g8-YuK" id="YZV-zv-bFw"/>
                         <outlet property="pageNumberLabel" destination="muZ-Zd-lAv" id="BH3-d3-7Qh"/>
                         <outlet property="profileImageButton" destination="4Q4-qv-bEQ" id="IoS-OS-Rh6"/>
+                        <segue destination="QtE-c0-UvS" kind="presentation" identifier="toCommentViewController" id="gf1-Kk-6Bc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epo-VV-eRo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -202,7 +206,7 @@
                 <pageViewController storyboardIdentifier="StoryPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="Pko-ef-k7A" customClass="StoryPageViewController" customModule="ContinueMyStory" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fsv-yt-8Jm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3454" y="651"/>
+            <point key="canvasLocation" x="4374" y="1112"/>
         </scene>
     </scenes>
 </document>

@@ -70,14 +70,12 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
         guard let body = commentTextView.text,
             let user = user
             else { return }
-        let authorsFullName = "\(user.givenName) \(user.familyName)"
-        
         if let story = story {
-            let comment = Comment(author: authorsFullName, body: body, storyRef: story.uid)
+            let comment = Comment(author: user, body: body, storyRef: story.uid)
             story.comments.append(comment)
             story.update()
         } else if let snippet = snippet {
-            let comment = Comment(author: authorsFullName, body: body, snippetRef: snippet.uid)
+            let comment = Comment(author: user, body: body, snippetRef: snippet.uid)
             snippet.comments.append(comment)
             SnippetController().modifySnippet(with: snippet)
         }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
 
@@ -22,6 +23,9 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
     var author: User?
     var entryBody: String = ""
     var pageNumber: Int = 1
+    var story: Story?
+    var storyRef: String = ""
+    var snippet: Snippet?
     var viewState: StoryEntryViewState = .story
     
     override func viewDidLoad() {
@@ -57,6 +61,19 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
         updateEntryBodyTextView()
         updateForContinueMyStoryStateIfNeeded()
         updateAuthorInfo()
+        updateLikeTitle()
+    }
+    
+    func updateLikeTitle()  {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let likeNumber: Int = self.snippet != nil ? self.snippet?.likes.count ?? 0 : self.story?.likes.count ?? 0
+        var likeTitle: String = ""
+        if snippet != nil {
+            likeTitle = snippet?.likes.contains(uid) == true ? "Unlike" : "Like"
+        } else {
+            likeTitle = story?.likes.contains(uid) == true ? "Unlike" : "Like"
+        }
+        likeButton.setTitle("\(likeTitle) \(likeNumber)", for: .normal)
     }
     
     func updatePageNumber() {
@@ -66,7 +83,7 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
     func updateAuthorInfo() {
         guard let author: User = self.author
             else { return }
-        authorLabel.text = author.fullName
+        authorLabel.text = author.username
     }
     
     func updateEntryBodyTextView() {
@@ -85,26 +102,97 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
         profileImageButton.isHidden = viewState == .continueMyStory
     }
     
+    // MARK: - IBActions
+    
     @IBAction func continueMyStoryButtonTapped(_ sender: Any) {
+        self.author = User.getCurrentUserFromUserDefaults()
+        viewState = .snippet
+        updateViews()
+        entryBodyTextView.isHidden = false
         continueMyStoryButton.isHidden = true
-        
+        cmsLabel.isHidden = true
+        entryBodyTextView.isSelectable = true
+        entryBodyTextView.isEditable = true
+        entryBodyTextView.becomeFirstResponder()
     }
     
     @IBAction func likeButtonTapped(_ sender: Any) {
-        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        if viewState == .snippet, let snippet = self.snippet {
+            guard let index = story?.snippets.index(of: snippet) else { return }
+            if snippet.likes.contains(uid) {
+                guard let index = snippet.likes.index(of: uid) else { return }
+                story?.snippets[index].likes.remove(at: index)
+            } else {
+                story?.snippets[index].likes.append(uid)
+            }
+        } else {
+            if story?.likes.contains(uid) == true {
+                guard let index = story?.likes.index(of: uid) else { return }
+                story?.likes.remove(at: index)
+            } else {
+                story?.likes.append(uid)
+            }
+        }
+        guard let story = story else { return }
+        StoryController().modify(story: story) { (success) in
+            if success {
+                print("Like saved")
+                self.updateLikeTitle()
+            }
+        }
     }
     
     @IBAction func commentButtonTapped(_ sender: Any) {
-        
+        performSegue(withIdentifier: .toCommentViewControllerSegue, sender: nil)
     }
     
     @IBAction func profileImageButtonTapped(_ sender: Any) {
         
     }
     
+    // MARK: - TextViewDelegate
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView.text?.count == 1000 {
+            return false
+        }
+        if text == "\n",
+            let body = textView.text,
+            !body.isEmpty,
+            let author = User.getCurrentUserFromUserDefaults(),
+            let storyRef = story?.uid {
+            self.author = author
+            let snippet = Snippet(body: body, author: author, storyRef: storyRef)
+            self.snippet = snippet
+            story?.snippets.append(snippet)
+            story?.update()
+            entryBodyTextView.text = body
+            textView.resignFirstResponder()
+            textView.isEditable = false
+        }
+        return true
+    }
+    
     func updateViewsForAddingEntry() {
         entryBodyTextView.isSelectable = true
         entryBodyTextView.isEditable = true
         entryBodyTextView.becomeFirstResponder()
+    }
+    
+    // MARK: - Navigation
+    
+    func segueToComments(with segue: UIStoryboardSegue, sender: Any?) {
+        guard let commentVC = segue.destination as? CommentViewController else { return }
+        commentVC.story = story
+        commentVC.snippet = snippet
+        commentVC.comments = snippet != nil ? snippet?.comments ?? [] : story?.comments ?? []
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case .toCommentViewControllerSegue?: segueToComments(with: segue, sender: sender)
+        default:
+            print("nothing to do")
+        }
     }
 }

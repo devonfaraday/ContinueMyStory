@@ -9,7 +9,6 @@
 import Foundation
 import Firebase
 
-
 struct User: FirebaseType {
     
     var age: String?
@@ -32,6 +31,13 @@ struct User: FirebaseType {
                 .storyFollowingKey: stories,
                 .identifierKey: uid as Any]
     }
+    var dataForStorySnippetComment: JSONDictionary {
+        return [.usernameKey: username,
+                .identifierKey: uid,
+                .familyNameKey: familyName,
+                .givenNameKey: givenName]
+    }
+    
     var fullName: String {
         return "\(givenName) \(familyName)"
     }

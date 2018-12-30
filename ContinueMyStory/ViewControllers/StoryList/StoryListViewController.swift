@@ -25,10 +25,13 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         hideSortByOptions()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         StoryController().fetchAllStories { (stories, error) in
             self.stories = stories
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,8 +83,6 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
         if segue.identifier == String.toSortByViewControllerSegue {
             guard let destination = segue.destination as? SortByViewController else { return }
             destination.delegate = self

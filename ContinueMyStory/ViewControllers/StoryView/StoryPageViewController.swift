@@ -41,6 +41,7 @@ class StoryPageViewController: UIPageViewController {
     func addStoryToViewControllers() {
         guard let story = story else { return }
         let storyVC: StoryEntryContainerViewController = instantiateStoryEntryViewController()
+        storyVC.story = story
         storyVC.pageNumber = 1
         storyVC.entryBody = story.body
         storyVC.author = story.author
@@ -55,6 +56,8 @@ class StoryPageViewController: UIPageViewController {
         for snippet in story.snippets {
             guard let index = story.snippets.index(of: snippet) else { return }
             let snippetVC: StoryEntryContainerViewController = instantiateStoryEntryViewController()
+            snippetVC.story = story
+            snippetVC.snippet = snippet
             snippetVC.pageNumber = index + 2
             snippetVC.author = snippet.author
             snippetVC.entryBody = snippet.body
@@ -66,6 +69,7 @@ class StoryPageViewController: UIPageViewController {
     
     func appendContinueMyStoryViewToOrderedViewControllers() {
         let continueMyStoryView: StoryEntryContainerViewController = instantiateStoryEntryViewController()
+        continueMyStoryView.story = story
         continueMyStoryView.pageNumber = maxPageCount
         continueMyStoryView.entryBody = ""
         continueMyStoryView.viewState = .continueMyStory

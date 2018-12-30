@@ -18,7 +18,7 @@ class Snippet: Equatable {
     // this may become a model
     var comments: [Comment]
     // snippets is of type string so it can hold the uid of the snippets saved.
-    var collectionPathKey: String = .snippetKey
+    var collectionPathKey: String = .snippetsKey
     var uid: String
     var likes: [String]
     
@@ -33,10 +33,11 @@ class Snippet: Equatable {
     
     var documentData: JSONDictionary {
         return [.bodyKey: body,
-                .authorKey: author?.documentData as Any,
+                .authorKey: author?.dataForStorySnippetComment as Any,
                 .storyReferenceKey: storyRef,
                 .createdKey: created.toString(),
-                .likesKey: likes as Any]
+                .likesKey: likes as Any,
+                .identifierKey: uid]
     }
     
     required init?(dictionary: JSONDictionary) {
