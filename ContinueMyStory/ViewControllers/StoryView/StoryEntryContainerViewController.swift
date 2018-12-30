@@ -35,6 +35,11 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate {
         view.layer.borderColor = UIColor.black.cgColor
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateCommentNumber()
+    }
+    
     func fetchProfileImage() {
         let imageController = ImageController()
         DispatchQueue.global().async {
