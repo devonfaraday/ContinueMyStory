@@ -103,6 +103,7 @@ class UserController {
                 completion(nil, error)
             } else if let userDictionary = jsonDictionary{
                 let user = User(dictionary: userDictionary)
+                user?.setUserInUserDefaults()
                 completion(user, nil)
             }
         }

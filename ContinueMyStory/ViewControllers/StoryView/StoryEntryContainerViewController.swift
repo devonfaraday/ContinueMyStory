@@ -36,6 +36,7 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchAuthor()
         updateViews()
         view.layer.borderWidth = 1.0
         view.layer.borderColor = UIColor.black.cgColor
@@ -44,6 +45,19 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateCommentNumber()
+    }
+    
+    func fetchAuthor() {
+        guard let author = author else { return }
+        DispatchQueue.global().async {
+            UserController().fetchUser(withIdentifier: author.uid) { (user, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else if user != nil {
+                    self.author = user
+                }
+            }
+        }
     }
     
     func fetchProfileImage() {
@@ -122,7 +136,7 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
     
     func updateFollowButton() {
         guard let author = author, let currentUser = currentUser else { return }
-        if author.uid == currentUser.uid {
+        if author.uid == currentUser.uid || viewState == .continueMyStory {
             followButton.isHidden = true
             followState = .hidden
         } else if currentUser.following.contains(author.uid) {
@@ -152,30 +166,43 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
     }
     
     func follow() {
-        guard var currentUser = currentUser, var author = author else { return }
+        followButton.isEnabled = false
+        guard var currentUser = currentUser, let author = author else { return }
         currentUser.following.append(author.uid)
         currentUser.setUserInUserDefaults()
-        author.followers.append(currentUser.uid)
-        currentUser.update()
-        author.update()
+        currentUser.update { (success, error) in
+            if success {
+                self.author?.followers.append(currentUser.uid)
+                self.author?.update()
+            }
+            DispatchQueue.main.async {
+                self.followButton.isEnabled = true
+            }
+        }
     }
     
     func unfollow() {
+        followButton.isEnabled = false
         guard var currentUser = currentUser,
             let author = author,
             let followingIndex = currentUser.following.index(of: author.uid)
             else { return }
-        UserController().fetchUser(withIdentifier: author.uid) { (author, error) in
-            guard let followerIndex = author?.followers.index(of: currentUser.uid)
-                else { return }
-            self.author = author
-            self.author?.followers.remove(at: followerIndex)
-            self.author?.update()
-            currentUser.following.remove(at: followingIndex)
-            currentUser.setUserInUserDefaults()
-            currentUser.update()
-            self.followState = self.currentUser?.followers.contains(author?.uid ?? "") == true ? .followBack : .follow
-            self.updateFollowButton()
+        guard let followerIndex = author.followers.index(of: currentUser.uid)
+            else { return }
+        self.author?.followers.remove(at: followerIndex)
+        DispatchQueue.global().async {
+            self.author?.update(completion: { (success, error) in
+                if success {
+                    currentUser.following.remove(at: followingIndex)
+                    currentUser.setUserInUserDefaults()
+                    currentUser.update()
+                    self.followState = self.currentUser?.followers.contains(author.uid) == true ? .followBack : .follow
+                    self.updateFollowButton()
+                }
+                DispatchQueue.main.async {
+                    self.followButton.isEnabled = true
+                }
+            })
         }
     }
     

@@ -35,9 +35,7 @@ struct User: FirebaseType {
         return [.usernameKey: username,
                 .identifierKey: uid,
                 .familyNameKey: familyName,
-                .givenNameKey: givenName,
-                .followingKey: following.compactMap({ $0 }),
-                .followersKey: followers.compactMap({ $0 })]
+                .givenNameKey: givenName]
     }
     
     var fullName: String {
