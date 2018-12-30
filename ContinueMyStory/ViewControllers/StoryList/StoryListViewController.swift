@@ -24,7 +24,7 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
     // TODO: - Figure out how to fetch comments for snippets
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideSortByOptions()
+        hideSortByOptions(withDuration: 0.0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,8 +75,8 @@ class StoryListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func hideSortByOptions() {
-        UIView.animate(withDuration: 0.3) {
+    func hideSortByOptions(withDuration duration: TimeInterval = 0.3) {
+        UIView.animate(withDuration: duration) {
             self.containerView.transform = CGAffineTransform(translationX: 0, y: -self.containerView.frame.height)
         }
     }

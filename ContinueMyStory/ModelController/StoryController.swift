@@ -37,9 +37,9 @@ class StoryController {
         }
     }
     
-    func fetchStories(withUserId userId: String, completion: @escaping([Story], Error?) -> Void) {
+    func fetchStories(withUser user: User, completion: @escaping([Story], Error?) -> Void) {
         let fc: FirebaseController = FirebaseController()
-        fc.fetchAllDocuments(fromCollection: .storiescollectionPathKey, whereField: .authorKey, isEqualTo: userId) { (documents, error) in
+        fc.fetchAllDocuments(fromCollection: .storiescollectionPathKey, whereField: .authorKey, isEqualTo: user.basicUserData) { (documents, error) in
             let stories = documents.compactMap({ Story(dictionary: $0) })
             completion(stories, error)
         }

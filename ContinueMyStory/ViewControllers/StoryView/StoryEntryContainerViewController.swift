@@ -44,6 +44,9 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if viewState == .continueMyStory {
+            self.followButton.isHidden = true
+        }
         updateCommentNumber()
     }
     
