@@ -15,6 +15,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var signUpButton: UIButton!
+    @IBOutlet var usernameStack: UIStackView!
+    @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var verifyUnderlineView: UIView!
     @IBOutlet var verifyPasswordTextField: UITextField!
     
@@ -27,8 +29,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         navigationController?.navigationBar.isHidden = true
         verifyPasswordTextField.isHidden = false
         verifyUnderlineView.isHidden = false
-        
-        
+        usernameStack.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +37,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setViewsState()
         resetTextFields()
     }
-    
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         if loginState == .signUp {
@@ -57,13 +57,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Helpers
-    
     func setViewsState() {
         if loginState == .login {
             verifyPasswordTextField.isHidden = true
             verifyUnderlineView.isHidden = true
+            usernameStack.isHidden = true
             loginButton.setTitle("Login", for: .normal)
         } else if loginState == .signUp {
+            usernameStack.isHidden = false
             verifyPasswordTextField.isHidden = false
             verifyUnderlineView.isHidden = false
             loginButton.setTitle("Cancel", for: .normal)
@@ -74,31 +75,42 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.text = nil
         passwordTextField.text = nil
         verifyPasswordTextField.text = nil
+        usernameTextField.text = nil
     }
-    
-    
     
     // MARK: - Text Field Delegates
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         if loginState == .login {
-            if emailTextField.isFirstResponder {
-                passwordTextField.becomeFirstResponder()
-            } else {
+            emailTextField.isFirstResponder == true ?
+                passwordTextField.becomeFirstResponder() :
                 passwordTextField.resignFirstResponder()
-            }
         } else {
-            if emailTextField.isFirstResponder {
+            switch textField {
+            case emailTextField:
+                usernameTextField.becomeFirstResponder()
+            case usernameTextField:
                 passwordTextField.becomeFirstResponder()
-            } else if passwordTextField.isFirstResponder {
+            case passwordTextField:
                 verifyPasswordTextField.becomeFirstResponder()
-            } else {
-                verifyPasswordTextField.resignFirstResponder()
+            default:
+                textField.resignFirstResponder()
+                signUp()
             }
         }
         return true
     }
     
     // MARK: - Authentication Functions
+    func handleSuccessfullLogin() {
+        self.fetchCurrentUser { _ in
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
+                self.resetTextFields()
+            }
+        }
+    }
+    
     func login() {
         guard let email = emailTextField.text,
             let password = passwordTextField.text else { return }
@@ -108,33 +120,39 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.warningAlert(withTitle: "Invalid Credentials", message: "Your email and/or password are incorrect")
             } else {
                 print("Signed In")
-                self.fetchCurrentUser { _ in
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: .toProfileViewControllerSegue, sender: self)
-                        self.resetTextFields()
-                    }
-                }
+                self.handleSuccessfullLogin()
             }
         }
     }
     
     func signUp() {
         guard let email = emailTextField.text,
+            let username = usernameTextField.text,
             let password = passwordTextField.text,
-            let verify = verifyPasswordTextField.text else { return }
+            let verify = verifyPasswordTextField.text else { self.warningAlert(withTitle: "Missing info", message: "Please check your info and try again"); return }
         if password == verify {
-            firebaseAuthentication.createUser(withEmail: email, password: password, completion: { (error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                    self.warningAlert(withTitle: "Error", message: error.localizedDescription)
+            FirebaseController().fetchAllDocuments(fromCollection: .userscollectionPathKey, whereField: .usernameKey, isEqualTo: username) { (documentData, error) in
+                let users = documentData.compactMap({ User(dictionary: $0) })
+                if users.isEmpty {
+                    self.firebaseAuthentication.createUser(withEmail: email, username: username, password: password, completion: { (error) in
+                        if let error = error {
+                            print(error.localizedDescription)
+                            self.warningAlert(withTitle: "Error", message: error.localizedDescription)
+                        } else {
+                            print("User Created")
+                            self.loginState = .login
+                            self.setViewsState()
+                            self.emailTextField.text = ""
+                            self.passwordTextField.text = ""
+                            self.handleSuccessfullLogin()
+                        }
+                    })
                 } else {
-                    print("User Created")
-                    self.loginState = .login
-                    self.setViewsState()
-                    self.emailTextField.text = ""
-                    self.passwordTextField.text = ""
+                    DispatchQueue.main.async {
+                        self.warningAlert(withTitle: "name taken", message: "\(username) is already taken.  Please choose a new username.")
+                    }
                 }
-            })
+            }
         } else {
             warningAlert(withTitle: "Something Went Wrong", message: "Your passwords don't match")
         }
@@ -149,7 +167,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             completion(error)
         }
     }
-    
     
     // MARK: - Alert Controller
     func warningAlert(withTitle title: String, message: String) {

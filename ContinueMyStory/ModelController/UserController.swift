@@ -93,7 +93,7 @@ class UserController {
         }
     }
     
-    func fetchCurrentUser(completion: @escaping(User?, Error?) -> Void) {
+    func fetchCurrentUser(completion: @escaping(User?, Error?) -> Void = { (_, _) in}) {
         guard let firebaseUser = Auth.auth().currentUser else { completion(nil, nil); return }
         let fc: FirebaseController = FirebaseController()
         fc.fetchDocument(fromCollection: .userscollectionPathKey, withUID: firebaseUser.uid) { (jsonDictionary, error) in

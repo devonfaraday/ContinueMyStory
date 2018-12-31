@@ -11,12 +11,15 @@ import FirebaseAuth
 
 struct FirebaseAuthentication {
     
-    func createUser(withEmail email: String, password: String, completion: @escaping(_ error: Error?) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+    func createUser(withEmail email: String, username: String, password: String, completion: @escaping(_ error: Error?) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { (authDataResult, error) in
             if let error = error {
                 print(error.localizedDescription)
                 completion(error)
-            } else {
+            } else if let uid = authDataResult?.user.uid {
+                let user = User(username: username, givenName: "", familyName: "", age: "", uid: uid)
+                user.saveToFirestore()
+                user.setUserInUserDefaults()
                 completion(nil)
             }
         }
@@ -24,6 +27,9 @@ struct FirebaseAuthentication {
     
     func signIn(withEmail email: String, password: String, completion: @escaping(_ error: Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            DispatchQueue.global().async {
+                UserController().fetchCurrentUser()
+            }
             if let error = error {
                 print(error.localizedDescription)
                 completion(error)

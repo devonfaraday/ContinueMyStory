@@ -1,22 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="SnellRoundhand.ttc">
-            <string>SnellRoundhand</string>
-        </array>
-        <array key="Symbol.ttf">
-            <string>Symbol</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -27,64 +19,73 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awg-pP-03n">
-                                <rect key="frame" x="0.0" y="146.5" width="375" height="231"/>
+                                <rect key="frame" x="0.0" y="152" width="375" height="231"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="231" id="6aL-iC-3lJ"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FJ4-Hf-PQH">
-                                <rect key="frame" x="40" y="186" width="295" height="151"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="FJ4-Hf-PQH">
+                                <rect key="frame" x="40" y="173.5" width="295" height="188"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Tlk-B5-dak" userLabel="Text Field Stacks">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="97"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="132"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2xZ-Rc-FJO" userLabel="Email Stack">
-                                                <rect key="frame" x="0.0" y="0.0" width="295" height="19"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="295" height="18"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LDV-IA-aXF" userLabel="email">
-                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="18"/>
-                                                        <color key="textColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="17"/>
                                                         <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="email"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                                <color key="value" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <outlet property="delegate" destination="BYZ-38-t0r" id="cpT-e6-pVQ"/>
                                                         </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBf-ze-HtO">
-                                                        <rect key="frame" x="0.0" y="18" width="295" height="1"/>
-                                                        <color key="backgroundColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="0.0" y="17" width="295" height="1"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="VTx-Fm-gyi"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SIb-Is-vkT" userLabel="Username Stack">
+                                                <rect key="frame" x="0.0" y="38" width="295" height="18"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="coR-vy-Tri" userLabel="email">
+                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="17"/>
+                                                        <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="email"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="NQS-gg-vQf"/>
+                                                        </connections>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tm7-vf-sTe">
+                                                        <rect key="frame" x="0.0" y="17" width="295" height="1"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="535-K9-xWF"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <viewLayoutGuide key="safeArea" id="UJr-G7-F7y"/>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1sV-KC-mDY" userLabel="Password Stack">
-                                                <rect key="frame" x="0.0" y="39" width="295" height="19"/>
+                                                <rect key="frame" x="0.0" y="76" width="295" height="18"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vbO-dS-aZF" userLabel="password">
-                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="18"/>
-                                                        <color key="textColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="17"/>
                                                         <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                                <color key="value" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <outlet property="delegate" destination="BYZ-38-t0r" id="YDA-SP-cMD"/>
                                                         </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d4k-LZ-4vd">
-                                                        <rect key="frame" x="0.0" y="18" width="295" height="1"/>
-                                                        <color key="backgroundColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="0.0" y="17" width="295" height="1"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="4Yh-So-6k9"/>
                                                         </constraints>
@@ -92,25 +93,19 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zn1-XZ-fJG" userLabel="Verify Password Stack">
-                                                <rect key="frame" x="0.0" y="78" width="295" height="19"/>
+                                                <rect key="frame" x="0.0" y="114" width="295" height="18"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="verify password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxb-bk-IQR" userLabel="verify password">
-                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="18"/>
-                                                        <color key="textColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="17"/>
                                                         <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                                <color key="value" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <outlet property="delegate" destination="BYZ-38-t0r" id="qwG-pr-dK4"/>
                                                         </connections>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7f-Rl-lFO">
-                                                        <rect key="frame" x="0.0" y="18" width="295" height="1"/>
-                                                        <color key="backgroundColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <rect key="frame" x="0.0" y="17" width="295" height="1"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="ENv-gP-crl"/>
                                                         </constraints>
@@ -118,28 +113,25 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="97" id="F6r-6O-JVL"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1hk-gM-Xci" userLabel="Button Stack">
-                                        <rect key="frame" x="0.0" y="107" width="295" height="44"/>
+                                        <rect key="frame" x="0.0" y="151" width="295" height="37"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60i-EW-VJc">
-                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="44"/>
-                                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="147.5" height="37"/>
+                                                <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="25"/>
                                                 <state key="normal" title="Login">
-                                                    <color key="titleColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ur8-Dq-K6P"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHb-97-EQy">
-                                                <rect key="frame" x="147.5" y="0.0" width="147.5" height="44"/>
-                                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="25"/>
+                                                <rect key="frame" x="147.5" y="0.0" width="147.5" height="37"/>
+                                                <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="25"/>
                                                 <state key="normal" title="Sign Up">
-                                                    <color key="titleColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="signUpButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Io1-hc-GsV"/>
@@ -150,31 +142,29 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqE-Uj-H7e">
-                                <rect key="frame" x="28" y="20" width="154" height="59.5"/>
-                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="47"/>
-                                <color key="textColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="28" y="20" width="188.5" height="47"/>
+                                <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="47"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Story" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MS5-Th-gjp">
-                                <rect key="frame" x="109" y="54" width="238" height="84"/>
+                                <rect key="frame" x="109" y="41.5" width="238" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="84" id="oWg-1x-Vlx"/>
                                     <constraint firstAttribute="width" constant="238" id="qVH-dl-7Zv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="47"/>
-                                <color key="textColor" red="0.8817785382270813" green="0.75095844268798828" blue="0.58625310659408569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Symbol" family="Symbol" pointSize="47"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.22304314374923706" green="0.4411436915397644" blue="0.35932436585426331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MS5-Th-gjp" secondAttribute="trailing" constant="28" id="3Kh-Xq-HuF"/>
                             <constraint firstItem="Tlk-B5-dak" firstAttribute="top" secondItem="MS5-Th-gjp" secondAttribute="bottom" constant="48" id="Okf-l9-CNO"/>
                             <constraint firstItem="awg-pP-03n" firstAttribute="centerY" secondItem="FJ4-Hf-PQH" secondAttribute="centerY" id="REu-4H-gd2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FJ4-Hf-PQH" secondAttribute="trailing" constant="40" id="TOm-Vz-CcL"/>
                             <constraint firstItem="MS5-Th-gjp" firstAttribute="top" secondItem="YqE-Uj-H7e" secondAttribute="bottom" constant="-25.5" id="U7k-ut-FHu"/>
                             <constraint firstItem="awg-pP-03n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aqa-6d-Znr"/>
                             <constraint firstItem="YqE-Uj-H7e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cBC-Am-Utn"/>
-                            <constraint firstItem="MS5-Th-gjp" firstAttribute="leading" secondItem="YqE-Uj-H7e" secondAttribute="trailing" constant="-73" id="ci5-ov-Ve8"/>
                             <constraint firstItem="YqE-Uj-H7e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="dBG-wA-3ge"/>
                             <constraint firstItem="awg-pP-03n" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gfx-he-AIb"/>
                             <constraint firstItem="FJ4-Hf-PQH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wBh-Ae-osn"/>
@@ -189,6 +179,8 @@
                         <outlet property="loginButton" destination="60i-EW-VJc" id="NsX-aP-o1O"/>
                         <outlet property="passwordTextField" destination="vbO-dS-aZF" id="i6y-RW-bcL"/>
                         <outlet property="signUpButton" destination="sHb-97-EQy" id="a4S-E7-xg2"/>
+                        <outlet property="usernameStack" destination="SIb-Is-vkT" id="DNQ-BE-Eci"/>
+                        <outlet property="usernameTextField" destination="coR-vy-Tri" id="dlG-hj-PWS"/>
                         <outlet property="verifyPasswordTextField" destination="hxb-bk-IQR" id="QnK-LC-Iqc"/>
                         <outlet property="verifyUnderlineView" destination="o7f-Rl-lFO" id="IDK-hc-Zzn"/>
                         <segue destination="UsL-ED-YYj" kind="show" identifier="toProfileViewController" id="RK1-dv-LoC"/>
