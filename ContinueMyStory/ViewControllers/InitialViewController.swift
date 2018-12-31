@@ -15,7 +15,7 @@ class InitialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        try? Auth.auth().signOut()
+//        try? Auth.auth().signOut()
         checkAuthentication()
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
