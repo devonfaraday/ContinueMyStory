@@ -20,6 +20,7 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
     @IBOutlet var pageNumberLabel: UILabel!
     @IBOutlet var profileImageButton: UIButton!
     @IBOutlet var followButton: UIButton!
+    @IBOutlet var profileImageView: UIImageView!
     
     var author: User?
     var entryBody: String = ""
@@ -36,6 +37,7 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profileImageButton.imageView?.contentMode = .scaleAspectFill
         fetchAuthor()
         updateViews()
         view.layer.borderWidth = 1.0
@@ -68,7 +70,7 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
         DispatchQueue.global().async {
             imageController.fetchImage(forUser: self.author) { (image) in
                 DispatchQueue.main.async {
-                    self.profileImageButton.setBackgroundImage(image, for: .normal)
+                    self.profileImageView.image = image
                     self.profileImageButton.setTitle("", for: .normal)
                 }
             }
@@ -76,10 +78,9 @@ class StoryEntryContainerViewController: UIViewController, UITextViewDelegate, C
     }
     
     func layoutProfileImageButton() {
-        self.profileImageButton.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.09915453767)
-        self.profileImageButton.layer.borderWidth = -2
-        self.profileImageButton.layer.cornerRadius = self.profileImageButton.frame.width / 2
-        self.profileImageButton.imageView?.layer.cornerRadius = self.profileImageButton.frame.width / 2
+        self.profileImageView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.09915453767)
+        self.profileImageView.layer.borderWidth = -2
+        self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width / 2
     }
     
     func updateViews() {

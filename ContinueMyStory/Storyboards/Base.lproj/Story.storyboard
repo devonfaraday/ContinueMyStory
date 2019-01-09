@@ -147,7 +147,7 @@
                                     <action selector="commentButtonTapped:" destination="kya-dY-zOy" eventType="touchUpInside" id="Ou5-fg-ObJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Q4-qv-bEQ">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Q4-qv-bEQ">
                                 <rect key="frame" x="29" y="54" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="LRw-Q2-UpE"/>
@@ -165,11 +165,15 @@
                                     <action selector="followButtonTapped:" destination="kya-dY-zOy" eventType="touchUpInside" id="Uqh-vG-H6J"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="orZ-uE-o7d">
+                                <rect key="frame" x="29" y="54" width="60" height="60"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="TEf-tb-lXN" firstAttribute="trailing" secondItem="aI2-hy-JDT" secondAttribute="trailing" id="0SB-uw-jCa"/>
                             <constraint firstItem="aI2-hy-JDT" firstAttribute="leading" secondItem="TEf-tb-lXN" secondAttribute="leading" id="0uu-XE-QK2"/>
+                            <constraint firstItem="orZ-uE-o7d" firstAttribute="centerY" secondItem="4Q4-qv-bEQ" secondAttribute="centerY" id="3uj-YE-Pa2"/>
                             <constraint firstItem="4Q4-qv-bEQ" firstAttribute="top" secondItem="TEf-tb-lXN" secondAttribute="top" constant="10" id="9Vc-wy-f4e"/>
                             <constraint firstItem="muZ-Zd-lAv" firstAttribute="bottom" secondItem="TEf-tb-lXN" secondAttribute="bottom" constant="-15" id="B6O-6e-B0I"/>
                             <constraint firstItem="PGg-CQ-5cG" firstAttribute="bottom" secondItem="4Q4-qv-bEQ" secondAttribute="bottom" id="ExY-dK-ngl"/>
@@ -182,7 +186,10 @@
                             <constraint firstItem="AMw-hl-L2V" firstAttribute="centerX" secondItem="QEv-G2-9zL" secondAttribute="centerX" id="aCW-WF-gKD"/>
                             <constraint firstItem="TEf-tb-lXN" firstAttribute="bottom" secondItem="y0n-g8-YuK" secondAttribute="bottom" constant="10" id="asv-JK-NLJ"/>
                             <constraint firstItem="PGg-CQ-5cG" firstAttribute="leading" secondItem="4Q4-qv-bEQ" secondAttribute="trailing" constant="3" id="bdf-qu-yMW"/>
+                            <constraint firstItem="orZ-uE-o7d" firstAttribute="centerX" secondItem="4Q4-qv-bEQ" secondAttribute="centerX" id="dVi-Ul-Xjd"/>
+                            <constraint firstItem="orZ-uE-o7d" firstAttribute="width" secondItem="4Q4-qv-bEQ" secondAttribute="width" id="db5-fM-HuN"/>
                             <constraint firstItem="muZ-Zd-lAv" firstAttribute="centerX" secondItem="QEv-G2-9zL" secondAttribute="centerX" id="eRq-oR-2nn"/>
+                            <constraint firstItem="orZ-uE-o7d" firstAttribute="height" secondItem="4Q4-qv-bEQ" secondAttribute="height" id="eef-f2-O0Z"/>
                             <constraint firstItem="4Q4-qv-bEQ" firstAttribute="leading" secondItem="TEf-tb-lXN" secondAttribute="leading" constant="29" id="lhs-vh-3Ms"/>
                             <constraint firstItem="Aiy-ra-1g5" firstAttribute="leading" secondItem="4Q4-qv-bEQ" secondAttribute="trailing" constant="3" id="mBv-7H-CE2"/>
                             <constraint firstItem="ESV-LV-5ks" firstAttribute="centerX" secondItem="QEv-G2-9zL" secondAttribute="centerX" id="szw-Th-IPl"/>
@@ -202,6 +209,7 @@
                         <outlet property="likeButton" destination="y0n-g8-YuK" id="YZV-zv-bFw"/>
                         <outlet property="pageNumberLabel" destination="muZ-Zd-lAv" id="BH3-d3-7Qh"/>
                         <outlet property="profileImageButton" destination="4Q4-qv-bEQ" id="IoS-OS-Rh6"/>
+                        <outlet property="profileImageView" destination="orZ-uE-o7d" id="hbF-AJ-VRY"/>
                         <segue destination="QtE-c0-UvS" kind="presentation" identifier="toCommentViewController" id="gf1-Kk-6Bc"/>
                     </connections>
                 </viewController>
