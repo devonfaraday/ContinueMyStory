@@ -21,8 +21,8 @@ class ImageController {
         let uploadTask = imageRef.putData(imageData, metadata: nil) { (metaData, error) in
             print(metaData ?? "NO META DATA")
             print(error?.localizedDescription ?? "NO ERROR")
+            UserDefaults.standard.set(imageData, forKey: "profileImage")
         }
-        
         uploadTask.observe(.progress) { (snapshot) in
             print(snapshot.progress ?? "NO MORE PROGRESS")
         }
