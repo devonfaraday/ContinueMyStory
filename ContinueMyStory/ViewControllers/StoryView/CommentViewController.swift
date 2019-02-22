@@ -78,6 +78,7 @@ class CommentViewController: UIViewController, UITableViewDelegate, UITableViewD
             saveToStory(withComment: comment)
         }
         commentTextView.text = ""
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {

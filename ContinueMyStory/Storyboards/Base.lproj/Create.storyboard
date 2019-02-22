@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create-->
+        <!--Write-->
         <scene sceneID="emm-vk-0AG">
             <objects>
                 <tableViewController storyboardIdentifier="CreateStoryTableViewController" id="3An-D1-CHa" customClass="CreateStoryTableViewController" customModule="ContinueMyStory" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,7 +28,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tsk-yt-9Ri">
-                                                    <rect key="frame" x="0.0" y="6" width="375" height="30"/>
+                                                    <rect key="frame" x="0.0" y="7" width="375" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="mcV-aZ-nnx"/>
                                                     </constraints>
@@ -90,7 +89,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TjD-6a-yJz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                                     <connections>
                                                         <outlet property="dataSource" destination="3An-D1-CHa" id="jzT-30-alT"/>
                                                         <outlet property="delegate" destination="3An-D1-CHa" id="MxM-X1-6Oz"/>
@@ -152,7 +151,7 @@
                             <outlet property="delegate" destination="3An-D1-CHa" id="YL8-eN-tuu"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Create" id="QK6-7q-MRM"/>
+                    <tabBarItem key="tabBarItem" title="Write" image="Pencil" id="QK6-7q-MRM"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoryPickerView" destination="TjD-6a-yJz" id="eEX-DE-93Y"/>
@@ -174,4 +173,7 @@
             <point key="canvasLocation" x="3210" y="488"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Pencil" width="25" height="25"/>
+    </resources>
 </document>

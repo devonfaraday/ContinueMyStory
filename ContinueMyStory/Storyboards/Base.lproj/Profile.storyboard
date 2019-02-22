@@ -197,7 +197,7 @@
         <scene sceneID="XoD-Og-6mf">
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigationController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="zGy-46-dza" customClass="ProfileNavigationController" customModule="ContinueMyStory" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="P64-hE-6LB"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="P64-hE-6LB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RXH-zk-n3H">
                         <autoresizingMask key="autoresizingMask"/>
@@ -313,6 +313,9 @@
             <point key="canvasLocation" x="3215" y="100"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Profile" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pje-8E-vOv"/>
         <segue reference="04v-Ew-V6s"/>
